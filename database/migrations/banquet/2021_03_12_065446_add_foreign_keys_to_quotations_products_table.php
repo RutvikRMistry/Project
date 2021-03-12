@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddForeignKeysToQuotationsProductsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('quotations_products', function (Blueprint $table) {
+            $table->foreign('product_id', 'products_quotations_products')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('quotation_id', 'quotations_quotations_products')->references('id')->on('quotations')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('quotations_products', function (Blueprint $table) {
+            $table->dropForeign('products_quotations_products');
+            $table->dropForeign('quotations_quotations_products');
+        });
+    }
+}
