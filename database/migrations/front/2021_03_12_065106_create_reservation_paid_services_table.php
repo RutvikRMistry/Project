@@ -14,15 +14,24 @@ class CreateReservationPaidServicesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('reservation_paid_services', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('reservation_id')->index('reservations_reservation_paid_services');
+            $table->id();
+            $table->unsignedBigInteger('reservation_id')->index('reservations_reservation_paid_services');
+            $table->foreignId('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('reservation_id', 'reservations_reservation_paid_services')->references('id')->on('reservations')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
             $table->date('date')->nullable();
-            $table->integer('paid_service_id')->index('paid_services_reservation_paid_services');
+            $table->unsignedBigInteger('paid_service_id')->index('paid_services_reservation_paid_services');
+            $table->foreignId('paid_service_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('paid_service_id', 'paid_services_reservation_paid_services')->references('id')->on('paid_services')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
             $table->double('value', 18, 2)->default(0.00);
-            $table->integer('qty')->default(0);
+            $table->unsignedBigInteger('qty')->default(0);
             $table->double('price', 18, 2)->default(0.00);
             $table->timestamps();
         });
+
     }
 
     /**
@@ -32,15 +41,6 @@ class CreateReservationPaidServicesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('reservation_paid_services', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('reservation_paid_services');
     }
 }

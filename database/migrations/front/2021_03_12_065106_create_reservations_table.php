@@ -14,12 +14,20 @@ class CreateReservationsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('reservations', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->string('uid', 191)->nullable()->unique('uid');
+            $table->id();
+            $table->string('uid', 191)->nullable()->unique();
             $table->tinyInteger('online')->nullable()->default(0);
             $table->timestamp('date')->useCurrent();
-            $table->integer('user_id')->unique('user_id');
-            $table->integer('room_type_id')->unique('room_type_id');
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('user_id', 'users_resverstions')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
+            $table->unsignedBigInteger('room_type_id')->unique();
+            $table->foreignId('room_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('room_type_id', 'room_types_reservation')->references('id')->on('room_types')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
             $table->integer('adults')->default(1);
             $table->integer('kids')->default(0);
             $table->integer('extra_bed')->default(0);
@@ -30,6 +38,7 @@ class CreateReservationsTable extends Migration
             $table->enum('status', ['PENDING', 'CANCEL', 'SUCCESS', 'ONLINE_PENDING'])->default('PENDING');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -39,22 +48,6 @@ class CreateReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('reservations', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('reservations');
     }
 }

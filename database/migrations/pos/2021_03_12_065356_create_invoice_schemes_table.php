@@ -14,8 +14,11 @@ class CreateInvoiceSchemesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('invoice_schemes', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_invoice_schemes');
+            $table->id();
+
+            $table->unsignedBigInteger('business_id')->index('business_invoice_schemes');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name', 191);
             $table->enum('scheme_type', ['blank', 'year']);
             $table->string('prefix', 191)->nullable();
@@ -34,17 +37,6 @@ class CreateInvoiceSchemesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('invoice_schemes', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('invoice_schemes');
     }
 }

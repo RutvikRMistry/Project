@@ -14,8 +14,11 @@ class CreateUnitsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('units', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_units');
+            $table->id();
+
+            $table->unsignedBigInteger('business_id')->index('business_units');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('actual_name', 191);
             $table->string('short_name', 191);
             $table->tinyInteger('allow_decimal');
@@ -32,15 +35,6 @@ class CreateUnitsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('units', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('units');
     }
 }

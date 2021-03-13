@@ -14,8 +14,11 @@ class CreatePrintersTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('printers', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_printers');
+            $table->id();
+
+            $table->unsignedBigInteger('business_id')->index('business_printers');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name', 256);
             $table->enum('connection_type', ['network', 'windows', 'linux']);
             $table->enum('capability_profile', ['default', 'simple', 'SP2000', 'TEP-200M', 'P822D'])->default('default');

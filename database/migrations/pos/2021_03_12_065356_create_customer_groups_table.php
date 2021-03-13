@@ -14,8 +14,11 @@ class CreateCustomerGroupsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('customer_groups', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_customer_groups');
+            $table->id();
+
+            $table->unsignedBigInteger('business_id')->index('business_customer_groups');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name', 191);
             $table->double('amount', 5, 2);
             $table->integer('created_by');
@@ -30,13 +33,6 @@ class CreateCustomerGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('customer_groups', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('customer_groups');
     }
 }

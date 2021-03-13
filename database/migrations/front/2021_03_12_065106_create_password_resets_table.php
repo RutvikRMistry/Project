@@ -27,10 +27,6 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('password_resets', function (Blueprint $table) {
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('password_resets');
     }
 }

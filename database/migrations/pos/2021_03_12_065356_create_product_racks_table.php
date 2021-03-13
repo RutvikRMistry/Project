@@ -14,8 +14,11 @@ class CreateProductRacksTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('product_racks', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_product_racks');
+            $table->id();
+
+            $table->unsignedBigInteger('business_id')->index('business_product_racks');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('location_id');
             $table->integer('product_id');
             $table->string('rack', 191)->nullable();
@@ -32,15 +35,6 @@ class CreateProductRacksTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('product_racks', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('product_racks');
     }
 }

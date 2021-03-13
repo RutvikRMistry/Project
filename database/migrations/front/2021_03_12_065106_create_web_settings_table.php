@@ -14,7 +14,7 @@ class CreateWebSettingsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('web_settings', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->text('home_banner_section_title_1')->nullable();
             $table->text('home_banner_section_title_2')->nullable();
             $table->text('home_banner_section_title_3')->nullable();
@@ -59,42 +59,6 @@ class CreateWebSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('web_settings', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('web_settings');
     }
 }

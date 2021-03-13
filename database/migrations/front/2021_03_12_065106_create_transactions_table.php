@@ -14,14 +14,23 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('transactions', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('user_id')->unique('user_id');
-            $table->integer('gateway_id')->unique('gateway_id');
+            $table->id();
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('user_id', 'users_transactions')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
+            $table->unsignedBigInteger('gateway_id')->unique();
+            $table->foreignId('gateway_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('gateway_id', 'gateways_transaction')->references('id')->on('gateways')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
             $table->string('amount', 191)->nullable();
             $table->string('remarks', 191)->nullable();
             $table->string('trx', 191)->nullable();
             $table->timestamps();
         });
+
     }
 
     /**
@@ -31,14 +40,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('transactions', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('transactions');
     }
 }

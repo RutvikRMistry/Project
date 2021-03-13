@@ -14,8 +14,11 @@ class CreateTransactionPaymentsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('transaction_payments', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('transaction_id')->nullable()->index('transactions_transaction_payments');
+            $table->id();
+
+            $table->unsignedBigInteger('transaction_id')->nullable()->index('transactions_transaction_payments');
+            $table->foreignId('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->tinyInteger('is_return')->default(0)->comment('Used during sales to return the change');
             $table->decimal('amount', 20)->default(0.00);
             $table->enum('method', ['cash', 'card', 'cheque', 'bank_transfer', 'custom_pay_1', 'custom_pay_2', 'custom_pay_3', 'other'])->nullable();
@@ -46,29 +49,6 @@ class CreateTransactionPaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('transaction_payments', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('transaction_payments');
     }
 }

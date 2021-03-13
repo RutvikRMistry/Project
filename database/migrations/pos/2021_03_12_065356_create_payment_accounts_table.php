@@ -14,8 +14,11 @@ class CreatePaymentAccountsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('payment_accounts', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_payment_accounts');
+            $table->id();
+
+            $table->unsignedBigInteger('business_id')->index('business_payment_accounts');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name', 191);
             $table->string('type', 191);
             $table->text('note');
@@ -32,15 +35,6 @@ class CreatePaymentAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('payment_accounts', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('payment_accounts');
     }
 }

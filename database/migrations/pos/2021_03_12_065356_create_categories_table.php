@@ -14,9 +14,12 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('categories', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
-            $table->integer('business_id')->index('business_catagories');
+
+            $table->unsignedBigInteger('business_id')->index('business_catagories');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('short_code', 191)->nullable();
             $table->integer('parent_id');
             $table->integer('created_by');
@@ -32,15 +35,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('categories', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('categories');
     }
 }

@@ -14,13 +14,19 @@ class CreateCashRegisterTransactionsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('cash_register_transactions', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('cash_register_id')->index('cash_registers_cash_register_transactions');
+            $table->id();
+
+            $table->unsignedBigInteger('cash_register_id')->index('cash_registers_cash_register_transactions');
+            $table->foreignId('cash_register_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->decimal('amount', 20)->default(0.00);
             $table->enum('pay_method', ['cash', 'card', 'cheque', 'bank_transfer', 'custom_pay_1', 'custom_pay_2', 'custom_pay_3', 'other'])->nullable();
             $table->enum('type', ['debit', 'credit']);
             $table->enum('transaction_type', ['initial', 'sell', 'transfer', 'refund']);
-            $table->integer('transaction_id')->nullable()->index('transactions_cash_registers');
+
+            $table->unsignedBigInteger('transaction_id')->nullable()->index('transactions_cash_registers');
+            $table->foreignId('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -32,15 +38,6 @@ class CreateCashRegisterTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('cash_register_transactions', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('cash_register_transactions');
     }
 }

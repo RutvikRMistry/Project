@@ -14,9 +14,12 @@ class CreateVariationsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('variations', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
-            $table->integer('product_id');
+
+            $table->unsignedBigInteger('product_id');
+            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('sub_sku', 191)->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -30,13 +33,6 @@ class CreateVariationsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('variations', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('variations');
     }
 }

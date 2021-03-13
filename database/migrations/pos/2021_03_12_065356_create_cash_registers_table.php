@@ -14,9 +14,14 @@ class CreateCashRegistersTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('cash_registers', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_cash_registers');
-            $table->integer('user_id')->index('users_cash_registers');
+            $table->id();
+
+            $table->unsignedBigInteger('business_id')->index('business_cash_registers');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('user_id')->index('users_cash_registers');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->enum('status', ['close', 'open'])->default('open');
             $table->dateTime('closed_at')->nullable();
             $table->decimal('closing_amount', 20)->default(0.00);
@@ -34,17 +39,6 @@ class CreateCashRegistersTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('cash_registers', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('cash_registers');
     }
 }

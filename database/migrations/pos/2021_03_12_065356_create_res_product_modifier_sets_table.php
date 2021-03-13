@@ -15,7 +15,10 @@ class CreateResProductModifierSetsTable extends Migration
     {
         Schema::connection('mysql_pos')->create('res_product_modifier_sets', function (Blueprint $table) {
             $table->integer('modifier_set_id');
-            $table->integer('product_id')->comment('Table use to store the modifier sets applicable for a product');
+
+            $table->unsignedBigInteger('product_id')->comment('Table use to store the modifier sets applicable for a product');
+            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 

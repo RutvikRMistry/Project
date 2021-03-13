@@ -14,8 +14,11 @@ class CreateResTablesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('res_tables', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_res_tables');
+            $table->id();
+
+            $table->unsignedBigInteger('business_id')->index('business_res_tables');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('location_id');
             $table->string('name', 191);
             $table->text('description');
@@ -32,15 +35,6 @@ class CreateResTablesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('res_tables', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('res_tables');
     }
 }

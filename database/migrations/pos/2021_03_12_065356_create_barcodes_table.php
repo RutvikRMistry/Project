@@ -14,7 +14,7 @@ class CreateBarcodesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('barcodes', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
             $table->text('description');
             $table->double('width', 8, 2)->nullable();
@@ -29,7 +29,10 @@ class CreateBarcodesTable extends Migration
             $table->tinyInteger('is_default')->default(0);
             $table->tinyInteger('is_continuous')->default(0);
             $table->integer('stickers_in_one_sheet')->nullable();
-            $table->integer('business_id')->nullable()->index('business_business_barcode');
+
+            $table->unsignedBigInteger('business_id')->nullable()->index('business_business_barcode');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -41,24 +44,6 @@ class CreateBarcodesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('barcodes', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('barcodes');
     }
 }

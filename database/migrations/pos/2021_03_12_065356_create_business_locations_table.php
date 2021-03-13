@@ -14,8 +14,10 @@ class CreateBusinessLocationsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('business_locations', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_business_locations_business');
+            $table->id();
+            $table->unsignedBigInteger('business_id')->index('business_business_locations_business');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('location_id');
             $table->string('name', 256);
             $table->text('landmark');
@@ -23,8 +25,13 @@ class CreateBusinessLocationsTable extends Migration
             $table->string('state', 100);
             $table->string('city', 100);
             $table->char('zip_code', 7);
-            $table->integer('invoice_scheme_id')->index('invoice_schemes_business_locations');
-            $table->integer('invoice_layout_id')->index('invoice_layouts_business_locations');
+
+            $table->unsignedBigInteger('invoice_scheme_id')->index('invoice_schemes_business_locations');
+            $table->foreignId('invoice_scheme_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('invoice_layout_id')->index('invoice_layouts_business_locations');
+            $table->foreignId('invoice_layout_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->tinyInteger('print_receipt_on_invoice')->nullable()->default(1);
             $table->enum('receipt_printer_type', ['browser', 'printer'])->default('browser');
             $table->integer('printer_id')->nullable()->index('printers_business_locations');
@@ -48,31 +55,6 @@ class CreateBusinessLocationsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('business_locations', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('business_locations');
     }
 }

@@ -14,8 +14,8 @@ class CreateGatewaysTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('gateways', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->string('main_name', 191)->unique('main_name');
+            $table->id();
+            $table->string('main_name', 191)->unique();
             $table->string('name', 191)->nullable();
             $table->double('minamo', 8, 2)->default(0.00);
             $table->double('maxamo', 8, 2)->default(0.00);
@@ -43,26 +43,6 @@ class CreateGatewaysTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('gateways', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('gateways');
     }
 }

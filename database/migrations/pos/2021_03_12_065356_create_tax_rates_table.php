@@ -14,8 +14,11 @@ class CreateTaxRatesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('tax_rates', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_tax_rates');
+            $table->id();
+
+            $table->unsignedBigInteger('business_id')->index('business_tax_rates');
+            $table->foreignId('business_id')->constrained('businesss')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name', 191);
             $table->double('amount', 8, 2);
             $table->tinyInteger('is_tax_group')->default(0);
@@ -32,15 +35,6 @@ class CreateTaxRatesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('tax_rates', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('tax_rates');
     }
 }

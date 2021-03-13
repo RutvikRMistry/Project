@@ -14,10 +14,17 @@ class CreatePurchaseLinesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('purchase_lines', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('transaction_id')->index('transactions_purchase_lines');
-            $table->integer('product_id');
-            $table->integer('variation_id')->index('variations_purchase_lines');
+            $table->id();
+
+            $table->unsignedBigInteger('transaction_id')->index('transactions_purchase_lines');
+            $table->foreignId('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('product_id');
+            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('variation_id')->index('variations_purchase_lines');
+            $table->foreignId('variation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->decimal('quantity', 20, 4);
             $table->decimal('pp_without_discount', 20)->default(0.00)->comment('Purchase price before inline discounts');
             $table->decimal('discount_percent', 5)->default(0.00)->comment('Inline discount percentage');
@@ -41,24 +48,6 @@ class CreatePurchaseLinesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('purchase_lines', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('purchase_lines');
     }
 }

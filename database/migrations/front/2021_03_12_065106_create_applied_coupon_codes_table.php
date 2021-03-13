@@ -14,10 +14,22 @@ class CreateAppliedCouponCodesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('applied_coupon_codes', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('reservation_id')->index('reservations_applied_coupon_codes');
-            $table->integer('coupon_id')->index('coupon_masters_applied_coupon_codes');
-            $table->integer('user_id')->index('users_applied_coupon_codes');
+            $table->id();
+
+            $table->unsignedBigInteger('reservation_id');
+            $table->foreignId('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('reservation_id', 'reservations_applied_coupon_codes')->references('id')->on('reservations')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            
+            $table->unsignedBigInteger('coupon_id');
+            $table->foreignId('coupon_id')->constrained('coupon_masters')->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('coupon_id', 'coupon_masters_applied_coupon_codes')->references('id')->on('coupon_masters')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            
+            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('user_id', 'users_applied_coupon_codes')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+           
             $table->date('date');
             $table->tinyInteger('status')->default(1);
             $table->enum('coupon_type', ['PERCENTAGE', 'FIXED'])->nullable();
@@ -33,16 +45,6 @@ class CreateAppliedCouponCodesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('applied_coupon_codes', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('applied_coupon_codes');
     }
 }

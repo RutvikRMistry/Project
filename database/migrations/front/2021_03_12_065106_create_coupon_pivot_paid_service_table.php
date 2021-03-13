@@ -14,11 +14,20 @@ class CreateCouponPivotPaidServiceTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('coupon_pivot_paid_service', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('coupon_id')->index('coupon_masters_coupon_pivot_paid_services');
-            $table->integer('paid_service_id')->index('paid_services_coupon_pivot_paid_services');
+            $table->id();
+            $table->unsignedBigInteger('coupon_id')->index('coupon_masters_coupon_pivot_paid_services');
+            $table->foreignId('coupon_id')->constrained('coupon_masters')->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('coupon_id', 'coupon_masters_coupon_pivot_paid_services')->references('id')->on('coupon_masters')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
+            $table->unsignedBigInteger('paid_service_id')->index('paid_services_coupon_pivot_paid_services');
+            $table->foreignId('paid_service_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('paid_service_id', 'paid_services_coupon_pivot_paid_services')->references('id')->on('paid_services')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
             $table->timestamps();
         });
+
     }
 
     /**
@@ -28,11 +37,6 @@ class CreateCouponPivotPaidServiceTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('coupon_pivot_paid_service', function (Blueprint $table) {
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('coupon_pivot_paid_service');
     }
 }

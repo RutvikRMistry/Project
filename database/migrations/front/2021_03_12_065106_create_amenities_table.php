@@ -14,8 +14,8 @@ class CreateAmenitiesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('amenities', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->string('name', 191)->unique('name');
+            $table->id();
+            $table->string('name', 191)->unique();
             $table->string('image', 191)->nullable();
             $table->text('description')->nullable();
             $table->tinyInteger('status')->default(1);
@@ -31,14 +31,6 @@ class CreateAmenitiesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('amenities', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('amenities');
     }
 }

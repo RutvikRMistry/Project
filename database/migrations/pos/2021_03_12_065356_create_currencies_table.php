@@ -14,7 +14,7 @@ class CreateCurrenciesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('currencies', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('country', 100);
             $table->string('currency', 100);
             $table->string('code', 25);

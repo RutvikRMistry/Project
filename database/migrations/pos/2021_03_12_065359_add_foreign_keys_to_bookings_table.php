@@ -16,7 +16,7 @@ class AddForeignKeysToBookingsTable extends Migration
         Schema::connection('mysql_pos')->table('bookings', function (Blueprint $table) {
             $table->foreign('business_id', 'business_business_bookings')->references('id')->on('business')->onUpdate('RESTRICT')->onDelete('RESTRICT');
             $table->foreign('location_id', 'contacts_bookings')->references('id')->on('contacts')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('contact_id', 'contacts_ookings')->references('id')->on('contacts')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            // $table->foreign('contact_id', 'contacts_ookings')->references('id')->on('contacts')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 

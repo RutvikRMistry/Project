@@ -14,8 +14,10 @@ class CreateBrandsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('brands', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_business_brands');
+            $table->id();
+            $table->unsignedBigInteger('business_id')->index('business_business_brands');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name', 191);
             $table->text('description');
             $table->integer('created_by');
@@ -31,14 +33,6 @@ class CreateBrandsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('brands', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('brands');
     }
 }

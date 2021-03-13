@@ -14,13 +14,20 @@ class CreateBookingsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('bookings', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('contact_id')->index('contacts_ookings');
+            $table->id();
+            $table->unsignedBigInteger('contact_id')->index('contacts_ookings');
+            $table->foreignId('contact_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('waiter_id')->nullable();
             $table->integer('table_id')->nullable();
             $table->integer('correspondent_id')->nullable();
-            $table->integer('business_id')->index('business_business_bookings');
+
+            $table->unsignedBigInteger('business_id')->index('business_business_bookings');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('location_id')->index('contacts_bookings');
+            // $table->foreignId('location_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->dateTime('booking_start');
             $table->dateTime('booking_end');
             $table->integer('created_by');
@@ -37,20 +44,6 @@ class CreateBookingsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('bookings', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('bookings');
     }
 }

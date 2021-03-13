@@ -14,10 +14,13 @@ class CreateReferenceCountsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('reference_counts', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('ref_type', 191);
             $table->integer('ref_count');
-            $table->integer('business_id')->index('reference_counts');
+
+            $table->unsignedBigInteger('business_id')->index('reference_counts');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -29,12 +32,6 @@ class CreateReferenceCountsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('reference_counts', function (Blueprint $table) {
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('reference_counts');
     }
 }

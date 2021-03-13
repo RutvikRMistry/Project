@@ -14,11 +14,20 @@ class CreateRoomTypePivotAmenityTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('room_type_pivot_amenity', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('room_type_id')->index('room_types_room_type_pivot_amenity');
-            $table->integer('amenity_id')->index('amenities_room_type_pivot_amenity');
+            $table->id();
+            $table->unsignedBigInteger('room_type_id')->index('room_types_room_type_pivot_amenity');
+            $table->foreignId('room_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('room_type_id', 'room_types_room_type_pivot_amenity')->references('id')->on('room_types')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
+            $table->unsignedBigInteger('amenity_id')->index('amenities_room_type_pivot_amenity');
+            $table->foreignId('amenity_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('amenity_id', 'amenities_room_type_pivot_amenity')->references('id')->on('amenities')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
             $table->timestamps();
         });
+
     }
 
     /**
@@ -28,11 +37,6 @@ class CreateRoomTypePivotAmenityTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('room_type_pivot_amenity', function (Blueprint $table) {
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('room_type_pivot_amenity');
     }
 }

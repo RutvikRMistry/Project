@@ -14,7 +14,7 @@ class CreateWebGalleryCategoriesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('web_gallery_categories', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
             $table->timestamps();
         });
@@ -27,10 +27,6 @@ class CreateWebGalleryCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('web_gallery_categories', function (Blueprint $table) {
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('web_gallery_categories');
     }
 }

@@ -14,8 +14,11 @@ class CreateContactsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('contacts', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('business_id')->index('business_contacts');
+            $table->id();
+
+            $table->unsignedBigInteger('business_id')->index('business_contacts');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->enum('type', ['supplier', 'customer', 'both']);
             $table->string('supplier_business_name', 191)->nullable();
             $table->string('name', 191);
@@ -34,7 +37,10 @@ class CreateContactsTable extends Migration
             $table->decimal('credit_limit', 20)->nullable();
             $table->integer('created_by');
             $table->tinyInteger('is_default')->default(0);
-            $table->integer('customer_group_id')->nullable()->index('customer_groups_contacts');
+
+            $table->unsignedBigInteger('customer_group_id')->nullable()->index('customer_groups_contacts');
+            $table->foreignId('customer_group_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('custom_field1', 191)->nullable();
             $table->string('custom_field2', 191)->nullable();
             $table->string('custom_field3', 191)->nullable();

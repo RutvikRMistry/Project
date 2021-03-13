@@ -14,7 +14,7 @@ class CreateFloorsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('floors', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
             $table->integer('number');
             $table->text('description')->nullable();
@@ -31,14 +31,6 @@ class CreateFloorsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('floors', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('floors');
     }
 }

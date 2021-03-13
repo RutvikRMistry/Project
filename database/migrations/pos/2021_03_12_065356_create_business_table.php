@@ -14,9 +14,12 @@ class CreateBusinessTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('business', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 256);
-            $table->integer('currency_id')->index('currencies_business');
+
+            $table->unsignedBigInteger('currency_id')->index('currencies_business');
+            $table->foreignId('currency_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->date('start_date')->nullable();
             $table->string('tax_number_1', 100)->nullable();
             $table->string('tax_label_1', 10)->nullable();
@@ -77,60 +80,6 @@ class CreateBusinessTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('business', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('business');
     }
 }

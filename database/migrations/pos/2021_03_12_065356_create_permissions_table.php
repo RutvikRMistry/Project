@@ -14,7 +14,7 @@ class CreatePermissionsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('permissions', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
             $table->string('guard_name', 191);
             $table->timestamps();

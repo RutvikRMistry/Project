@@ -14,7 +14,7 @@ class CreateWebOurClientFeedbacksTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('web_our_client_feedbacks', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->text('feed')->nullable();
             $table->string('name', 191)->nullable();
             $table->string('title', 191)->nullable();
@@ -30,13 +30,6 @@ class CreateWebOurClientFeedbacksTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('web_our_client_feedbacks', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('web_our_client_feedbacks');
     }
 }

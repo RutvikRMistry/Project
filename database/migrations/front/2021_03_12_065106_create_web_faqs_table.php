@@ -14,7 +14,7 @@ class CreateWebFaqsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('web_faqs', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('question', 191)->nullable();
             $table->longText('answer')->nullable();
             $table->timestamps();
@@ -28,11 +28,6 @@ class CreateWebFaqsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('web_faqs', function (Blueprint $table) {
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('web_faqs');
     }
 }

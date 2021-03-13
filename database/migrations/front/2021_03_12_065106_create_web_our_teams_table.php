@@ -14,7 +14,7 @@ class CreateWebOurTeamsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('web_our_teams', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191)->nullable();
             $table->string('title', 191)->nullable();
             $table->string('fb', 191)->nullable();
@@ -33,16 +33,6 @@ class CreateWebOurTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('web_our_teams', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('web_our_teams');
     }
 }

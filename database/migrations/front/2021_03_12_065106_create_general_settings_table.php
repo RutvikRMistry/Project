@@ -14,7 +14,7 @@ class CreateGeneralSettingsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('general_settings', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('title', 191)->nullable();
             $table->string('name', 191)->nullable();
             $table->string('email', 191)->nullable();
@@ -41,24 +41,6 @@ class CreateGeneralSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('general_settings', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('general_settings');
     }
 }

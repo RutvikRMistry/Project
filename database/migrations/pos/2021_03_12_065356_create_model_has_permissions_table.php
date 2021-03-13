@@ -14,7 +14,10 @@ class CreateModelHasPermissionsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('model_has_permissions', function (Blueprint $table) {
-            $table->integer('permission_id')->index('permissions_model_has_permissions');
+
+            $table->unsignedBigInteger('permission_id')->index('permissions_model_has_permissions');
+            $table->foreignId('permission_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('model_id');
             $table->string('model_type', 191);
         });
@@ -27,10 +30,6 @@ class CreateModelHasPermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('model_has_permissions', function (Blueprint $table) {
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('model_has_permissions');
     }
 }

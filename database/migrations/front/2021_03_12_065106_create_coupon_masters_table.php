@@ -14,13 +14,13 @@ class CreateCouponMastersTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('coupon_masters', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('offer_title', 191);
             $table->longText('description')->nullable();
             $table->string('image', 191)->nullable();
             $table->dateTime('period_start_time');
             $table->dateTime('period_end_time');
-            $table->string('code', 191)->unique('code');
+            $table->string('code', 191)->unique();
             $table->enum('type', ['PERCENTAGE', 'FIXED'])->default('PERCENTAGE');
             $table->double('value', 8, 2)->default(0.00);
             $table->double('min_amount', 8, 2)->default(0.00);
@@ -40,23 +40,6 @@ class CreateCouponMastersTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('coupon_masters', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('coupon_masters');
     }
 }

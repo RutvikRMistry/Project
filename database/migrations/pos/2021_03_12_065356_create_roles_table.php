@@ -14,10 +14,13 @@ class CreateRolesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('roles', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
             $table->string('guard_name', 191);
-            $table->integer('business_id')->index('business_roles');
+
+            $table->unsignedBigInteger('business_id')->index('business_roles');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->tinyInteger('is_default')->default(0);
             $table->tinyInteger('is_service_staff')->default(0);
             $table->timestamps();
@@ -31,14 +34,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('roles', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('roles');
     }
 }

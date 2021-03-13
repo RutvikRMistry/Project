@@ -14,8 +14,10 @@ class CreateModelHasRolesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('model_has_roles', function (Blueprint $table) {
-            $table->integer('role_id')->index('roles_model_has_roles');
-            $table->integer('model_id');
+            $table->unsignedBigInteger('role_id')->index('roles_model_has_roles');
+            $table->foreignId('role_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('model_id');
             $table->string('model_type', 191);
         });
     }
@@ -27,10 +29,6 @@ class CreateModelHasRolesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('model_has_roles', function (Blueprint $table) {
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('model_has_roles');
     }
 }

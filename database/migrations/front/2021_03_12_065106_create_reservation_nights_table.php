@@ -14,9 +14,17 @@ class CreateReservationNightsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('reservation_nights', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('reservation_id')->index('reservations_reservation_nights');
-            $table->integer('room_id')->nullable()->index('rooms_reservation_nights');
+            $table->id();
+            $table->unsignedBigInteger('reservation_id')->index('reservations_reservation_nights');
+            $table->foreignId('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('reservation_id', 'reservations_reservation_nights')->references('id')->on('reservations')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
+            $table->unsignedBigInteger('room_id')->nullable()->index('rooms_reservation_nights');
+            $table->foreignId('room_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('room_id', 'rooms_reservation_nights')->references('id')->on('rooms')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
             $table->date('date')->nullable();
             $table->dateTime('check_in')->nullable();
             $table->dateTime('check_out')->nullable();
@@ -25,6 +33,7 @@ class CreateReservationNightsTable extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *
@@ -32,15 +41,6 @@ class CreateReservationNightsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('reservation_nights', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('reservation_nights');
     }
 }

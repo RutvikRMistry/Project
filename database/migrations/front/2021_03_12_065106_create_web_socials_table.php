@@ -14,7 +14,7 @@ class CreateWebSocialsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('web_socials', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191)->nullable();
             $table->string('color', 191)->nullable();
             $table->string('icon', 191)->nullable();
@@ -31,14 +31,6 @@ class CreateWebSocialsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('web_socials', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('web_socials');
     }
 }

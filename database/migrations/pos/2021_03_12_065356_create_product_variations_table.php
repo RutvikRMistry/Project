@@ -14,7 +14,7 @@ class CreateProductVariationsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('product_variations', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
             $table->integer('product_id');
             $table->tinyInteger('is_dummy')->default(1);
@@ -29,12 +29,6 @@ class CreateProductVariationsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('product_variations', function (Blueprint $table) {
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('product_variations');
     }
 }

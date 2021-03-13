@@ -14,8 +14,12 @@ class CreateRegularPricesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('regular_prices', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('room_type_id')->index('room_types_regular_prices');
+            $table->id();
+            $table->unsignedBigInteger('room_type_id')->index('room_types_regular_prices');
+            $table->foreignId('room_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('room_type_id', 'room_types_regular_prices')->references('id')->on('room_types')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
             $table->enum('day_1', ['ADD', 'LESS']);
             $table->double('day_1_amount', 8, 2)->default(0.00);
             $table->enum('day_2', ['ADD', 'LESS']);
@@ -41,24 +45,6 @@ class CreateRegularPricesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('regular_prices', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('regular_prices');
     }
 }

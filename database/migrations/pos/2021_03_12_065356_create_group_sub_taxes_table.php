@@ -26,9 +26,6 @@ class CreateGroupSubTaxesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('group_sub_taxes', function (Blueprint $table) {
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('group_sub_taxes');
     }
 }

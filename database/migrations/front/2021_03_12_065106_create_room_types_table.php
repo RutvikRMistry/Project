@@ -14,10 +14,10 @@ class CreateRoomTypesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('room_types', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->string('title', 191)->unique('title');
-            $table->string('slug', 191)->unique('slug');
-            $table->string('short_code', 191)->unique('short_code');
+            $table->id();
+            $table->string('title', 191)->unique();
+            $table->string('slug', 191)->unique();
+            $table->string('short_code', 191)->unique();
             $table->longText('description')->nullable();
             $table->text('short_description')->nullable();
             $table->integer('higher_capacity')->default(0);
@@ -27,6 +27,7 @@ class CreateRoomTypesTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -36,19 +37,6 @@ class CreateRoomTypesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('room_types', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('room_types');
     }
 }

@@ -14,10 +14,15 @@ class CreateTransactionSellLinesPurchaseLinesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('transaction_sell_lines_purchase_lines', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->integer('sell_line_id')->nullable()->comment('id from transaction_sell_lines');
-            $table->integer('stock_adjustment_line_id')->nullable()->index('stock_adjustment_lines_transaction_sell_lines_purchase_lines')->comment('id from stock_adjustment_lines');
-            $table->integer('purchase_line_id')->index('purchase_lines_transaction_sell_lines_purchase_lines')->comment('id from purchase_lines');
+
+            $table->unsignedBigInteger('stock_adjustment_line_id')->nullable()->index('stock_adjustment_lines_transaction_sell_lines_purchase_lines')->comment('id from stock_adjustment_lines');
+            $table->foreignId('stock_adjustment_line_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('purchase_line_id')->index('purchase_lines_transaction_sell_lines_purchase_lines')->comment('id from purchase_lines');
+            $table->foreignId('purchase_line_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->decimal('quantity', 20, 4);
             $table->timestamps();
         });
@@ -30,13 +35,6 @@ class CreateTransactionSellLinesPurchaseLinesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('transaction_sell_lines_purchase_lines', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('transaction_sell_lines_purchase_lines');
     }
 }

@@ -14,9 +14,9 @@ class CreateAdminsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('admins', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->string('username', 191)->unique('username');
-            $table->string('email', 191)->unique('email');
+            $table->id();
+            $table->string('username', 191)->unique();
+            $table->string('email', 191)->unique();
             $table->string('first_name', 191)->nullable();
             $table->string('last_name', 191)->nullable();
             $table->string('phone', 191)->nullable();
@@ -38,21 +38,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('admins', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('admins');
     }
 }

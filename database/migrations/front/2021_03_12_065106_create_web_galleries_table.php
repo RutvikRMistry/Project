@@ -14,11 +14,17 @@ class CreateWebGalleriesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('web_galleries', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
+
             $table->string('image', 191)->nullable();
-            $table->integer('category_id')->nullable()->index('categories_web_galleries');
+            $table->unsignedBigInteger('category_id')->nullable()->index('categories_web_galleries');
+            $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            // $table->foreign('category_id', 'categories_web_galleries')->references('id')->on('categories')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
             $table->enum('type', ['image', 'url', 'video']);
             $table->string('link', 191)->nullable();
+            
             $table->timestamps();
         });
     }
@@ -30,13 +36,6 @@ class CreateWebGalleriesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('web_galleries', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('web_galleries');
     }
 }

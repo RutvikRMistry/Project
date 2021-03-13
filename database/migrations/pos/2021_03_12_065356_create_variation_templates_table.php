@@ -14,9 +14,12 @@ class CreateVariationTemplatesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('variation_templates', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
-            $table->integer('business_id')->index('business_variation_templates');
+
+            $table->unsignedBigInteger('business_id')->index('business_variation_templates');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -28,11 +31,6 @@ class CreateVariationTemplatesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('variation_templates', function (Blueprint $table) {
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('variation_templates');
     }
 }

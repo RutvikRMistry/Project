@@ -15,9 +15,16 @@ class CreatePackagePermissionsTable extends Migration
     {
         Schema::connection('mysql_pos')->create('package_permissions', function (Blueprint $table) {
             $table->integer('id');
-            $table->integer('package_id');
-            $table->integer('user_id')->index('users_package_permissions');
-            $table->integer('business_id')->index('business_package_permissions');
+
+            $table->unsignedBigInteger('package_id');
+            $table->foreignId('package_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('user_id')->index('users_package_permissions');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('business_id')->index('business_package_permissions');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->date('start_date');
             $table->date('end_date');
             $table->string('price');
@@ -33,16 +40,6 @@ class CreatePackagePermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('package_permissions', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('package_permissions');
     }
 }

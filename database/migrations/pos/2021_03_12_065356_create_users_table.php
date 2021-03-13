@@ -14,11 +14,11 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('users', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->char('surname', 10)->nullable();
             $table->string('first_name', 191);
             $table->string('last_name', 191)->nullable();
-            $table->string('username', 191)->unique('username');
+            $table->string('username', 191)->unique();
             $table->string('email', 191)->nullable();
             $table->string('password', 191);
             $table->char('language', 4)->default('en');

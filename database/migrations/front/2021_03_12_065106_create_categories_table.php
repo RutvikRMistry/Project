@@ -14,7 +14,7 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('categories', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
@@ -28,11 +28,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('categories', function (Blueprint $table) {
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('categories');
     }
 }

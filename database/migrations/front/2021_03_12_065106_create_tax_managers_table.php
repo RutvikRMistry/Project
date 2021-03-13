@@ -14,7 +14,7 @@ class CreateTaxManagersTable extends Migration
     public function up()
     {
         Schema::connection('mysql_front')->create('tax_managers', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191)->nullable();
             $table->string('code', 191)->nullable();
             $table->enum('type', ['PERCENTAGE', 'FIXED'])->default('PERCENTAGE');
@@ -32,15 +32,6 @@ class CreateTaxManagersTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_front')->drop('tax_managers', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_front')->drop('tax_managers');
     }
 }

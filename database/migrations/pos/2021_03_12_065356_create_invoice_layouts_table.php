@@ -14,7 +14,7 @@ class CreateInvoiceLayoutsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('invoice_layouts', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
             $table->text('header_text');
             $table->string('invoice_no_prefix', 191)->nullable();
@@ -74,7 +74,10 @@ class CreateInvoiceLayoutsTable extends Migration
             $table->text('footer_text');
             $table->text('module_info');
             $table->tinyInteger('is_default')->default(0);
-            $table->integer('business_id')->index('business_invoice_layouts');
+
+            $table->unsignedBigInteger('business_id')->index('business_invoice_layouts');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('design', 256)->nullable()->default('classic');
             $table->string('cn_heading', 191)->nullable()->comment('cn = credit note');
             $table->string('cn_no_label', 191)->nullable();
@@ -90,73 +93,6 @@ class CreateInvoiceLayoutsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('invoice_layouts', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('invoice_layouts');
     }
 }

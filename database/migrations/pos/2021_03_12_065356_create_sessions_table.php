@@ -14,8 +14,11 @@ class CreateSessionsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('sessions', function (Blueprint $table) {
-            $table->string('id', 191)->unique('id');
-            $table->integer('user_id')->nullable()->index('users_sessions');
+            $table->string('id', 191)->unique();
+
+            $table->unsignedBigInteger('user_id')->nullable()->index('users_sessions');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent');
             $table->text('payload');
@@ -30,13 +33,6 @@ class CreateSessionsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('sessions', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('sessions');
     }
 }

@@ -14,13 +14,23 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_pos')->create('products', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
-            $table->integer('business_id')->index('business_products');
+
+            $table->unsignedBigInteger('business_id')->index('business_products');
+            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+
             $table->enum('type', ['single', 'variable', 'modifier'])->nullable();
-            $table->integer('unit_id')->nullable()->index('units_products');
-            $table->integer('brand_id')->nullable()->index('brandsproducts');
-            $table->integer('category_id')->nullable()->index('categories_products');
+
+            $table->unsignedBigInteger('unit_id')->nullable()->index('units_products');
+            $table->foreignId('unit_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('brand_id')->nullable()->index('brandsproducts');
+            $table->foreignId('brand_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('category_id')->nullable()->index('categories_products');
+            $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('sub_category_id')->nullable();
             $table->integer('tax')->nullable();
             $table->enum('tax_type', ['inclusive', 'exclusive']);
@@ -49,32 +59,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_pos')->drop('products', function (Blueprint $table) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        });
+        Schema::connection('mysql_pos')->drop('products');
     }
 }
