@@ -14,7 +14,7 @@ class CreateSettingsTable extends Migration
     public function up()
     {
         Schema::create('settings', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('site_name', 191);
             $table->string('site_logo', 191);
             $table->string('pdf_logo', 191);
@@ -31,7 +31,10 @@ class CreateSettingsTable extends Migration
             $table->string('email_port')->nullable();
             $table->string('email_username')->nullable();
             $table->string('email_password')->nullable();
-            $table->integer('user_id')->index('users_settings');
+
+            $table->unsignedBigInteger('user_id')->index('users_settings');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

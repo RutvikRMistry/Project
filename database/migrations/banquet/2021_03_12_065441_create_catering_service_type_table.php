@@ -14,10 +14,13 @@ class CreateCateringServiceTypeTable extends Migration
     public function up()
     {
         Schema::create('catering_service_type', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
             $table->integer('counters');
-            $table->integer('user_id')->index('users_catering_service_type');
+
+            $table->unsignedBigInteger('user_id')->index('users_catering_service_type');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

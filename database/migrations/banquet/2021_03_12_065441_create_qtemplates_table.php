@@ -14,7 +14,7 @@ class CreateQtemplatesTable extends Migration
     public function up()
     {
         Schema::create('qtemplates', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('quotation_template', 191);
             $table->integer('quotation_duration')->nullable();
             $table->tinyInteger('immediate_payment')->default(1);
@@ -22,7 +22,10 @@ class CreateQtemplatesTable extends Migration
             $table->double('total', 8, 2);
             $table->double('tax_amount', 8, 2);
             $table->double('grand_total', 8, 2);
-            $table->integer('user_id')->index('users_qtemplates');
+
+            $table->unsignedBigInteger('user_id')->index('users_qtemplates');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

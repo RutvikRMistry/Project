@@ -14,8 +14,11 @@ class CreateFinacialsTable extends Migration
     public function up()
     {
         Schema::create('finacials', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->index('eventdetails_finacials');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_finacials');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('food_beverage_min', 25)->nullable();
             $table->string('grand_total', 25)->nullable();
             $table->string('rental_fee', 25)->nullable();

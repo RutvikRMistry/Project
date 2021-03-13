@@ -14,9 +14,12 @@ class CreateDepartmentMasterTable extends Migration
     public function up()
     {
         Schema::create('department_master', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('department_name');
-            $table->integer('user_id')->index('users_department_master');
+
+            $table->unsignedBigInteger('user_id')->index('users_department_master');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();

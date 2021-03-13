@@ -14,9 +14,12 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
-            $table->integer('user_id')->index('users_categories');
+
+            $table->unsignedBigInteger('user_id')->index('users_categories');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

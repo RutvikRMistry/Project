@@ -14,11 +14,16 @@ class CreateMeetablesTable extends Migration
     public function up()
     {
         Schema::create('meetables', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->integer('meetable_id');
             $table->string('meetable_type', 191);
-            $table->integer('meeting_id')->index('meetings_meetables');
-            $table->integer('user_id')->index('users_meetables');
+
+            $table->unsignedBigInteger('meeting_id')->index('meetings_meetables');
+            $table->foreignId('meeting_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('user_id')->index('users_meetables');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 

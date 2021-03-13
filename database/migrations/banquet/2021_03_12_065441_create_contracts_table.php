@@ -14,14 +14,20 @@ class CreateContractsTable extends Migration
     public function up()
     {
         Schema::create('contracts', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->date('start_date');
             $table->date('end_date');
             $table->text('description');
-            $table->integer('company_id')->index('companies_contracts');
-            $table->integer('resp_staff_id');
+
+            $table->unsignedBigInteger('company_id')->index('companies_contracts');
+            $table->foreignId('company_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('resp_staff_id');
             $table->string('real_signed_contract', 191);
-            $table->integer('user_id')->index('users_contracts');
+
+            $table->unsignedBigInteger('user_id')->index('users_contracts');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

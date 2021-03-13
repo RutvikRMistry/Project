@@ -14,8 +14,11 @@ class CreateEventEquipmentTable extends Migration
     public function up()
     {
         Schema::create('event_equipment', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->index('eventdetails_event_equipment');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_event_equipment');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('day');
             $table->string('equipment_type')->nullable();
             $table->timestamps();

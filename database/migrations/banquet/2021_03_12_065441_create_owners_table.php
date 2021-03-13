@@ -14,13 +14,16 @@ class CreateOwnersTable extends Migration
     public function up()
     {
         Schema::create('owners', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
             $table->string('gender');
             $table->string('address');
             $table->string('email');
             $table->string('contact', 25);
-            $table->integer('user_id')->index('users_owners');
+
+            $table->unsignedBigInteger('user_id')->index('users_owners');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

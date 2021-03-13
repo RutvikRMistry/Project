@@ -14,7 +14,7 @@ class CreateEventCaterersTable extends Migration
     public function up()
     {
         Schema::create('event_caterers', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
             $table->string('service_provided')->nullable();
             $table->integer('price')->nullable();
@@ -40,7 +40,10 @@ class CreateEventCaterersTable extends Migration
             $table->text('force_majeure')->nullable();
             $table->text('indemnification')->nullable();
             $table->text('binding_arbitration')->nullable();
+
             $table->integer('user_id')->index('users_event_caterers');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

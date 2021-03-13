@@ -14,7 +14,7 @@ class CreateMiscellaneousTable extends Migration
     public function up()
     {
         Schema::create('miscellaneous', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
             $table->text('address')->nullable();
             $table->string('email')->nullable();
@@ -30,7 +30,10 @@ class CreateMiscellaneousTable extends Migration
             $table->text('material_guarantee')->nullable();
             $table->text('binding_arbitration')->nullable();
             $table->text('approval')->nullable();
-            $table->integer('user_id')->index('users_miscellaneous');
+
+            $table->unsignedBigInteger('user_id')->index('users_miscellaneous');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

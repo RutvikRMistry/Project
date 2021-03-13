@@ -14,8 +14,11 @@ class CreateDepositsTable extends Migration
     public function up()
     {
         Schema::create('deposits', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->index('eventdetails_deposits');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_deposits');
+            $table->foreignId('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('deposit_due')->nullable();
             $table->string('sec_deposit_du')->nullable();
             $table->string('sec_deposit', 25)->nullable();

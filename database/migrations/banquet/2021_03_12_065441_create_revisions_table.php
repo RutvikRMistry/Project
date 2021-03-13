@@ -14,10 +14,13 @@ class CreateRevisionsTable extends Migration
     public function up()
     {
         Schema::create('revisions', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('revisionable_type', 191);
             $table->integer('revisionable_id');
-            $table->integer('user_id')->nullable()->index('users_revisions');
+
+            $table->unsignedBigIntegers('user_id')->nullable()->index('users_revisions');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('key', 191);
             $table->text('old_value')->nullable();
             $table->text('new_value')->nullable();

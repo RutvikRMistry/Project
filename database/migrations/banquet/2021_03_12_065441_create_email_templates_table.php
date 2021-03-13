@@ -14,10 +14,13 @@ class CreateEmailTemplatesTable extends Migration
     public function up()
     {
         Schema::create('email_templates', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('title', 191);
             $table->longText('text');
-            $table->integer('user_id')->index('users_email_templates');
+
+            $table->unsignedBigInteger('user_id')->index('users_email_templates');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

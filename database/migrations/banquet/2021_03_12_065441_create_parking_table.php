@@ -14,10 +14,13 @@ class CreateParkingTable extends Migration
     public function up()
     {
         Schema::create('parking', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('type');
             $table->integer('capacity');
-            $table->integer('user_id')->index('users_parking');
+
+            $table->unsignedBigInteger('user_id')->index('users_parking');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

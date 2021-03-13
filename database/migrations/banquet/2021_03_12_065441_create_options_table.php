@@ -14,11 +14,14 @@ class CreateOptionsTable extends Migration
     public function up()
     {
         Schema::create('options', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('category', 191);
             $table->string('title', 191);
             $table->string('value', 191);
-            $table->integer('user_id')->index('users_options');
+
+            $table->unsignedBigInteger('user_id')->index('users_options');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 

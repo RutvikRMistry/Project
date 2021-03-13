@@ -14,9 +14,12 @@ class CreatePaysTable extends Migration
     public function up()
     {
         Schema::create('pays', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('select_payment_method');
+
             $table->integer('user_id')->index('users_pays');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

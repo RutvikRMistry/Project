@@ -14,15 +14,21 @@ class CreateSubMenuTable extends Migration
     public function up()
     {
         Schema::create('sub_menu', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('main_menu_id')->index('main_menu_sub_menu');
+            $table->id();
+
+            $table->unsignedBigInteger('main_menu_id')->index('main_menu_sub_menu');
+            $table->foreignId('main_menu_id')->constrained('main_menu')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('menu_type');
             $table->string('name');
             $table->string('price')->nullable();
             $table->integer('min_person')->nullable();
             $table->integer('max_person')->nullable();
             $table->string('times', 50)->nullable();
-            $table->integer('user_id')->index('users_sub_menu');
+
+            $table->unsignedBigInteger('user_id')->index('users_sub_menu');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

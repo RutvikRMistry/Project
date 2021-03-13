@@ -14,18 +14,30 @@ class CreateLeadsTable extends Migration
     public function up()
     {
         Schema::create('leads', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('company_name', 191)->nullable();
-            $table->integer('country_id')->index('countries_leads');
-            $table->integer('state_id')->nullable()->index('statesleads');
-            $table->integer('city_id')->nullable()->index('cities_leads');
+
+            $table->unsignedBigInteger('country_id')->index('countries_leads');
+            $table->foreignId('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('state_id')->nullable()->index('statesleads');
+            $table->foreignId('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('city_id')->nullable()->index('cities_leads');
+            $table->foreignId('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('sales_person_id')->nullable();
-            $table->integer('sales_team_id')->index('sales_teams_leads');
+            $table->unsignedBigInteger('sales_team_id')->index('sales_teams_leads');
+            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('email', 191);
             $table->string('event_type', 191);
             $table->string('mobile', 191);
             $table->string('priority', 191)->nullable();
-            $table->integer('user_id')->index('users_leads');
+          
+            $table->unsignedBigInteger('user_id')->index('users_leads');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
             $table->string('client_name', 191);

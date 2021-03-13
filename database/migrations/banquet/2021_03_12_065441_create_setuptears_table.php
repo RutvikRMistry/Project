@@ -14,8 +14,11 @@ class CreateSetuptearsTable extends Migration
     public function up()
     {
         Schema::create('setuptears', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->index('eventdetails_setuptears');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->index('eventdetails_setuptears');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('setup');
             $table->string('teardown');
             $table->timestamps();

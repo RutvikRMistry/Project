@@ -14,8 +14,11 @@ class CreateSubscriptionsTable extends Migration
     public function up()
     {
         Schema::create('subscriptions', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('user_id')->index('users_subscriptions');
+            $table->id();
+
+            $table->unsignedBigInteger('user_id')->index('users_subscriptions');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name', 191);
             $table->integer('stripe_id');
             $table->integer('stripe_plan');

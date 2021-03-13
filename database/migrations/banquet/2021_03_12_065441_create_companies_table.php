@@ -14,7 +14,7 @@ class CreateCompaniesTable extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
             $table->string('email', 191);
             $table->text('password');
@@ -29,13 +29,25 @@ class CreateCompaniesTable extends Migration
             $table->string('company_avatar', 191)->nullable();
             $table->string('company_attachment', 191);
             $table->integer('main_contact_person');
-            $table->integer('sales_team_id')->index('sales_teams_companies');
-            $table->integer('country_id')->index('countries_companies');
-            $table->integer('state_id')->nullable()->index('statescompanies');
-            $table->integer('city_id')->nullable()->index('cities_companies');
+
+            $table->unsignedBigInteger('sales_team_id')->index('sales_teams_companies');
+            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('country_id')->index('countries_companies');
+            $table->foreignId('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('state_id')->nullable()->index('statescompanies');
+            $table->foreignId('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('city_id')->nullable()->index('cities_companies');
+            $table->foreignId('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('longitude', 191);
             $table->string('latitude', 191);
-            $table->integer('user_id')->index('users_companies');
+
+            $table->unsignedBigInteger('user_id')->index('users_companies');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

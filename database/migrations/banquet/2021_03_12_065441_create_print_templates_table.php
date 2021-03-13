@@ -14,11 +14,14 @@ class CreatePrintTemplatesTable extends Migration
     public function up()
     {
         Schema::create('print_templates', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 191);
             $table->string('slug', 191);
             $table->string('type', 191);
+
             $table->integer('user_id')->index('users_print_templates');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

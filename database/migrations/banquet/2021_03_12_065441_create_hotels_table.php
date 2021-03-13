@@ -14,9 +14,12 @@ class CreateHotelsTable extends Migration
     public function up()
     {
         Schema::create('hotels', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name', 100);
-            $table->integer('user_id')->index('users_hotels');
+
+            $table->unsignedBigInteger('user_id')->index('users_hotels');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();

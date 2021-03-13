@@ -14,8 +14,11 @@ class CreateThrottleTable extends Migration
     public function up()
     {
         Schema::create('throttle', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('user_id')->nullable()->index('users_users_throttle');
+            $table->id();
+
+            $table->unsignedBigInteger('user_id')->nullable()->index('users_users_throttle');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('type', 191);
             $table->string('ip', 191)->nullable();
             $table->timestamps();

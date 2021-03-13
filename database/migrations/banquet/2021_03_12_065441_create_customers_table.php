@@ -14,8 +14,11 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('user_id')->index('users_customers');
+            $table->id();
+
+            $table->unsignedBigInteger('user_id')->index('users_customers');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('first_name', 191);
             $table->string('last_name', 191);
             $table->integer('belong_user_id');
@@ -26,8 +29,13 @@ class CreateCustomersTable extends Migration
             $table->string('fax', 191)->nullable();
             $table->string('title', 191)->nullable();
             $table->string('company_avatar', 191);
-            $table->integer('company_id')->index('companies_customers');
-            $table->integer('sales_team_id')->index('sales_teams_customers');
+
+            $table->unsignedBigInteger('company_id')->index('companies_customers');
+            $table->foreignId('company_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('sales_team_id')->index('sales_teams_customers');
+            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

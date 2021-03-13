@@ -14,9 +14,12 @@ class CreateTypeEventTable extends Migration
     public function up()
     {
         Schema::create('type_event', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
-            $table->integer('user_id')->index('users_type_event');
+
+            $table->unsignedBigInteger('user_id')->index('users_type_event');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();

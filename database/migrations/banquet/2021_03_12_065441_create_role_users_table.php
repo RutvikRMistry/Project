@@ -14,8 +14,13 @@ class CreateRoleUsersTable extends Migration
     public function up()
     {
         Schema::create('role_users', function (Blueprint $table) {
+
             $table->integer('user_id')->index('users_role_users');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('role_id')->index('roles_role_users');
+            $table->foreignId('role_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

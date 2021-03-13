@@ -14,11 +14,18 @@ class CreateInvoicesTable extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('order_id')->index('sales_orders_invoices');
-            $table->integer('customer_id')->index('customers_invoices');
+            $table->id();
+
+            $table->unsignedBigInteger('order_id')->index('sales_orders_invoices');
+            $table->foreignId('order_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('customer_id')->index('customers_invoices');
+            $table->foreignId('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('sales_person_id');
-            $table->integer('sales_team_id')->index('sales_teams_invoices');
+            $table->unsignedBigInteger('sales_team_id')->index('sales_teams_invoices');
+            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('invoice_number', 191);
             $table->date('invoice_date');
             $table->date('due_date');
@@ -30,11 +37,17 @@ class CreateInvoicesTable extends Migration
             $table->double('unpaid_amount', 8, 2);
             $table->double('discount')->nullable();
             $table->double('final_price', 8, 2);
-            $table->integer('user_id')->index('users_invoices');
+           
+            $table->unsignedBigInteger('user_id')->index('users_invoices');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
             $table->integer('is_delete_list');
+
             $table->integer('qtemplate_id')->index('qtemplates_invoices');
+            $table->foreignId('qtemplate_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 

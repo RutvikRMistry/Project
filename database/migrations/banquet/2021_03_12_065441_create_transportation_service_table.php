@@ -14,14 +14,17 @@ class CreateTransportationServiceTable extends Migration
     public function up()
     {
         Schema::create('transportation_service', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
             $table->string('service_provided');
             $table->integer('price');
             $table->string('address');
             $table->string('email');
             $table->string('phone');
-            $table->integer('user_id');
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

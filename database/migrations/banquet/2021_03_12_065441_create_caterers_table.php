@@ -14,8 +14,11 @@ class CreateCaterersTable extends Migration
     public function up()
     {
         Schema::create('caterers', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->index('eventdetails_caterers');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_caterers');
+            $table->foreignId('event_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('day');
             $table->integer('caterers_id')->nullable();
             $table->string('veg_quoted_price');

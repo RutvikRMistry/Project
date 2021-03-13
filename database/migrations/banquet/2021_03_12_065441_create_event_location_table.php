@@ -14,7 +14,7 @@ class CreateEventLocationTable extends Migration
     public function up()
     {
         Schema::create('event_location', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
             $table->string('dimension');
             $table->string('theater');
@@ -23,7 +23,10 @@ class CreateEventLocationTable extends Migration
             $table->string('booth');
             $table->string('trade');
             $table->string('location_rent')->nullable();
-            $table->integer('user_id')->index('users_event_location');
+
+            $table->unsignedBigInteger('user_id')->index('users_event_location');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();

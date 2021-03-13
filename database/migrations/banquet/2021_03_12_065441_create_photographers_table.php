@@ -14,7 +14,7 @@ class CreatePhotographersTable extends Migration
     public function up()
     {
         Schema::create('photographers', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
             $table->integer('price')->nullable();
             $table->string('address');
@@ -32,7 +32,10 @@ class CreatePhotographersTable extends Migration
             $table->text('copyright');
             $table->text('unauthorized_reproduction');
             $table->text('approval');
-            $table->integer('user_id')->index('users_photographers');
+
+            $table->unsignedBigInteger('user_id')->index('users_photographers');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

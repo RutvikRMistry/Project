@@ -14,10 +14,16 @@ class CreateEventRoomsTable extends Migration
     public function up()
     {
         Schema::create('event_rooms', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('hotel_id')->index('hotels_event_rooms');
+            $table->id();
+
+            $table->unsignedBigInteger('hotel_id')->index('hotels_event_rooms');
+            $table->foreignId('hotel_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('room_name', 100);
-            $table->integer('user_id')->index('users_event_rooms');
+
+            $table->unsignedBigInteger('user_id')->index('users_event_rooms');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

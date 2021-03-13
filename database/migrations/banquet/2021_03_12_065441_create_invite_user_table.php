@@ -14,8 +14,11 @@ class CreateInviteUserTable extends Migration
     public function up()
     {
         Schema::create('invite_user', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('user_id')->index('users_invite_user');
+            $table->id();
+
+            $table->unsignedBigInteger('user_id')->index('users_invite_user');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('code', 191);
             $table->string('email', 191);
             $table->timestamp('claimed_at')->nullable();

@@ -14,10 +14,16 @@ class CreateEventEntertainmentTable extends Migration
     public function up()
     {
         Schema::create('event_entertainment', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->index('eventdetails_event_entertainment');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_event_entertainment');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('day');
-            $table->integer('entertainment_id')->nullable()->index('entertainment_event_entertainment');
+
+            $table->unsignedBigInteger('entertainment_id')->nullable()->index('entertainment_event_entertainment');
+            $table->foreignId('entertainment_id')->constrained('entertainment')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('service_needed')->nullable();
             $table->string('quoted_price');
             $table->string('final_price');

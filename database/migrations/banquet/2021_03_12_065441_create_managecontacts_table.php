@@ -14,8 +14,11 @@ class CreateManagecontactsTable extends Migration
     public function up()
     {
         Schema::create('managecontacts', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->index('eventdetails_managecontacts');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_managecontacts');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name');
             $table->string('email');
             $table->string('contact', 25);

@@ -14,9 +14,14 @@ class CreateInvoicesProductsTable extends Migration
     public function up()
     {
         Schema::create('invoices_products', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('invoice_id')->index('invoices_invoices_products');
-            $table->integer('product_id');
+            $table->id();
+
+            $table->unsignedBigInteger('invoice_id')->index('invoices_invoices_products');
+            $table->foreignId('invoice_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('product_id');
+            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('product_name', 191);
             $table->text('description')->nullable();
             $table->integer('quantity');

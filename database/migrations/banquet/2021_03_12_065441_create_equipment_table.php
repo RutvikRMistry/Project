@@ -14,10 +14,13 @@ class CreateEquipmentTable extends Migration
     public function up()
     {
         Schema::create('equipment', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
             $table->integer('price')->nullable();
-            $table->integer('user_id')->index('users_equipment');
+
+            $table->unsignedBigInteger('user_id')->index('users_equipment');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

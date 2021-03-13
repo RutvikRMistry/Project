@@ -14,16 +14,23 @@ class CreateOpportunitiesTable extends Migration
     public function up()
     {
         Schema::create('opportunities', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('opportunity', 191);
             $table->string('stages', 191);
-            $table->integer('customer_id')->index('customers_opportunities');
+
+            $table->unsignedBigInteger('customer_id')->index('customers_opportunities');
+            $table->foreignId('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->double('expected_revenue');
             $table->string('probability', 191);
             $table->string('email', 191);
             $table->bigInteger('phone');
+
             $table->integer('sales_person_id');
-            $table->integer('sales_team_id')->index('sales_teams_opportunities');
+
+            $table->unsignedBigInteger('sales_team_id')->index('sales_teams_opportunities');
+            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->date('next_action');
             $table->string('next_action_title', 191);
             $table->date('expected_closing');
@@ -32,7 +39,10 @@ class CreateOpportunitiesTable extends Migration
             $table->string('lost_reason', 191)->nullable();
             $table->text('internal_notes')->nullable();
             $table->integer('assigned_partner_id')->nullable();
-            $table->integer('user_id')->index('users_opportunities');
+           
+            $table->unsignedBigInteger('user_id')->index('users_opportunities');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
             $table->string('product_name', 191);

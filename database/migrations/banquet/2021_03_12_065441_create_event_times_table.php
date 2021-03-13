@@ -14,11 +14,19 @@ class CreateEventTimesTable extends Migration
     public function up()
     {
         Schema::create('event_times', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('lead_id')->nullable()->index('leads_event_times');
-            $table->integer('event_id')->nullable()->index('eventdetails_event_times');
+            $table->id();
+
+            $table->unsignedBigInteger('lead_id')->nullable()->index('leads_event_times');
+            $table->foreignId('lead_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_event_times');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('occasion', 100)->nullable();
-            $table->integer('location_id')->nullable()->index('event_location_event_times');
+
+            $table->unsignedBigInteger('location_id')->nullable()->index('event_location_event_times');
+            $table->foreignId('location_id')->constrained('event_location')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('location_rent')->nullable();
             $table->date('date');
             $table->time('start_time');

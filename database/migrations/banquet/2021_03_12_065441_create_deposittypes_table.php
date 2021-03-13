@@ -14,9 +14,12 @@ class CreateDeposittypesTable extends Migration
     public function up()
     {
         Schema::create('deposittypes', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
-            $table->integer('user_id')->index('users_deposit_type');
+
+            $table->unsignedBigInteger('user_id')->index('users_deposit_type');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

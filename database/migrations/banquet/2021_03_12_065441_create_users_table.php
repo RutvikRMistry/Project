@@ -14,17 +14,22 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->integer('user_id')->nullable();
             $table->string('first_name', 191);
             $table->string('last_name', 191);
-            $table->string('email', 191)->unique('email');
+            $table->string('email', 191)->unique();
             $table->string('phone_number', 191)->nullable();
             $table->string('password', 191);
             $table->text('permissions')->nullable();
             $table->string('user_avatar', 191)->nullable();
-            $table->integer('department_id')->nullable()->index('department_master_users');
-            $table->integer('designation_id')->nullable()->index('designation_master_users');
+
+            $table->unsignedBigInteger('department_id')->nullable()->index('department_master_users');
+            $table->foreignId('department_id')->constrained('department_master')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('designation_id')->nullable()->index('designation_master_users');
+            $table->foreignId('designation_id')->constrained('designation_master')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('stripe_id');
             $table->timestamp('last_login')->nullable();
             $table->string('current_billing_plan', 191)->nullable();

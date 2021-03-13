@@ -14,8 +14,11 @@ class CreateAdminPaymentsTable extends Migration
     public function up()
     {
         Schema::create('admin_payments', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->index('eventdetails_admin_payments');
+            $table->id();
+            
+            $table->unsignedBigInteger('event_id')->index('eventdetails_admin_payments');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('supplier_id');
             $table->string('supplier_type');
             $table->integer('amount');

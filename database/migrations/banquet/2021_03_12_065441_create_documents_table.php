@@ -14,8 +14,11 @@ class CreateDocumentsTable extends Migration
     public function up()
     {
         Schema::create('documents', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->index('eventdetails_documents');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->index('eventdetails_documents');
+            $table->foreignId('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name');
             $table->string('doc_type');
             $table->string('status');

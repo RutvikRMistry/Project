@@ -14,11 +14,17 @@ class CreateContactusesTable extends Migration
     public function up()
     {
         Schema::create('contactuses', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->index('eventdetails_contactuses');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_contactuses');
+            $table->foreignId('event_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('expected_guest', 25)->nullable();
             $table->string('guarnteed_guest', 25)->nullable();
-            $table->integer('type_event_id')->nullable()->index('type_event_contactuses');
+
+            $table->unsignedBigInteger('type_event_id')->nullable()->index('type_event_contactuses');
+            $table->foreignId('type_event_id')->constrained('type_event')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('manager')->nullable();
             $table->timestamps();
             $table->softDeletes();

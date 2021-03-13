@@ -14,9 +14,14 @@ class CreateQuotationsProductsTable extends Migration
     public function up()
     {
         Schema::create('quotations_products', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('quotation_id')->index('quotations_quotations_products');
-            $table->integer('product_id')->index('products_quotations_products');
+            $table->id();
+
+            $table->unsignedBigInteger('quotation_id')->index('quotations_quotations_products');
+            $table->foreignId('quotation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('product_id')->index('products_quotations_products');
+            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('product_name', 191);
             $table->text('description')->nullable();
             $table->integer('quantity');

@@ -14,14 +14,17 @@ class CreateSupplierPackagesTable extends Migration
     public function up()
     {
         Schema::create('supplier_packages', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->integer('supplier_id');
             $table->string('supplier_type');
             $table->string('package_name');
             $table->string('price')->nullable();
             $table->string('person')->nullable();
             $table->text('services')->nullable();
-            $table->integer('user_id')->index('users_supplier_packages');
+
+            $table->unsignedBigInteger('user_id')->index('users_supplier_packages');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

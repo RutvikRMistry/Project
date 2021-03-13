@@ -14,8 +14,11 @@ class CreateActivationsTable extends Migration
     public function up()
     {
         Schema::create('activations', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('user_id')->index('users_activations');
+            $table->id();
+
+            $table->unsignedBigInteger('user_id')->index('users_activations');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('code', 191);
             $table->tinyInteger('completed')->default(0);
             $table->timestamp('completed_at')->nullable();

@@ -14,8 +14,11 @@ class CreateEventMiscellaneousTable extends Migration
     public function up()
     {
         Schema::create('event_miscellaneous', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->index('eventdetails_event_miscellaneous');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->index('eventdetails_event_miscellaneous');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('day');
             $table->string('miscellaneous');
             $table->string('service_needed')->nullable();

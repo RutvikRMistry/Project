@@ -14,8 +14,11 @@ class CreateProductVariantsTable extends Migration
     public function up()
     {
         Schema::create('product_variants', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('product_id')->index('products_product_variants');
+            $table->id();
+
+            $table->unsignedBigInteger('product_id')->index('products_product_variants');
+            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('attribute_name', 191);
             $table->text('product_attribute_value');
             $table->timestamps();

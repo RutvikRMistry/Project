@@ -14,7 +14,7 @@ class CreateTermsTable extends Migration
     public function up()
     {
         Schema::create('terms', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->text('food_beverage')->nullable();
             $table->text('administrative_fees')->nullable();
             $table->text('function_room_assignement')->nullable();
@@ -24,7 +24,10 @@ class CreateTermsTable extends Migration
             $table->text('security_parking')->nullable();
             $table->text('damages')->nullable();
             $table->text('service_fees')->nullable();
-            $table->integer('user_id')->index('users_terms');
+
+            $table->unsignedBigInteger('user_id')->index('users_terms');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

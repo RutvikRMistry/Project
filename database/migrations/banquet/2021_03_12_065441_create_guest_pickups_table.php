@@ -14,8 +14,11 @@ class CreateGuestPickupsTable extends Migration
     public function up()
     {
         Schema::create('guest_pickups', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->index('eventdetails_guest_pickups');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_guest_pickups');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('day');
             $table->integer('hotel')->nullable();
             $table->text('room')->nullable();

@@ -14,10 +14,15 @@ class CreateEventDecoratorsTable extends Migration
     public function up()
     {
         Schema::create('event_decorators', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->index('eventdetails_event_decorators');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_event_decorators');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('day');
-            $table->integer('decorator_id')->nullable()->index('decorators_event_decorators');
+
+            $table->unsignedBigInteger('decorator_id')->nullable()->index('decorators_event_decorators');
+            
             $table->string('service_needed')->nullable();
             $table->string('quoted_price');
             $table->string('final_price');

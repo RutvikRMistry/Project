@@ -14,8 +14,11 @@ class CreateEatingTimesTable extends Migration
     public function up()
     {
         Schema::create('eating_times', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->index('eventdetails_eating_times');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->index('eventdetails_eating_times');
+            $table->foreignId('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('day');
             $table->string('service_time', 50)->nullable();
             $table->string('canapes', 50)->nullable();

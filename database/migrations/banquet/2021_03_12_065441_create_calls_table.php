@@ -14,13 +14,19 @@ class CreateCallsTable extends Migration
     public function up()
     {
         Schema::create('calls', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->date('date');
             $table->text('call_summary');
             $table->integer('duration');
-            $table->integer('company_id')->index('companies_calls');
+
+            $table->unsignedBigInteger('company_id')->index('companies_calls');
+            $table->foreignId('company_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('resp_staff_id');
-            $table->integer('user_id')->index('users_calls');
+
+            $table->unsignedBigInteger('user_id')->index('users_calls');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
             $table->string('company_name', 191);

@@ -14,8 +14,11 @@ class CreateAddtasksTable extends Migration
     public function up()
     {
         Schema::create('addtasks', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->index('eventdetails_addtasks');
+            $table->id();
+
+            $table->unsignedBigInteger('event_id')->index('eventdetails_addtasks');
+            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('task_description');
             $table->string('assigned_to');
             $table->string('dead_line');

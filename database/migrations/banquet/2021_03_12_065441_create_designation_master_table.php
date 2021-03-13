@@ -14,10 +14,15 @@ class CreateDesignationMasterTable extends Migration
     public function up()
     {
         Schema::create('designation_master', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('designation_name');
-            $table->integer('department_id')->index('department_master_esignation_master');
-            $table->integer('user_id')->index('users_designation_master');
+
+            $table->unsignedBigInteger('department_id')->index('department_master_esignation_master');
+            $table->foreignId('department_id')->constrained('department_master')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('user_id')->index('users_designation_master');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();

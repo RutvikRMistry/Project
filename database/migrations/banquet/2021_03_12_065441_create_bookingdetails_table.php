@@ -14,20 +14,34 @@ class CreateBookingdetailsTable extends Migration
     public function up()
     {
         Schema::create('bookingdetails', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('booking_name');
-            $table->integer('location_id')->nullable()->index('event_location_bookingdetails');
+
+            $table->unsignedBigInteger('location_id')->nullable()->index('event_location_bookingdetails');
+            $table->foreignId('location_id')->constrained('event_loaction')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('client_email')->nullable();
             $table->string('client_phone')->nullable();
             $table->string('client_company')->nullable();
             $table->date('from_date');
             $table->date('to_date');
-            $table->integer('user_id')->index('users_bookingdetails');
-            $table->integer('country_id')->index('countries_bookingdetails');
-            $table->integer('state_id')->index('statesbookingdetails');
-            $table->integer('city_id')->nullable()->index('cities_bookingdetails');
+            $table->unsignedBigInteger('user_id')->index('users_bookingdetails');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('country_id')->index('countries_bookingdetails');
+            $table->foreignId('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('state_id')->index('statesbookingdetails');
+            $table->foreignId('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('city_id')->nullable()->index('cities_bookingdetails');
+            $table->foreignId('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('sales_person_id');
-            $table->integer('sales_team_id')->index('sales_teams_bookingdetails');
+
+            $table->unsignedBigInteger('sales_team_id')->index('sales_teams_bookingdetails');
+            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('event_type', 191);
             $table->string('event_status', 191);
             $table->string('event_name', 191);

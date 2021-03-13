@@ -14,17 +14,26 @@ class CreateInvoiceReceivePaymentsTable extends Migration
     public function up()
     {
         Schema::create('invoice_receive_payments', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('invoice_id')->index('invoices_invoice_receive_payments');
+            $table->id();
+
+            $table->unsignedBigInteger('invoice_id')->index('invoices_invoice_receive_payments');
+            $table->foreignId('invoice_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->date('payment_date');
             $table->string('payment_method', 191);
             $table->double('payment_received', 8, 2);
             $table->string('payment_number', 191);
             $table->string('paykey', 191)->nullable();
-            $table->integer('user_id')->index('users_invoice_receive_payments');
+
+            $table->unsignedBigInteger('user_id')->index('users_invoice_receive_payments');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('customer_id')->index('customers_invoice_receive_payments');
+            $table->unsignedBigInteger('customer_id')->index('customers_invoice_receive_payments');
+            $table->foreignId('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            
         });
     }
 

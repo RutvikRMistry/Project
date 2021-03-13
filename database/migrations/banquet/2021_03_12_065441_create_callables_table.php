@@ -14,11 +14,16 @@ class CreateCallablesTable extends Migration
     public function up()
     {
         Schema::create('callables', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->integer('callable_id');
             $table->string('callable_type', 191);
-            $table->integer('call_id')->index('calls_callables');
-            $table->integer('user_id')->index('users_callables');
+
+            $table->unsignedBigInteger('call_id')->index('calls_callables');
+            $table->foreignId('call_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('user_id')->index('users_callables');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 

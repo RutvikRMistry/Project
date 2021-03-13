@@ -14,10 +14,17 @@ class CreateEventdetailsTable extends Migration
     public function up()
     {
         Schema::create('eventdetails', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('booking_id')->index('bookingdetails_eventdetails');
-            $table->integer('owner_id')->index('owners_eventdetails');
-            $table->integer('sales_team_id')->index('sales_teams_eventdetails');
+            $table->id();
+
+            $table->unsignedBigInteger('booking_id')->index('bookingdetails_eventdetails');
+            $table->foreignId('booking_id')->constrained('bookingdetails')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('owner_id')->index('owners_eventdetails');
+            $table->foreignId('owner_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('sales_team_id')->index('sales_teams_eventdetails');
+            $table->foreignId('booking_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name');
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();
@@ -28,10 +35,19 @@ class CreateEventdetailsTable extends Migration
             $table->integer('leadsources_id')->nullable();
             $table->integer('from_lead');
             $table->integer('country_id')->index('countries_eventdetails');
-            $table->integer('state_id')->index('stateseventdetails');
-            $table->integer('city_id')->index('cities_eventdetails');
+            $table->foreignId('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('state_id')->index('stateseventdetails');
+            $table->foreignId('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('city_id')->index('cities_eventdetails');
+            $table->foreignId('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('created_by', 50);
-            $table->integer('user_id')->index('users_eventdetails');
+
+            $table->unsignedBigInteger('user_id')->index('users_eventdetails');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

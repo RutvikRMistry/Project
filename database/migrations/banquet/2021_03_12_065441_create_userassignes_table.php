@@ -14,13 +14,16 @@ class CreateUserassignesTable extends Migration
     public function up()
     {
         Schema::create('userassignes', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('type');
             $table->string('name');
             $table->string('gender');
             $table->string('email');
             $table->string('contact');
-            $table->integer('user_id')->index('users_userassignes');
+
+            $table->unsignedBigInteger('user_id')->index('users_userassignes');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

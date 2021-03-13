@@ -14,7 +14,7 @@ class CreateEntertainmentTable extends Migration
     public function up()
     {
         Schema::create('entertainment', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
             $table->integer('price')->nullable();
             $table->string('address');
@@ -28,7 +28,10 @@ class CreateEntertainmentTable extends Migration
             $table->text('indemnification');
             $table->text('binding_arbitration');
             $table->text('approval');
-            $table->integer('user_id')->index('users_entertainment');
+
+            $table->unsignedBigInteger('user_id')->index('users_entertainment');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

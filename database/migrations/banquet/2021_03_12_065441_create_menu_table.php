@@ -14,18 +14,27 @@ class CreateMenuTable extends Migration
     public function up()
     {
         Schema::create('menu', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->string('name');
-            $table->integer('main_menu_id')->index('main_menu_menu');
+
+            $table->unsignedBigInteger('main_menu_id')->index('main_menu_menu');
+            $table->foreignId('main_menu_id')->constrained('main_menu')->onUpdate('cascade')->onDelete('cascade');
+
             $table->integer('menu_type');
-            $table->integer('sub_menu_id')->index('sub_menu_menu');
+
+            $table->unsignedBigInteger('sub_menu_id')->index('sub_menu_menu');
+            $table->foreignId('sub_menu_id')->constrained('sub_menu_id')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('description');
             $table->string('status');
             $table->string('price');
             $table->string('hours')->nullable();
             $table->string('persons')->nullable();
             $table->string('additional');
-            $table->integer('user_id')->index('users_menu');
+
+            $table->unsignedBigInteger('user_id')->index('users_menu');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

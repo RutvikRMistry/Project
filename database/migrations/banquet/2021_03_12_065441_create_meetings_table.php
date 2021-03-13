@@ -14,7 +14,7 @@ class CreateMeetingsTable extends Migration
     public function up()
     {
         Schema::create('meetings', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->text('meeting_subject');
             $table->string('attendees', 191);
             $table->integer('responsible_id');
@@ -26,7 +26,10 @@ class CreateMeetingsTable extends Migration
             $table->string('privacy', 191)->nullable();
             $table->string('show_time_as', 191)->nullable();
             $table->string('duration', 191)->nullable();
-            $table->integer('user_id')->index('users_meetings');
+
+            $table->unsignedBigInteger('user_id')->index('users_meetings');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
             $table->string('company_attendees', 191);
