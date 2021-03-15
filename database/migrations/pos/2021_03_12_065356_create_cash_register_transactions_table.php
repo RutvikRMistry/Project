@@ -17,7 +17,7 @@ class CreateCashRegisterTransactionsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('cash_register_id')->index('cash_registers_cash_register_transactions');
-            $table->foreignId('cash_register_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('cash_register_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->decimal('amount', 20)->default(0.00);
             $table->enum('pay_method', ['cash', 'card', 'cheque', 'bank_transfer', 'custom_pay_1', 'custom_pay_2', 'custom_pay_3', 'other'])->nullable();
@@ -25,7 +25,7 @@ class CreateCashRegisterTransactionsTable extends Migration
             $table->enum('transaction_type', ['initial', 'sell', 'transfer', 'refund']);
 
             $table->unsignedBigInteger('transaction_id')->nullable()->index('transactions_cash_registers');
-            $table->foreignId('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

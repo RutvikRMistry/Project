@@ -18,7 +18,7 @@ class CreateLeadsourcesTable extends Migration
             $table->string('name');
 
             $table->unsignedBigInteger('user_id')->index('users_leadsources');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

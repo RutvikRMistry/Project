@@ -18,7 +18,7 @@ class CreateDepartmentMasterTable extends Migration
             $table->string('department_name');
 
             $table->unsignedBigInteger('user_id')->index('users_department_master');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();

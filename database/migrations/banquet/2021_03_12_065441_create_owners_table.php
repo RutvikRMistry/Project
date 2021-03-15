@@ -22,7 +22,7 @@ class CreateOwnersTable extends Migration
             $table->string('contact', 25);
 
             $table->unsignedBigInteger('user_id')->index('users_owners');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

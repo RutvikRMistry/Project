@@ -16,7 +16,7 @@ class CreateBrandsTable extends Migration
         Schema::connection('mysql_pos')->create('brands', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('business_id')->index('business_business_brands');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name', 191);
             $table->text('description');

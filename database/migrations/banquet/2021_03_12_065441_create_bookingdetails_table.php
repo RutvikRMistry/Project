@@ -18,7 +18,7 @@ class CreateBookingdetailsTable extends Migration
             $table->string('booking_name');
 
             $table->unsignedBigInteger('location_id')->nullable()->index('event_location_bookingdetails');
-            $table->foreignId('location_id')->constrained('event_loaction')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('location_id')->constrained('event_loaction')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('client_email')->nullable();
             $table->string('client_phone')->nullable();
@@ -26,21 +26,21 @@ class CreateBookingdetailsTable extends Migration
             $table->date('from_date');
             $table->date('to_date');
             $table->unsignedBigInteger('user_id')->index('users_bookingdetails');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('country_id')->index('countries_bookingdetails');
-            $table->foreignId('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('state_id')->index('statesbookingdetails');
-            $table->foreignId('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('city_id')->nullable()->index('cities_bookingdetails');
-            $table->foreignId('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('sales_person_id');
 
             $table->unsignedBigInteger('sales_team_id')->index('sales_teams_bookingdetails');
-            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('event_type', 191);
             $table->string('event_status', 191);

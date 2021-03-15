@@ -16,17 +16,17 @@ class CreatePaymentsTable extends Migration
         Schema::connection('mysql_front')->create('payments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index('users_payments');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('user_id', 'users_payments')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 
             $table->unsignedBigInteger('gateway_id')->index('gateways_payments');
-            $table->foreignId('gateway_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('gateway_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('gateway_id', 'gateways_payments')->references('id')->on('gateways')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 
             $table->unsignedBigInteger('reservation_id')->nullable()->index('reservations_payment');
-            $table->foreignId('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('reservation_id', 'reservations_payment')->references('id')->on('reservations')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 

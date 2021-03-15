@@ -16,12 +16,12 @@ class CreateReservationTaxesTable extends Migration
         Schema::connection('mysql_front')->create('reservation_taxes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('reservation_id')->index('reservations_reservation_tax');
-            $table->foreignId('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('reservation_id', 'reservations_reservation_tax')->references('id')->on('reservations')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 
             $table->unsignedBigInteger('tax_id')->index('tax_managers_reservation_taxes');
-            $table->foreignId('tax_id')->constrained('tax_managers')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('tax_id')->constrained('tax_managers')->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('tax_id', 'tax_managers_reservation_taxes')->references('id')->on('tax_managers')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 

@@ -17,12 +17,12 @@ class CreateGuestPickupsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_guest_pickups');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('day');
             $table->integer('hotel')->nullable();
             $table->text('room')->nullable();
-            $table->integer('transportation_id')->nullable()->index('transportation_service_guest_pickups');
+            $table->unsignedBigInteger('transportation_id')->nullable()->index('transportation_service_guest_pickups');
             $table->string('time_of_departure')->nullable();
             $table->string('arrival_time')->nullable();
             $table->string('van_choice')->nullable();

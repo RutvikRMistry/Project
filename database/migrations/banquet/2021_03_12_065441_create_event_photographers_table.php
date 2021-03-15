@@ -17,12 +17,12 @@ class CreateEventPhotographersTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_event_photographers');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('day');
 
             $table->unsignedBigInteger('photographer_id')->nullable()->index('photographers_event_photographers');
-            $table->foreignId('photographer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('photographer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('service_needed')->nullable();
             $table->string('quoted_price');

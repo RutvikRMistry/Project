@@ -15,7 +15,7 @@ class CreateSupplierPackagesTable extends Migration
     {
         Schema::create('supplier_packages', function (Blueprint $table) {
             $table->id();
-            $table->integer('supplier_id');
+            $table->unsignedBigInteger('supplier_id');
             $table->string('supplier_type');
             $table->string('package_name');
             $table->string('price')->nullable();
@@ -23,7 +23,7 @@ class CreateSupplierPackagesTable extends Migration
             $table->text('services')->nullable();
 
             $table->unsignedBigInteger('user_id')->index('users_supplier_packages');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

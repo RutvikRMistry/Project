@@ -17,7 +17,7 @@ class CreateInvoiceSchemesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('business_id')->index('business_invoice_schemes');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name', 191);
             $table->enum('scheme_type', ['blank', 'year']);

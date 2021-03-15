@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('product_image', 191)->nullable();
 
             $table->unsignedBigInteger('category_id')->index('categories_products');
-            $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('product_type', 191);
             $table->string('status', 191)->nullable();
@@ -30,7 +30,7 @@ class CreateProductsTable extends Migration
             $table->text('description_for_quotations');
 
             $table->unsignedBigInteger('user_id')->index('users_products');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

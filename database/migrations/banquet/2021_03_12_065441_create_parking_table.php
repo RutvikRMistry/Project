@@ -19,7 +19,7 @@ class CreateParkingTable extends Migration
             $table->integer('capacity');
 
             $table->unsignedBigInteger('user_id')->index('users_parking');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

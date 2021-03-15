@@ -16,17 +16,17 @@ class CreateBookingsTable extends Migration
         Schema::connection('mysql_pos')->create('bookings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('contact_id')->index('contacts_ookings');
-            $table->foreignId('contact_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('contact_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('waiter_id')->nullable();
             $table->integer('table_id')->nullable();
             $table->integer('correspondent_id')->nullable();
 
             $table->unsignedBigInteger('business_id')->index('business_business_bookings');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer('location_id')->index('contacts_bookings');
-            // $table->foreignId('location_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('location_id')->index('contacts_bookings');
+            // $table->foreign('location_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->dateTime('booking_start');
             $table->dateTime('booking_end');

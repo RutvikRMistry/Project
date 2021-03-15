@@ -17,7 +17,7 @@ class CreateDepositsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_deposits');
-            $table->foreignId('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('deposit_due')->nullable();
             $table->string('sec_deposit_du')->nullable();

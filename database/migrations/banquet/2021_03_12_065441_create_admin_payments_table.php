@@ -17,7 +17,7 @@ class CreateAdminPaymentsTable extends Migration
             $table->id();
             
             $table->unsignedBigInteger('event_id')->index('eventdetails_admin_payments');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('supplier_id');
             $table->string('supplier_type');

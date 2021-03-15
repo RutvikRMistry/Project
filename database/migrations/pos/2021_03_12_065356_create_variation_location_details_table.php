@@ -17,13 +17,13 @@ class CreateVariationLocationDetailsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('product_id');
-            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('product_variation_id')->index('product_variations_variation_location_details')->comment('id from product_variations table');
-            $table->foreignId('product_variation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('product_variation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('variation_id')->index('variations_variation_location_details');
-            $table->foreignId('variation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('variation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('location_id');
             $table->decimal('qty_available', 20, 4);

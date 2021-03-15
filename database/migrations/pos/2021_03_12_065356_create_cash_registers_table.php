@@ -17,10 +17,10 @@ class CreateCashRegistersTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('business_id')->index('business_cash_registers');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id')->index('users_cash_registers');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->enum('status', ['close', 'open'])->default('open');
             $table->dateTime('closed_at')->nullable();

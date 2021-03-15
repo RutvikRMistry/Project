@@ -17,7 +17,7 @@ class CreateProductVariantsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('product_id')->index('products_product_variants');
-            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('attribute_name', 191);
             $table->text('product_attribute_value');

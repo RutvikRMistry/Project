@@ -17,9 +17,9 @@ class CreateQtemplateProductsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('qtemplate_id')->index('qtemplates_qtemplate_products');
-            $table->foreignId('qtemplate_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('qtemplate_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer('product_id')->index('products_qtemplate_products');
+            $table->unsignedBigInteger('product_id')->index('products_qtemplate_products');
             $table->string('product_name', 191);
             $table->text('description')->nullable();
             $table->integer('quantity');
@@ -27,7 +27,7 @@ class CreateQtemplateProductsTable extends Migration
             $table->double('sub_total', 8, 2);
 
             $table->unsignedBigInteger('user_id');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

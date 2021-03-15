@@ -17,17 +17,17 @@ class CreateAppliedCouponCodesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('reservation_id');
-            $table->foreignId('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('reservation_id', 'reservations_applied_coupon_codes')->references('id')->on('reservations')->onUpdate('RESTRICT')->onDelete('RESTRICT');
             
             $table->unsignedBigInteger('coupon_id');
-            $table->foreignId('coupon_id')->constrained('coupon_masters')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('coupon_id')->constrained('coupon_masters')->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('coupon_id', 'coupon_masters_applied_coupon_codes')->references('id')->on('coupon_masters')->onUpdate('RESTRICT')->onDelete('RESTRICT');
             
             $table->unsignedBigInteger('user_id');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             // $table->foreign('user_id', 'users_applied_coupon_codes')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
            
             $table->date('date');

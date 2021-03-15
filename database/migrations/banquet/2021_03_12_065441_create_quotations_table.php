@@ -18,10 +18,10 @@ class CreateQuotationsTable extends Migration
             $table->string('quotations_number', 191);
 
             $table->unsignedBigInteger('customer_id')->index('customers_quotations');
-            $table->foreignId('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('qtemplate_id')->nullable()->index('qtemplates_quotations');
-            $table->foreignId('qtemplate_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('qtemplate_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->date('date');
             $table->date('exp_date');
@@ -29,7 +29,7 @@ class CreateQuotationsTable extends Migration
             $table->integer('sales_person_id');
 
             $table->unsignedBigInteger('sales_team_id')->index('sales_teams_quotations');
-            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->text('terms_and_conditions')->nullable();
             $table->string('status', 191);
@@ -40,13 +40,13 @@ class CreateQuotationsTable extends Migration
             $table->double('final_price', 8, 2);
           
             $table->unsignedBigInteger('user_id')->index('users_quotations');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();
 
             $table->unsignedBigInteger('opportunity_id')->index('opportunities_quotations');
-            $table->foreignId('opportunity_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('opportunity_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('is_delete_list');
             $table->integer('is_converted_list');

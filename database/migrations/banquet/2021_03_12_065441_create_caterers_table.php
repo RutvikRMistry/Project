@@ -17,7 +17,7 @@ class CreateCaterersTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_caterers');
-            $table->foreignId('event_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('day');
             $table->integer('caterers_id')->nullable();

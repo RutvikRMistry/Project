@@ -17,7 +17,7 @@ class CreateKidsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_kids');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('under_12_years', 25)->nullable();
             $table->string('under_5_years', 25)->nullable();

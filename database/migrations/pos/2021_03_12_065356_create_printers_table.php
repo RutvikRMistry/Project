@@ -17,7 +17,7 @@ class CreatePrintersTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('business_id')->index('business_printers');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name', 256);
             $table->enum('connection_type', ['network', 'windows', 'linux']);

@@ -17,7 +17,7 @@ class CreateSessionsTable extends Migration
             $table->string('id', 191)->unique();
 
             $table->unsignedBigInteger('user_id')->nullable()->index('users_sessions');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent');

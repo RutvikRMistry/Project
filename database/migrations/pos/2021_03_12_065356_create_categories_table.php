@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name', 191);
 
             $table->unsignedBigInteger('business_id')->index('business_catagories');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('short_code', 191)->nullable();
             $table->integer('parent_id');

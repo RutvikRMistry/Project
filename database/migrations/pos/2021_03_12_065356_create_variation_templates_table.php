@@ -18,7 +18,7 @@ class CreateVariationTemplatesTable extends Migration
             $table->string('name', 191);
 
             $table->unsignedBigInteger('business_id')->index('business_variation_templates');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

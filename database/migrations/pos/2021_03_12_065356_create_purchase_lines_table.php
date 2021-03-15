@@ -17,13 +17,13 @@ class CreatePurchaseLinesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('transaction_id')->index('transactions_purchase_lines');
-            $table->foreignId('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('product_id');
-            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('variation_id')->index('variations_purchase_lines');
-            $table->foreignId('variation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('variation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->decimal('quantity', 20, 4);
             $table->decimal('pp_without_discount', 20)->default(0.00)->comment('Purchase price before inline discounts');

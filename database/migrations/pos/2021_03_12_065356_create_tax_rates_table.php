@@ -17,7 +17,7 @@ class CreateTaxRatesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('business_id')->index('business_tax_rates');
-            $table->foreignId('business_id')->constrained('businesss')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('businesss')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name', 191);
             $table->double('amount', 8, 2);

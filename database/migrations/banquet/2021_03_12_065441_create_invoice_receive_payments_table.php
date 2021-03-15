@@ -17,7 +17,7 @@ class CreateInvoiceReceivePaymentsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('invoice_id')->index('invoices_invoice_receive_payments');
-            $table->foreignId('invoice_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('invoice_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->date('payment_date');
             $table->string('payment_method', 191);
@@ -26,12 +26,12 @@ class CreateInvoiceReceivePaymentsTable extends Migration
             $table->string('paykey', 191)->nullable();
 
             $table->unsignedBigInteger('user_id')->index('users_invoice_receive_payments');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('customer_id')->index('customers_invoice_receive_payments');
-            $table->foreignId('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             
         });

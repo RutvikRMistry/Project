@@ -17,7 +17,7 @@ class CreateProductRacksTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('business_id')->index('business_product_racks');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('location_id');
             $table->integer('product_id');

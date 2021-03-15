@@ -23,7 +23,7 @@ class CreateTransportationServiceTable extends Migration
             $table->string('phone');
 
             $table->unsignedBigInteger('user_id');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

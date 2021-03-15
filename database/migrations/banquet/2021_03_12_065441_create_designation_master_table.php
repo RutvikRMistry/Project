@@ -18,10 +18,10 @@ class CreateDesignationMasterTable extends Migration
             $table->string('designation_name');
 
             $table->unsignedBigInteger('department_id')->index('department_master_esignation_master');
-            $table->foreignId('department_id')->constrained('department_master')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('department_id')->constrained('department_master')->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id')->index('users_designation_master');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();

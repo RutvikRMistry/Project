@@ -25,13 +25,12 @@ class CreateBarcodesTable extends Migration
             $table->double('left_margin', 8, 2)->nullable();
             $table->double('row_distance', 8, 2)->nullable();
             $table->double('col_distance', 8, 2)->nullable();
-            $table->integer('stickers_in_one_row')->nullable();
+            $table->bigInteger('stickers_in_one_row')->nullable();
             $table->tinyInteger('is_default')->default(0);
             $table->tinyInteger('is_continuous')->default(0);
-            $table->integer('stickers_in_one_sheet')->nullable();
+            $table->bigInteger('stickers_in_one_sheet')->nullable();
 
             $table->unsignedBigInteger('business_id')->nullable()->index('business_business_barcode');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -16,8 +16,8 @@ class CreateNotesTable extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('event_id')->index('eventdetails_notes');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('event_id')->index('eventdetails_notes');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('note');
             $table->timestamps();

@@ -16,12 +16,12 @@ class CreateTransactionsTable extends Migration
         Schema::connection('mysql_front')->create('transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->unique();
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('user_id', 'users_transactions')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 
             $table->unsignedBigInteger('gateway_id')->unique();
-            $table->foreignId('gateway_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('gateway_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('gateway_id', 'gateways_transaction')->references('id')->on('gateways')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 

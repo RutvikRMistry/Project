@@ -17,7 +17,7 @@ class CreateDocumentsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->index('eventdetails_documents');
-            $table->foreignId('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name');
             $table->string('doc_type');

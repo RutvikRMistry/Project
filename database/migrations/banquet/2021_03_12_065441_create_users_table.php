@@ -25,10 +25,10 @@ class CreateUsersTable extends Migration
             $table->string('user_avatar', 191)->nullable();
 
             $table->unsignedBigInteger('department_id')->nullable()->index('department_master_users');
-            $table->foreignId('department_id')->constrained('department_master')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('department_id')->constrained('department_master')->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('designation_id')->nullable()->index('designation_master_users');
-            $table->foreignId('designation_id')->constrained('designation_master')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('designation_id')->constrained('designation_master')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('stripe_id');
             $table->timestamp('last_login')->nullable();

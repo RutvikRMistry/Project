@@ -19,7 +19,7 @@ class CreateEquipmentTable extends Migration
             $table->integer('price')->nullable();
 
             $table->unsignedBigInteger('user_id')->index('users_equipment');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

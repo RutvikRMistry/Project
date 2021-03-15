@@ -33,7 +33,7 @@ class CreateDecoratorsTable extends Migration
             $table->text('approval');
 
             $table->unsignedBigInteger('user_id')->index('users_decorators');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

@@ -16,7 +16,7 @@ class CreateModelHasPermissionsTable extends Migration
         Schema::connection('mysql_pos')->create('model_has_permissions', function (Blueprint $table) {
 
             $table->unsignedBigInteger('permission_id')->index('permissions_model_has_permissions');
-            $table->foreignId('permission_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('permission_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('model_id');
             $table->string('model_type', 191);

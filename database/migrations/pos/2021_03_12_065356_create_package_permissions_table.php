@@ -17,13 +17,13 @@ class CreatePackagePermissionsTable extends Migration
             $table->integer('id');
 
             $table->unsignedBigInteger('package_id');
-            $table->foreignId('package_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('package_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id')->index('users_package_permissions');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('business_id')->index('business_package_permissions');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->date('start_date');
             $table->date('end_date');

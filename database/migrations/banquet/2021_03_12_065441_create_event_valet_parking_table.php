@@ -17,12 +17,12 @@ class CreateEventValetParkingTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_event_valet_parking');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('day');
 
             $table->unsignedBigInteger('parking_id')->nullable()->index('parking_event_valet_parking');
-            $table->foreignId('parking_id')->constrained('parking')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('parking_id')->constrained('parking')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

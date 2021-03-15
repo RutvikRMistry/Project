@@ -18,7 +18,7 @@ class CreateHotelsTable extends Migration
             $table->string('name', 100);
 
             $table->unsignedBigInteger('user_id')->index('users_hotels');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();

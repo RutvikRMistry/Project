@@ -17,7 +17,7 @@ class CreateAddtasksTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->index('eventdetails_addtasks');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('task_description');
             $table->string('assigned_to');

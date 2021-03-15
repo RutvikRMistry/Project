@@ -20,7 +20,7 @@ class CreateOptionsTable extends Migration
             $table->string('value', 191);
 
             $table->unsignedBigInteger('user_id')->index('users_options');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
         });
     }

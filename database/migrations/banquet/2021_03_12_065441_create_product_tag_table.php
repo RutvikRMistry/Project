@@ -16,10 +16,10 @@ class CreateProductTagTable extends Migration
         Schema::create('product_tag', function (Blueprint $table) {
 
             $table->unsignedBigInteger('product_id')->index('products_product_tag');
-            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('tag_id');
-            $table->foreignId('tag_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('tag_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

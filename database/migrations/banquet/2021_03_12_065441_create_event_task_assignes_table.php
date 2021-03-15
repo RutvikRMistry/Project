@@ -17,17 +17,17 @@ class CreateEventTaskAssignesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->index('eventdetails_event_task_assignes');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('assignes_id');
-            $table->foreignId('assignes_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('assignes_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamp('dead_line')->useCurrent();
             $table->string('priority');
             $table->string('description');
-            $table->timestamp('created_at')->default('0000-00-00 00:00:00');
+            $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->default('0000-00-00 00:00:00');
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

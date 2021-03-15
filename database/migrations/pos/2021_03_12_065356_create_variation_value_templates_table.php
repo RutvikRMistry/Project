@@ -18,7 +18,7 @@ class CreateVariationValueTemplatesTable extends Migration
             $table->string('name', 191);
 
             $table->unsignedBigInteger('variation_template_id')->index('variation_templates_variation_value_templates');
-            $table->foreignId('variation_template_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('variation_template_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -17,24 +17,24 @@ class CreateTransactionsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('business_id')->index('business_transactions');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer('location_id');
+            $table->unsignedBigInteger('location_id');
             $table->unsignedBigInteger('res_table_id')->nullable()->index('res_table_id_transactions')->comment('fields to restaurant module');
-            $table->foreignId('res_table_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('res_table_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer('res_waiter_id')->nullable()->comment('fields to restaurant module');
+            $table->unsignedBigInteger('res_waiter_id')->nullable()->comment('fields to restaurant module');
             $table->enum('res_order_status', ['received', 'cooked', 'served'])->nullable();
             $table->enum('type', ['purchase', 'sell', 'expense', 'stock_adjustment', 'sell_transfer', 'purchase_transfer', 'opening_stock', 'sell_return', 'opening_balance'])->nullable();
             $table->enum('status', ['received', 'pending', 'ordered', 'draft', 'final']);
             $table->tinyInteger('is_quotation')->default(0);
             $table->enum('payment_status', ['paid', 'due', 'partial'])->nullable();
             $table->enum('adjustment_type', ['normal', 'abnormal'])->nullable();
-            $table->integer('contact_id')->index('contacts_transactions');
-            $table->foreignId('contact_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('contact_id')->index('contacts_transactions');
+            // $table->foreign('contact_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('customer_group_id')->nullable()->index('customer_groups_transactions')->comment('used to add customer group while selling');
-            $table->foreignId('customer_group_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('customer_group_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('invoice_no', 191)->nullable();
             $table->string('ref_no', 191)->nullable();

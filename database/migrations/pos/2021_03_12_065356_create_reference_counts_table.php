@@ -19,7 +19,7 @@ class CreateReferenceCountsTable extends Migration
             $table->integer('ref_count');
 
             $table->unsignedBigInteger('business_id')->index('reference_counts');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -16,8 +16,8 @@ class CreateUserLoginTable extends Migration
         Schema::create('user_login', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('user_id')->index('users_user_login');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->index('users_user_login');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('ip_address', 191);
             $table->timestamps();

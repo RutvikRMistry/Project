@@ -17,8 +17,8 @@ class CreatePaysTable extends Migration
             $table->id();
             $table->string('select_payment_method');
 
-            $table->integer('user_id')->index('users_pays');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->index('users_pays');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

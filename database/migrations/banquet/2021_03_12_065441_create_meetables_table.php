@@ -19,10 +19,10 @@ class CreateMeetablesTable extends Migration
             $table->string('meetable_type', 191);
 
             $table->unsignedBigInteger('meeting_id')->index('meetings_meetables');
-            $table->foreignId('meeting_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('meeting_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id')->index('users_meetables');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
         });
     }

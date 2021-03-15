@@ -76,7 +76,7 @@ class CreateInvoiceLayoutsTable extends Migration
             $table->tinyInteger('is_default')->default(0);
 
             $table->unsignedBigInteger('business_id')->index('business_invoice_layouts');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('design', 256)->nullable()->default('classic');
             $table->string('cn_heading', 191)->nullable()->comment('cn = credit note');

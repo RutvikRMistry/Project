@@ -17,7 +17,7 @@ class CreateThrottleTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('user_id')->nullable()->index('users_users_throttle');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('type', 191);
             $table->string('ip', 191)->nullable();

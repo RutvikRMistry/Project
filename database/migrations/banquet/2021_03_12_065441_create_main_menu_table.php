@@ -21,7 +21,7 @@ class CreateMainMenuTable extends Migration
             $table->string('tables', 50)->nullable();
 
             $table->unsignedBigInteger('user_id')->index('users_main_menu');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

@@ -18,10 +18,10 @@ class CreateTransactionSellLinesPurchaseLinesTable extends Migration
             $table->integer('sell_line_id')->nullable()->comment('id from transaction_sell_lines');
 
             $table->unsignedBigInteger('stock_adjustment_line_id')->nullable()->index('stock_adjustment_lines_transaction_sell_lines_purchase_lines')->comment('id from stock_adjustment_lines');
-            $table->foreignId('stock_adjustment_line_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('stock_adjustment_line_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('purchase_line_id')->index('purchase_lines_transaction_sell_lines_purchase_lines')->comment('id from purchase_lines');
-            $table->foreignId('purchase_line_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('purchase_line_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->decimal('quantity', 20, 4);
             $table->timestamps();

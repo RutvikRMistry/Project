@@ -15,7 +15,7 @@ class CreateModelHasRolesTable extends Migration
     {
         Schema::connection('mysql_pos')->create('model_has_roles', function (Blueprint $table) {
             $table->unsignedBigInteger('role_id')->index('roles_model_has_roles');
-            $table->foreignId('role_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('role_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('model_id');
             $table->string('model_type', 191);

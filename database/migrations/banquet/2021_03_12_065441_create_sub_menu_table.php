@@ -17,7 +17,7 @@ class CreateSubMenuTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('main_menu_id')->index('main_menu_sub_menu');
-            $table->foreignId('main_menu_id')->constrained('main_menu')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('main_menu_id')->constrained('main_menu')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('menu_type');
             $table->string('name');
@@ -27,7 +27,7 @@ class CreateSubMenuTable extends Migration
             $table->string('times', 50)->nullable();
 
             $table->unsignedBigInteger('user_id')->index('users_sub_menu');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

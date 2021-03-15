@@ -17,7 +17,7 @@ class CreateRoomTypeImagesTable extends Migration
             $table->id();
             $table->string('image', 191);
             $table->unsignedBigInteger('room_type_id')->index('room_types_room_type_images');
-            $table->foreignId('room_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('room_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('room_type_id', 'room_types_room_type_images')->references('id')->on('room_types')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 

@@ -20,12 +20,12 @@ class CreateCallsTable extends Migration
             $table->integer('duration');
 
             $table->unsignedBigInteger('company_id')->index('companies_calls');
-            $table->foreignId('company_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('company_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('resp_staff_id');
 
             $table->unsignedBigInteger('user_id')->index('users_calls');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

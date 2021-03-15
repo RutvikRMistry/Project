@@ -19,7 +19,7 @@ class CreateCateringServiceTypeTable extends Migration
             $table->integer('counters');
 
             $table->unsignedBigInteger('user_id')->index('users_catering_service_type');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

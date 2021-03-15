@@ -18,17 +18,17 @@ class CreateLeadsTable extends Migration
             $table->string('company_name', 191)->nullable();
 
             $table->unsignedBigInteger('country_id')->index('countries_leads');
-            $table->foreignId('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('state_id')->nullable()->index('statesleads');
-            $table->foreignId('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('city_id')->nullable()->index('cities_leads');
-            $table->foreignId('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('sales_person_id')->nullable();
             $table->unsignedBigInteger('sales_team_id')->index('sales_teams_leads');
-            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('email', 191);
             $table->string('event_type', 191);
@@ -36,7 +36,7 @@ class CreateLeadsTable extends Migration
             $table->string('priority', 191)->nullable();
           
             $table->unsignedBigInteger('user_id')->index('users_leads');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

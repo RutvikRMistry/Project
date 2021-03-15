@@ -19,7 +19,7 @@ class CreateOpportunitiesTable extends Migration
             $table->string('stages', 191);
 
             $table->unsignedBigInteger('customer_id')->index('customers_opportunities');
-            $table->foreignId('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->double('expected_revenue');
             $table->string('probability', 191);
@@ -29,7 +29,7 @@ class CreateOpportunitiesTable extends Migration
             $table->integer('sales_person_id');
 
             $table->unsignedBigInteger('sales_team_id')->index('sales_teams_opportunities');
-            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->date('next_action');
             $table->string('next_action_title', 191);
@@ -41,7 +41,7 @@ class CreateOpportunitiesTable extends Migration
             $table->integer('assigned_partner_id')->nullable();
            
             $table->unsignedBigInteger('user_id')->index('users_opportunities');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

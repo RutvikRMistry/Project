@@ -15,10 +15,10 @@ class CreateRoleHasPermissionsTable extends Migration
     {
         Schema::connection('mysql_pos')->create('role_has_permissions', function (Blueprint $table) {
             $table->unsignedBigInteger('permission_id')->index('permissions_role_has_permissions');
-            $table->foreignId('permission_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('permission_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('role_id')->index('roles_role_has_permissions');
-            $table->foreignId('role_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('role_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
         });
     }

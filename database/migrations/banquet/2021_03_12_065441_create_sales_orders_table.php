@@ -18,10 +18,10 @@ class CreateSalesOrdersTable extends Migration
             $table->string('sale_number', 191);
 
             $table->unsignedBigInteger('customer_id')->index('customers_sales_orders');
-            $table->foreignId('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('qtemplate_id')->nullable()->index('qtemplates_sales_orders');
-            $table->foreignId('qtemplate_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('qtemplate_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->date('date');
             $table->date('exp_date');
@@ -29,7 +29,7 @@ class CreateSalesOrdersTable extends Migration
             $table->integer('sales_person_id');
 
             $table->unsignedBigInteger('sales_team_id')->index('sales_teams_sales_orders');
-            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->text('terms_and_conditions')->nullable();
             $table->string('status', 191);
@@ -40,13 +40,13 @@ class CreateSalesOrdersTable extends Migration
             $table->double('final_price', 8, 2);
            
             $table->unsignedBigInteger('user_id')->index('users_sales_orders');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();
            
-            $table->integer('quotation_id')->index('quotations_sales_orders');
-            $table->foreignId('quotation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('quotation_id')->index('quotations_sales_orders');
+            //$table->foreignid('quotation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('is_delete_list');
             $table->integer('is_invoice_list');

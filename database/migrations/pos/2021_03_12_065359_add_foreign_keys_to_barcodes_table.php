@@ -28,5 +28,5 @@ class AddForeignKeysToBarcodesTable extends Migration
         Schema::connection('mysql_pos')->table('barcodes', function (Blueprint $table) {
             $table->dropForeign('business_business_barcode');
         });
-    }
+     }
 }

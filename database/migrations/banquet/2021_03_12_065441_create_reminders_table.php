@@ -17,7 +17,7 @@ class CreateRemindersTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('user_id')->index('users_reminders');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('code', 191);
             $table->tinyInteger('completed')->default(0);

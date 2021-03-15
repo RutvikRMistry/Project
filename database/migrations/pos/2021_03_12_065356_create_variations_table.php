@@ -18,7 +18,7 @@ class CreateVariationsTable extends Migration
             $table->string('name', 191);
 
             $table->unsignedBigInteger('product_id');
-            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('sub_sku', 191)->nullable();
             $table->timestamps();

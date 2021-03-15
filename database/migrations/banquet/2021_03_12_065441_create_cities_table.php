@@ -18,7 +18,7 @@ class CreateCitiesTable extends Migration
             $table->string('name', 191);
 
             $table->unsignedBigInteger('state_id')->index('statescities');
-            $table->foreignId('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

@@ -18,12 +18,12 @@ class CreateMenuTable extends Migration
             $table->string('name');
 
             $table->unsignedBigInteger('main_menu_id')->index('main_menu_menu');
-            $table->foreignId('main_menu_id')->constrained('main_menu')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('main_menu_id')->constrained('main_menu')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('menu_type');
 
             $table->unsignedBigInteger('sub_menu_id')->index('sub_menu_menu');
-            $table->foreignId('sub_menu_id')->constrained('sub_menu_id')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('sub_menu_id')->constrained('sub_menu_id')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('description');
             $table->string('status');
@@ -33,7 +33,7 @@ class CreateMenuTable extends Migration
             $table->string('additional');
 
             $table->unsignedBigInteger('user_id')->index('users_menu');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

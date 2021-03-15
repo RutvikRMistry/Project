@@ -17,12 +17,12 @@ class CreateEventRoomsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('hotel_id')->index('hotels_event_rooms');
-            $table->foreignId('hotel_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('hotel_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('room_name', 100);
 
             $table->unsignedBigInteger('user_id')->index('users_event_rooms');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

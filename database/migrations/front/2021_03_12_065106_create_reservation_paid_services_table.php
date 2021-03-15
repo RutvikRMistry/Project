@@ -16,13 +16,13 @@ class CreateReservationPaidServicesTable extends Migration
         Schema::connection('mysql_front')->create('reservation_paid_services', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('reservation_id')->index('reservations_reservation_paid_services');
-            $table->foreignId('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('reservation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('reservation_id', 'reservations_reservation_paid_services')->references('id')->on('reservations')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 
             $table->date('date')->nullable();
             $table->unsignedBigInteger('paid_service_id')->index('paid_services_reservation_paid_services');
-            $table->foreignId('paid_service_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('paid_service_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('paid_service_id', 'paid_services_reservation_paid_services')->references('id')->on('paid_services')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 

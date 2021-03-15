@@ -17,13 +17,13 @@ class CreateContactusesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_contactuses');
-            $table->foreignId('event_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('expected_guest', 25)->nullable();
             $table->string('guarnteed_guest', 25)->nullable();
 
             $table->unsignedBigInteger('type_event_id')->nullable()->index('type_event_contactuses');
-            $table->foreignId('type_event_id')->constrained('type_event')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('type_event_id')->constrained('type_event')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('manager')->nullable();
             $table->timestamps();

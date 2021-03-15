@@ -17,7 +17,7 @@ class CreateSubscriptionsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('user_id')->index('users_subscriptions');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name', 191);
             $table->integer('stripe_id');

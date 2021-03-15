@@ -17,7 +17,7 @@ class CreateSetuptearsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->index('eventdetails_setuptears');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('setup');
             $table->string('teardown');

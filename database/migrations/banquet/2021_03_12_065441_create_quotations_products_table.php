@@ -17,10 +17,10 @@ class CreateQuotationsProductsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('quotation_id')->index('quotations_quotations_products');
-            $table->foreignId('quotation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('quotation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('product_id')->index('products_quotations_products');
-            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('product_name', 191);
             $table->text('description')->nullable();

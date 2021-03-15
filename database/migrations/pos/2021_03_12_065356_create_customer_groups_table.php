@@ -17,7 +17,7 @@ class CreateCustomerGroupsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('business_id')->index('business_customer_groups');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name', 191);
             $table->double('amount', 5, 2);

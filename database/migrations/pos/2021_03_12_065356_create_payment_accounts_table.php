@@ -17,7 +17,7 @@ class CreatePaymentAccountsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('business_id')->index('business_payment_accounts');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name', 191);
             $table->string('type', 191);

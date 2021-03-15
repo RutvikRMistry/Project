@@ -18,18 +18,18 @@ class CreateProductsTable extends Migration
             $table->string('name', 191);
 
             $table->unsignedBigInteger('business_id')->index('business_products');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->enum('type', ['single', 'variable', 'modifier'])->nullable();
 
             $table->unsignedBigInteger('unit_id')->nullable()->index('units_products');
-            $table->foreignId('unit_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('unit_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('brand_id')->nullable()->index('brandsproducts');
-            $table->foreignId('brand_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('brand_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('category_id')->nullable()->index('categories_products');
-            $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('sub_category_id')->nullable();
             $table->integer('tax')->nullable();

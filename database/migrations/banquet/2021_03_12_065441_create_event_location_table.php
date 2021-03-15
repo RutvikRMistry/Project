@@ -25,7 +25,7 @@ class CreateEventLocationTable extends Migration
             $table->string('location_rent')->nullable();
 
             $table->unsignedBigInteger('user_id')->index('users_event_location');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();

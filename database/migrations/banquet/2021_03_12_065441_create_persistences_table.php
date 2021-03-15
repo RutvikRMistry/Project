@@ -16,8 +16,8 @@ class CreatePersistencesTable extends Migration
         Schema::create('persistences', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('user_id')->index('users_persistences');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->index('users_persistences');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             
             $table->string('code', 191)->unique();

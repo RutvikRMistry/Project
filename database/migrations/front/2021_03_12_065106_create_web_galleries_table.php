@@ -18,7 +18,7 @@ class CreateWebGalleriesTable extends Migration
 
             $table->string('image', 191)->nullable();
             $table->unsignedBigInteger('category_id')->nullable()->index('categories_web_galleries');
-            $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('category_id', 'categories_web_galleries')->references('id')->on('categories')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 

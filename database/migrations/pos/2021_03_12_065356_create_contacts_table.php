@@ -17,7 +17,7 @@ class CreateContactsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('business_id')->index('business_contacts');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->enum('type', ['supplier', 'customer', 'both']);
             $table->string('supplier_business_name', 191)->nullable();
@@ -39,7 +39,7 @@ class CreateContactsTable extends Migration
             $table->tinyInteger('is_default')->default(0);
 
             $table->unsignedBigInteger('customer_group_id')->nullable()->index('customer_groups_contacts');
-            $table->foreignId('customer_group_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('customer_group_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('custom_field1', 191)->nullable();
             $table->string('custom_field2', 191)->nullable();

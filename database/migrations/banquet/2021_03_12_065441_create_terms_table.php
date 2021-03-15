@@ -26,7 +26,7 @@ class CreateTermsTable extends Migration
             $table->text('service_fees')->nullable();
 
             $table->unsignedBigInteger('user_id')->index('users_terms');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

@@ -17,13 +17,13 @@ class CreateEventMenuTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->index('eventdetails_event_menu');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('day');
             $table->string('type', 50);
 
             $table->unsignedBigInteger('sub_menu_id')->nullable();
-            $table->foreignId('sub_menu_id')->constrained('sub_menu')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('sub_menu_id')->constrained('sub_menu')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('menu_items')->nullable();
             $table->string('price');

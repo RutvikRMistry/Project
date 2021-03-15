@@ -17,7 +17,7 @@ class CreateInviteUserTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('user_id')->index('users_invite_user');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('code', 191);
             $table->string('email', 191);

@@ -17,15 +17,15 @@ class CreateEventTimesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('lead_id')->nullable()->index('leads_event_times');
-            $table->foreignId('lead_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('lead_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('event_id')->nullable()->index('eventdetails_event_times');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('occasion', 100)->nullable();
 
             $table->unsignedBigInteger('location_id')->nullable()->index('event_location_event_times');
-            $table->foreignId('location_id')->constrained('event_location')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('location_id')->constrained('event_location')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('location_rent')->nullable();
             $table->date('date');

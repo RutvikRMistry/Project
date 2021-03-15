@@ -17,7 +17,7 @@ class CreateUnitsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('business_id')->index('business_units');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('actual_name', 191);
             $table->string('short_name', 191);

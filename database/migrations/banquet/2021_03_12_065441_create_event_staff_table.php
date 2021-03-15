@@ -17,12 +17,12 @@ class CreateEventStaffTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->index('eventdetails_event_staff');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('staff_id');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->default('0000-00-00 00:00:00');
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

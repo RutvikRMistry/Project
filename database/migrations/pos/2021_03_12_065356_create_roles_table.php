@@ -19,7 +19,7 @@ class CreateRolesTable extends Migration
             $table->string('guard_name', 191);
 
             $table->unsignedBigInteger('business_id')->index('business_roles');
-            $table->foreignId('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('business_id')->constrained('business')->onUpdate('cascade')->onDelete('cascade');
 
             $table->tinyInteger('is_default')->default(0);
             $table->tinyInteger('is_service_staff')->default(0);

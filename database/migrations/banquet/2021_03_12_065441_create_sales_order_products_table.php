@@ -17,10 +17,10 @@ class CreateSalesOrderProductsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('order_id')->index('sales_orders_sales_order_products');
-            $table->foreignId('order_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('order_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('product_id')->index('products_sales_order_products');
-            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('product_name', 191);
             $table->text('description')->nullable();

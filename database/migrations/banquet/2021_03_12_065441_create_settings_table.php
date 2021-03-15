@@ -33,7 +33,7 @@ class CreateSettingsTable extends Migration
             $table->string('email_password')->nullable();
 
             $table->unsignedBigInteger('user_id')->index('users_settings');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

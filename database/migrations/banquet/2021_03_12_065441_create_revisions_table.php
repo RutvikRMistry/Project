@@ -18,8 +18,8 @@ class CreateRevisionsTable extends Migration
             $table->string('revisionable_type', 191);
             $table->integer('revisionable_id');
 
-            $table->unsignedBigIntegers('user_id')->nullable()->index('users_revisions');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable()->index('users_revisions');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('key', 191);
             $table->text('old_value')->nullable();

@@ -28,7 +28,7 @@ class CreateMeetingsTable extends Migration
             $table->string('duration', 191)->nullable();
 
             $table->unsignedBigInteger('user_id')->index('users_meetings');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

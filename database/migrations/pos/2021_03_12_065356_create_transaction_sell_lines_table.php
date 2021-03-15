@@ -17,13 +17,13 @@ class CreateTransactionSellLinesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('transaction_id')->index('transactions_transaction_sell_lines');
-            $table->foreignId('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('product_id');
-            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('variation_id')->index('variations_transaction_sell_lines');
-            $table->foreignId('variation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('variation_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->decimal('quantity', 20, 4);
             $table->decimal('unit_price_before_discount', 20)->default(0.00);

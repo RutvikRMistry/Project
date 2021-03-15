@@ -19,12 +19,12 @@ class CreateReservationsTable extends Migration
             $table->tinyInteger('online')->nullable()->default(0);
             $table->timestamp('date')->useCurrent();
             $table->unsignedBigInteger('user_id')->unique();
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('user_id', 'users_resverstions')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 
             $table->unsignedBigInteger('room_type_id')->unique();
-            $table->foreignId('room_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('room_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('room_type_id', 'room_types_reservation')->references('id')->on('room_types')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 

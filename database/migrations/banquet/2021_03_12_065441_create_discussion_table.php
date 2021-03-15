@@ -17,7 +17,7 @@ class CreateDiscussionTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->index('eventdetails_discussion');
-            $table->foreignId('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('dis_with', 100);
             $table->string('subject');

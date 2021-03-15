@@ -21,7 +21,7 @@ class CreateNotificationsTable extends Migration
             $table->string('type', 191);
 
             $table->unsignedBigInteger('user_id')->index('users_notifications');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -17,7 +17,7 @@ class CreateEatingTimesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->index('eventdetails_eating_times');
-            $table->foreignId('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdatails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('day');
             $table->string('service_time', 50)->nullable();

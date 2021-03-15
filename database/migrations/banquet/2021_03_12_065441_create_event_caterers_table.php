@@ -41,8 +41,8 @@ class CreateEventCaterersTable extends Migration
             $table->text('indemnification')->nullable();
             $table->text('binding_arbitration')->nullable();
 
-            $table->integer('user_id')->index('users_event_caterers');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->index('users_event_caterers');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

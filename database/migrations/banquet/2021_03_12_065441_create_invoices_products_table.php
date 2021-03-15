@@ -17,10 +17,10 @@ class CreateInvoicesProductsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('invoice_id')->index('invoices_invoices_products');
-            $table->foreignId('invoice_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('invoice_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('product_id');
-            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('product_name', 191);
             $table->text('description')->nullable();

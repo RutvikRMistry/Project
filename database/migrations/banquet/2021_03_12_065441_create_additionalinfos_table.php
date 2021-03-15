@@ -17,7 +17,7 @@ class CreateAdditionalinfosTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->index('eventdetails_additional_info');
-            $table->foreignId('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('event_id')->constrained('eventdetails')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('message');
             $table->timestamps();

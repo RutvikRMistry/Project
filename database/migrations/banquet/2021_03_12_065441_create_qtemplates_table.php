@@ -24,7 +24,7 @@ class CreateQtemplatesTable extends Migration
             $table->double('grand_total', 8, 2);
 
             $table->unsignedBigInteger('user_id')->index('users_qtemplates');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

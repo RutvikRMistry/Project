@@ -18,7 +18,7 @@ class CreateTypeEventTable extends Migration
             $table->string('name');
 
             $table->unsignedBigInteger('user_id')->index('users_type_event');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();

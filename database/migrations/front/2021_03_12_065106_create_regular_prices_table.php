@@ -16,7 +16,7 @@ class CreateRegularPricesTable extends Migration
         Schema::connection('mysql_front')->create('regular_prices', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('room_type_id')->index('room_types_regular_prices');
-            $table->foreignId('room_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('room_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->foreign('room_type_id', 'room_types_regular_prices')->references('id')->on('room_types')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 

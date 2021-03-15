@@ -17,7 +17,7 @@ class CreateMenuTypeTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('main_menu_id')->index('main_menu_menu_type');
-            $table->foreignId('main_menu_id')->constrained('main_menu_id')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('main_menu_id')->constrained('main_menu_id')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name');
             $table->string('description')->nullable();
@@ -25,7 +25,7 @@ class CreateMenuTypeTable extends Migration
             $table->integer('price_per_person')->nullable();
 
             $table->unsignedBigInteger('user_id')->index('users_menu_type');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

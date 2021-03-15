@@ -31,22 +31,22 @@ class CreateCompaniesTable extends Migration
             $table->integer('main_contact_person');
 
             $table->unsignedBigInteger('sales_team_id')->index('sales_teams_companies');
-            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('country_id')->index('countries_companies');
-            $table->foreignId('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('state_id')->nullable()->index('statescompanies');
-            $table->foreignId('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('city_id')->nullable()->index('cities_companies');
-            $table->foreignId('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('longitude', 191);
             $table->string('latitude', 191);
 
             $table->unsignedBigInteger('user_id')->index('users_companies');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

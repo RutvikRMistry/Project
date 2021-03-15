@@ -17,7 +17,7 @@ class CreateTransactionPaymentsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('transaction_id')->nullable()->index('transactions_transaction_payments');
-            $table->foreignId('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('transaction_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->tinyInteger('is_return')->default(0)->comment('Used during sales to return the change');
             $table->decimal('amount', 20)->default(0.00);

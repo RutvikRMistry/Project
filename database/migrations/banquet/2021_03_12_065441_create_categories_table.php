@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name', 191);
 
             $table->unsignedBigInteger('user_id')->index('users_categories');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

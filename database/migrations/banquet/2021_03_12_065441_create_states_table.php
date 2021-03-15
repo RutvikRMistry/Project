@@ -18,7 +18,7 @@ class CreateStatesTable extends Migration
             $table->string('name', 191);
 
             $table->unsignedBigInteger('country_id')->index('countries_states');
-            $table->foreignId('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

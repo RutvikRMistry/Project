@@ -19,10 +19,10 @@ class CreateCallablesTable extends Migration
             $table->string('callable_type', 191);
 
             $table->unsignedBigInteger('call_id')->index('calls_callables');
-            $table->foreignId('call_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('call_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id')->index('users_callables');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
         });
     }

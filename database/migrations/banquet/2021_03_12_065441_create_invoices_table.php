@@ -17,14 +17,14 @@ class CreateInvoicesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('order_id')->index('sales_orders_invoices');
-            $table->foreignId('order_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('order_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('customer_id')->index('customers_invoices');
-            $table->foreignId('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('sales_person_id');
             $table->unsignedBigInteger('sales_team_id')->index('sales_teams_invoices');
-            $table->foreignId('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('sales_team_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('invoice_number', 191);
             $table->date('invoice_date');
@@ -39,14 +39,14 @@ class CreateInvoicesTable extends Migration
             $table->double('final_price', 8, 2);
            
             $table->unsignedBigInteger('user_id')->index('users_invoices');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignid('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();
             $table->integer('is_delete_list');
 
-            $table->integer('qtemplate_id')->index('qtemplates_invoices');
-            $table->foreignId('qtemplate_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('qtemplate_id')->index('qtemplates_invoices');
+            //$table->foreignid('qtemplate_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
         });
     }
