@@ -43,7 +43,7 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mysql_front' => [
+        'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST_front', '127.0.0.1'),
@@ -68,7 +68,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST_pos', '127.0.0.1'),
             'port' => env('DB_PORT_pos', '3306'),
-            'database' => env('DB_DATABASE_pos', 'pos2'),
+            'database' => env('DB_DATABASE_pos', 'pos'),
             'username' => env('DB_USERNAME_pos', 'root'),
             'password' => env('DB_PASSWORD_pos', ''),
             'unix_socket' => env('DB_SOCKET', ''),
@@ -83,7 +83,7 @@ return [
             ]) : [],
         ],
 
-        'mysql' => [
+        'mysql_banquet' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
