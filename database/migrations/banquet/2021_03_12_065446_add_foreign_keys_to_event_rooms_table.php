@@ -14,8 +14,8 @@ class AddForeignKeysToEventRoomsTable extends Migration
     public function up()
     {
         Schema::table('event_rooms', function (Blueprint $table) {
-            $table->foreign('hotel_id', 'hotels_event_rooms')->references('id')->on('hotels')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('user_id', 'users_event_rooms')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('hotel_id', 'hotels_event_rooms')->references('id')->on('hotels')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id', 'users_event_rooms')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

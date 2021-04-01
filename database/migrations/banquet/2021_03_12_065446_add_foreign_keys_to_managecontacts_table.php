@@ -14,7 +14,7 @@ class AddForeignKeysToManagecontactsTable extends Migration
     public function up()
     {
         Schema::table('managecontacts', function (Blueprint $table) {
-            $table->foreign('event_id', 'eventdetails_managecontacts')->references('id')->on('eventdetails')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('event_id', 'eventdetails_managecontacts')->references('id')->on('eventdetails')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

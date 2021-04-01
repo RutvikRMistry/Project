@@ -29,7 +29,7 @@ if ( ! function_exists('get_formated_currency') )
     {
         $value =  get_formated_decimal($value, $decimal ? false : true, $decimal);
 
-        if (\App\Models\Setting::getItem('currency_position') == 'left')
+        if (\App\Model\Setting::getItem('currency_position') == 'left')
             return get_formated_currency_symbol() . $value;
 
         return $value . get_formated_currency_symbol();
@@ -49,7 +49,7 @@ if ( ! function_exists('get_formated_superadmin_currency') )
     {
         $value =  get_formated_decimal($value, $decimal ? false : true, $decimal);
 
-        if (\App\Models\Setting::getItem('currency_position') == 'left')
+        if (\App\Model\Setting::getItem('currency_position') == 'left')
             return get_formated_currency_symbol() . $value;
 
         return $value . get_formated_currency_symbol();
@@ -95,7 +95,7 @@ if ( ! function_exists('get_formated_currency_symbol') )
 {
     function get_formated_currency_symbol()
     {
-        $currency = \App\Models\Currency::where('id',\App\Models\Setting::getItem('currency'))->first();
+        $currency = \App\Model\Currency::where('id',\App\Model\Setting::getItem('currency'))->first();
         if($currency) {
             return $currency->symbol;
         }
@@ -107,7 +107,7 @@ if ( ! function_exists('get_superadmin_formated_currency_symbol') )
 {
     function get_superadmin_formated_currency_symbol()
     {
-        $currency = \App\Models\Currency::where('id',\App\Models\Setting::getSuperAdminItem('currency'))->first();
+        $currency = \App\Model\Currency::where('id',\App\Model\Setting::getSuperAdminItem('currency'))->first();
         if($currency) {
             return $currency->symbol;
         }
@@ -137,7 +137,7 @@ if ( ! function_exists('get_formated_date') )
 {
     function get_formated_date($date)
     {
-        $date_formate = \App\Models\Setting::getItem('date_format');
+        $date_formate = \App\Model\Setting::getItem('date_format');
         $date_formate = date($date_formate,strtotime($date));
         return $date_formate;
     }
@@ -148,7 +148,7 @@ if ( ! function_exists('get_formated_time') )
     function get_formated_time($time,$format = "H:i A")
     {
         $create_time_object = date_create_from_format($format,$time);
-        $time_formate = \App\Models\Setting::getItem('time_format');
+        $time_formate = \App\Model\Setting::getItem('time_format');
         $time_formate = $create_time_object->format($time_formate);
         return $time_formate;
     }

@@ -74,7 +74,7 @@
 								  data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
 							   <a href="javascript:void(0);" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
 								  data-toggle="tooltip" data-original-title="Remove"onclick="deleteBlog({{$sales_team->id}},'{{route('backend.admin.banquet.sttings.sales_team.delete',$sales_team->id)}}');"><i class="icon wb-trash" aria-hidden="true"></i></a>
-							   <a href="{{route('backend.admin.banquet.sttings.sales_team.view',1)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+							   <a href="{{route('backend.admin.banquet.sttings.sales_team.view',$sales_team->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
 								  data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
 							</td>
 						 </tr>

@@ -34,6 +34,6 @@ class Amenity extends Model
      */
     public function roomTypePivotAmenities()
     {
-        return $this->hasMany('App\Models\Front\RoomTypePivotAmenity');
+        return $this->hasMany('App\Model\Front\RoomTypePivotAmenity');
     }
 }

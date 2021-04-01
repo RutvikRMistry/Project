@@ -86,8 +86,8 @@
 								  data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
 							   <a href="javascript:void(0);" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
 								data-toggle="tooltip" data-original-title="Remove" onclick="deleteBlog({{$option->id}},'{{route('backend.admin.banquet.sttings.option.delete',$option->id)}}');"><i class="icon wb-trash" aria-hidden="true"></i></a>
-							   <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
-								  data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
+							   <!-- <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+								  data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a> -->
 							</td>
 						 </tr>
 					@endforeach

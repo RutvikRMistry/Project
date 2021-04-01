@@ -14,7 +14,7 @@ class AddForeignKeysToFinacialsTable extends Migration
     public function up()
     {
         Schema::table('finacials', function (Blueprint $table) {
-            $table->foreign('event_id', 'eventdetails_finacials')->references('id')->on('eventdetails')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('event_id', 'eventdetails_finacials')->references('id')->on('eventdetails')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -14,7 +14,7 @@ class AddForeignKeysToLeadsourcesTable extends Migration
     public function up()
     {
         Schema::table('leadsources', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_leadsources')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_leadsources')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

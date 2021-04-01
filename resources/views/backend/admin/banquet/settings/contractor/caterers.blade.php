@@ -56,24 +56,24 @@
                      </tr>
                   </thead>
                   <tbody>
-					@foreach($cater as $cat)
+					@foreach($cater as $cater)
 						 <tr>
-							<td>{{$cat->name}}</td>
-							<td>{{$cat->address}}</td>
-							<td>{{$cat->phone}}</td>
-							<td>{{$cat->email}}</td>
+							<td>{{$cater->name}}</td>
+							<td>{{$cater->address}}</td>
+							<td>{{$cater->phone}}</td>
+							<td>{{$cater->email}}</td>
 							<td class="actions">
 							   <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
 								  data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
 							   <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
 								  data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-							   <a href="{{route('backend.admin.banquet.sttings.contractor.caterer.edit',$cat->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+							   <a href="{{route('backend.admin.banquet.sttings.contractor.caterer.edit',$cater->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
 								  data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
 							   <a href="javascript:void(0);" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
-									data-toggle="tooltip" data-original-title="Remove" onclick="deleteBlog({{$cat->id}},'{{route('backend.admin.banquet.sttings.contractor.caterer.delete',$cat->id)}}');"><i class="icon wb-trash" aria-hidden="true"></i></a>
+									data-toggle="tooltip" data-original-title="Remove" onclick="deleteBlog({{$cater->id}},'{{route('backend.admin.banquet.sttings.contractor.caterer.delete',$cater->id)}}');"><i class="icon wb-trash" aria-hidden="true"></i></a>
 							</td>
 						 </tr>
-                    @endforeach 
+                  @endforeach 
                   </tbody>
                </table>
                <div>

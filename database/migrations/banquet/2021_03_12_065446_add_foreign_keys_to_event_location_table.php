@@ -14,7 +14,7 @@ class AddForeignKeysToEventLocationTable extends Migration
     public function up()
     {
         Schema::table('event_location', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_event_location')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_event_location')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

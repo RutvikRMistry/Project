@@ -28,8 +28,12 @@ class SalesTeamController extends Controller
 		 return view('backend.admin.banquet.settings.sales_team.create');
 	}	
 	
-	public function view(){
-		 return view('backend.admin.banquet.settings.sales_team.view');
+	public function view($id){
+
+		$sales_team = Salesteam::findorfail($id);
+		return view('backend.admin.banquet.settings.sales_team.view',compact(
+			 'sales_team'
+		 ));
 	}
 	public function store1(Request $request){
 		// $request->merge(['invoice_forecast' => 1.33]);

@@ -14,7 +14,7 @@ class AddForeignKeysToPersistencesTable extends Migration
     public function up()
     {
         Schema::table('persistences', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_persistences')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_persistences')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

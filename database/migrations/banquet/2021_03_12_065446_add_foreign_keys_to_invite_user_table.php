@@ -14,7 +14,7 @@ class AddForeignKeysToInviteUserTable extends Migration
     public function up()
     {
         Schema::table('invite_user', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_invite_user')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_invite_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

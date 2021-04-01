@@ -14,7 +14,7 @@ class AddForeignKeysToInvoicesProductsTable extends Migration
     public function up()
     {
         Schema::table('invoices_products', function (Blueprint $table) {
-            $table->foreign('invoice_id', 'invoices_invoices_products')->references('id')->on('invoices')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('invoice_id', 'invoices_invoices_products')->references('id')->on('invoices')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

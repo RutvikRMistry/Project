@@ -20,7 +20,7 @@
 						 <div class="form-group">
 							<label for="title" class="control-label">Sales Team</label> 
 							<div class="controls">
-							   Mike's Sales Team
+							{{$sales_team->salesteam}}
 							</div>
 						 </div>
 					  </div>
@@ -28,7 +28,7 @@
 						 <div class="form-group">
 							<label for="title" class="control-label">Manager</label> 
 							<div class="controls">
-							   David Felming
+							{{$sales_team->team_leader}}
 							</div>
 						 </div>
 					  </div>
@@ -36,9 +36,7 @@
 						 <div class="form-group">
 							<label for="title" class="control-label">Staff Members</label> 
 							<div class="controls">
-							   Adan Brown
-							   ,
-							   Saachi Katwe
+							{{$sales_team->team_members}}
 							</div>
 						 </div>
 					  </div>
@@ -48,7 +46,7 @@
 						 <div class="form-group">
 							<label for="title" class="control-label">Invoice Target</label> 
 							<div class="controls">
-							   5000
+							{{$sales_team->invoice_target}}
 							</div>
 						 </div>
 					  </div>
@@ -56,7 +54,7 @@
 						 <div class="form-group">
 							<label for="title" class="control-label">Actual Invoice (this month)</label> 
 							<div class="controls">
-							   51282
+							{{$sales_team->invoice_forecast}}
 							</div>
 						 </div>
 					  </div>
@@ -66,7 +64,7 @@
 						 <div class="form-group">
 							<label for="title" class="control-label">About Team</label> 
 							<div class="controles">
-							   West Zone Sales Team manages the west zone areas of california
+							{{$sales_team->notes}}
 							</div>
 						 </div>
 					  </div>

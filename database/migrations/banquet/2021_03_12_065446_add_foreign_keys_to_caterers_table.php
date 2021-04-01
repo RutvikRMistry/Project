@@ -14,7 +14,7 @@ class AddForeignKeysToCaterersTable extends Migration
     public function up()
     {
         Schema::table('caterers', function (Blueprint $table) {
-            $table->foreign('event_id', 'eventdetails_caterers')->references('id')->on('eventdetails')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('event_id', 'eventdetails_caterers')->references('id')->on('eventdetails')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

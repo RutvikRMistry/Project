@@ -14,7 +14,7 @@ class AddForeignKeysToSalesTeamsTable extends Migration
     public function up()
     {
         Schema::table('sales_teams', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_sales_teams')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_sales_teams')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

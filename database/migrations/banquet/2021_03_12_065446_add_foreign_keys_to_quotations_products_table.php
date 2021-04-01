@@ -14,8 +14,8 @@ class AddForeignKeysToQuotationsProductsTable extends Migration
     public function up()
     {
         Schema::table('quotations_products', function (Blueprint $table) {
-            $table->foreign('product_id', 'products_quotations_products')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('quotation_id', 'quotations_quotations_products')->references('id')->on('quotations')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('product_id', 'products_quotations_products')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('quotation_id', 'quotations_quotations_products')->references('id')->on('quotations')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -14,7 +14,7 @@ class AddForeignKeysToProductTagTable extends Migration
     public function up()
     {
         Schema::table('product_tag', function (Blueprint $table) {
-            $table->foreign('product_id', 'products_product_tag')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('product_id', 'products_product_tag')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

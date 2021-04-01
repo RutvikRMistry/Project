@@ -12,6 +12,7 @@
          <button type="button" class="btn btn-primary"><i class="icon wb-plus mr-10" aria-hidden="true"></i>Create Call</button></a>
       </div>
    </div>
+   @include('backend.partials.flash_message')
    <div style="width: 100%; padding: 30px;">
       <div class="panel-body" style="background-color: #fff; ">
          <header class="panel-heading">
@@ -36,6 +37,7 @@
                   </label>
                </div>
             </div>
+            
             <div style="width: 50%; float: right;">
                <div class="btn-group" aria-label="Button group with nested dropdown" role="group" style="float: right; padding-top: 10px;">
                   <div class="tablesaw-sortable-switch tablesaw-bar-section">
@@ -44,6 +46,7 @@
                </div>
             </div>
             <div>
+            
                <table class="table table-hover dataTable table-striped w-full dtr-inline" data-plugin="dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1783px;">
                   <thead>
                      <tr>
@@ -54,6 +57,25 @@
                         <th>Option</th>
                      </tr>
                   </thead>
+                  <tbody>
+				   	@foreach($call as $call)
+					  <tr class="gradeA">
+						 <td>{{$call->date}}</td>
+						 <td>{{$call->call_summary}}</td>
+						 <td>Personal</td>
+						 <td>{{$call->resp_staff_id}}</td>
+						 <td class="actions">
+							<a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
+							   data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
+							<a href="" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
+							   data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
+							<a href="{{route('backend.admin.banquet.sales.lead.call_delete',$call->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
+							   data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
+							<a href="{{route('backend.admin.banquet.sales.lead.view',$call->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
+							   data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>
+						 </td>
+					  </tr>
+					@endforeach
                </table>
                <div>
                   <div style="padding: 30px; background-color: #fff;">

@@ -14,7 +14,7 @@ class AddForeignKeysToEquipmentTable extends Migration
     public function up()
     {
         Schema::table('equipment', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_equipment')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_equipment')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

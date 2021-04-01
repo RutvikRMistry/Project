@@ -27,6 +27,8 @@
 						 <h5>Department:<span class="text-danger">*</span></h5>
 						 <select class="form-control" data-plugin="select2" name="department_id">
 								<option value="">--Select--</option>
+								<option value="2">--Select--</option>
+								<option value="1">--Select--</option>
 							@foreach($department as $dept)
 							   <option value="{{$dept->id}}"{{old('department_id') == $dept->id ? 'selected': ''}}>{{$dept->department_name}}</option>
 							@endforeach  
@@ -37,6 +39,8 @@
 						 <h5>Designation:<span class="text-danger">*</span></h5>
 						 <select class="form-control" data-plugin="select2" name="designation_id">
 							   <option value="">--Select--</option>
+							   <option value="2">--Select--</option>
+							   <option value="1">--Select--</option>
 							@foreach($designation as $design)
 							   <option value="{{$design->id}}" {{old('designation_id') == $design->id ? 'selected' : '' }}>{{$design->designation_name}}</option>
 							@endforeach   

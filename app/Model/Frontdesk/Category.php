@@ -31,6 +31,6 @@ class Category extends Model
      */
     public function webGalleries()
     {
-        return $this->hasMany('App\Models\Front\WebGallery');
+        return $this->hasMany('App\Model\Front\WebGallery');
     }
 }

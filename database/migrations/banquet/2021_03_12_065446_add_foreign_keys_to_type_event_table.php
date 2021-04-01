@@ -14,7 +14,7 @@ class AddForeignKeysToTypeEventTable extends Migration
     public function up()
     {
         Schema::table('type_event', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_type_event')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_type_event')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -14,8 +14,8 @@ class AddForeignKeysToDesignationMasterTable extends Migration
     public function up()
     {
         Schema::table('designation_master', function (Blueprint $table) {
-            $table->foreign('department_id', 'department_master_esignation_master')->references('id')->on('department_master')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('user_id', 'users_designation_master')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('department_id', 'department_master_esignation_master')->references('id')->on('department_master')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id', 'users_designation_master')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

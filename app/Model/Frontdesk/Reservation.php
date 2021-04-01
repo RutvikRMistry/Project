@@ -48,7 +48,7 @@ class Reservation extends Model
      */
     public function roomType()
     {
-        return $this->belongsTo('App\Models\Front\RoomType');
+        return $this->belongsTo('App\Model\Front\RoomType');
     }
 
     /**
@@ -56,7 +56,7 @@ class Reservation extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\Front\User');
+        return $this->belongsTo('App\Model\Front\User');
     }
 
     /**
@@ -64,7 +64,7 @@ class Reservation extends Model
      */
     public function appliedCouponCodes()
     {
-        return $this->hasMany('App\Models\Front\AppliedCouponCode');
+        return $this->hasMany('App\Model\Front\AppliedCouponCode');
     }
 
     /**
@@ -72,7 +72,7 @@ class Reservation extends Model
      */
     public function payments()
     {
-        return $this->hasMany('App\Models\Front\Payment');
+        return $this->hasMany('App\Model\Front\Payment');
     }
 
     /**
@@ -80,7 +80,7 @@ class Reservation extends Model
      */
     public function reservationNights()
     {
-        return $this->hasMany('App\Models\Front\ReservationNight');
+        return $this->hasMany('App\Model\Front\ReservationNight');
     }
 
     /**
@@ -88,7 +88,7 @@ class Reservation extends Model
      */
     public function reservationPaidServices()
     {
-        return $this->hasMany('App\Models\Front\ReservationPaidService');
+        return $this->hasMany('App\Model\Front\ReservationPaidService');
     }
 
     /**
@@ -96,6 +96,6 @@ class Reservation extends Model
      */
     public function reservationTaxes()
     {
-        return $this->hasMany('App\Models\Front\ReservationTax');
+        return $this->hasMany('App\Model\Front\ReservationTax');
     }
 }

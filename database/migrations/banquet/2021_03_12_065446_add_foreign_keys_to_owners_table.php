@@ -14,7 +14,7 @@ class AddForeignKeysToOwnersTable extends Migration
     public function up()
     {
         Schema::table('owners', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_owners')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_owners')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

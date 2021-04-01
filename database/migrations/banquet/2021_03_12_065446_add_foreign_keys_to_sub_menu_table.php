@@ -14,8 +14,8 @@ class AddForeignKeysToSubMenuTable extends Migration
     public function up()
     {
         Schema::table('sub_menu', function (Blueprint $table) {
-            $table->foreign('main_menu_id', 'main_menu_sub_menu')->references('id')->on('main_menu')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('user_id', 'users_sub_menu')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('main_menu_id', 'main_menu_sub_menu')->references('id')->on('main_menu')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id', 'users_sub_menu')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

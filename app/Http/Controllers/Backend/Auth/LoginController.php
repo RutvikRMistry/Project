@@ -42,9 +42,9 @@ class LoginController extends Controller
         return 'username';
     }
 	
-    protected function guard(){
+    // protected function guard(){
 		
-		return Auth::guard('admin');	
+		// return Auth::guard('admin')->login($user);	
 		
-    }
+    // }
 }

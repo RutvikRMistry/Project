@@ -14,7 +14,7 @@ class AddForeignKeysToMeetingsTable extends Migration
     public function up()
     {
         Schema::table('meetings', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_meetings')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_meetings')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

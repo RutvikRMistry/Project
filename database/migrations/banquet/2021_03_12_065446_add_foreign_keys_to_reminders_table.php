@@ -14,7 +14,7 @@ class AddForeignKeysToRemindersTable extends Migration
     public function up()
     {
         Schema::table('reminders', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_reminders')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_reminders')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

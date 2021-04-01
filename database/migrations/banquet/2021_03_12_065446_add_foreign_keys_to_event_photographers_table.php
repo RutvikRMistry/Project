@@ -14,8 +14,8 @@ class AddForeignKeysToEventPhotographersTable extends Migration
     public function up()
     {
         Schema::table('event_photographers', function (Blueprint $table) {
-            $table->foreign('event_id', 'eventdetails_event_photographers')->references('id')->on('eventdetails')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('photographer_id', 'photographers_event_photographers')->references('id')->on('photographers')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('event_id', 'eventdetails_event_photographers')->references('id')->on('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('photographer_id', 'photographers_event_photographers')->references('id')->on('photographers')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -7,7 +7,7 @@ return [
         'output_path'     => 'Model/Banquet',
         'no_timestamps'   => null,
         'date_format'     => null,
-        'connection'      => 'mysql',
+        'connection'      => 'mysql_banquet',
         'backup'          => null,
     ],
     'db_types' => [

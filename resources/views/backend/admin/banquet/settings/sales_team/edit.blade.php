@@ -87,14 +87,14 @@
                   <div class="form-group row">
                      <label class="col-md-2form-control-lg form-control-label" for="inputSizingLarge"></label>
                      <div class="col-md-10">
-                        <textarea class="form-control" rows="3" placeholder="About Team" name="notes"value="{{$sales_team->notes}}"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="{{$sales_team->notes}}" name="notes" value="{{$sales_team->notes}}"></textarea>
                      </div>
                   </div>
                </div>
             </div>
             <div class="row" >
                <div class="col-md-9">
-                  <!-- <button type="reset" class="btn btn-primary">Back </button> -->
+                  <button type="button" class="btn btn-primary" onclick="document.location='http://127.0.0.1:8000/admin/banquet/setting/sales-team'">Back </button>
                   <button type="submit" class="btn btn-default btn-outline">OK</button>
                </div>
             </div>

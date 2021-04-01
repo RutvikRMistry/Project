@@ -14,7 +14,7 @@ use App\Model\POS\BusinessLocation;
 use App\Model\POS\Unit;
 use App\Model\POS\Printer;
 use App\Model\POS\User;
-use Spatie\Permission\Models\Role;
+use Spatie\Permission\Model\Role;
 
 class BusinessUtil extends Util
 {

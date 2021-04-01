@@ -69,10 +69,22 @@ Route::get('/', function () {
 // Route::get('/contact', 'Frontend\HomeController@contact')->name('contact');
 // Route::post('/contact','Frontend\HomeController@contactSubmit')->name('contact.submit');
 
-Route::group(['middleware'=>'guest'],function(){
-    //backend
-    Route::get('admin','Backend\Auth\LoginController@showLoginForm')->name('admin.login');
-    Route::post('admin/login','Backend\Auth\LoginController@login')->name('admin.login.post');
-    Route::post('admin/logout', 'Backend\Auth\LoginController@logout')->name('admin.logout');
+// Route::group(['middleware'=>'guest'],function(){
+//     //backend
+//     Route::get('admin','Backend\Auth\LoginController@showLoginForm')->name('admin.login');
+//     Route::post('admin/login','Backend\Auth\LoginController@login')->name('admin.login.post');
+//     Route::post('admin/logout', 'Backend\Auth\LoginController@logout')->name('admin.logout');
 
-});
+// });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

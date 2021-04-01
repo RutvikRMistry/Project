@@ -1,4 +1,4 @@
-{{--<!--<nav class="navbar navbar-expand navbar-dark bg-tsk d-print-none">
+<!-- <nav class="navbar navbar-expand navbar-dark bg-tsk d-print-none">
     <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
    {{-- <a class="navbar-brand" href="{{route('backend.admin.frontdesk.dashboard')}}"><img src="{{general_setting()->logo}}" ></a>--}}
 
@@ -17,7 +17,7 @@
             </li>
         </ul>
     </div>
-</nav>-->--}}
+</nav> -->
 
 <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega navbar-inverse" role="navigation">    
       <div class="navbar-header">

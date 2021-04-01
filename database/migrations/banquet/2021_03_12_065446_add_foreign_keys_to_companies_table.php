@@ -14,11 +14,11 @@ class AddForeignKeysToCompaniesTable extends Migration
     public function up()
     {
         Schema::table('companies', function (Blueprint $table) {
-            $table->foreign('city_id', 'cities_companies')->references('id')->on('cities')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('country_id', 'countries_companies')->references('id')->on('countries')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('sales_team_id', 'sales_teams_companies')->references('id')->on('sales_teams')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('state_id', 'statescompanies')->references('id')->on('states')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('user_id', 'users_companies')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('city_id', 'cities_companies')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('country_id', 'countries_companies')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('sales_team_id', 'sales_teams_companies')->references('id')->on('sales_teams')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('state_id', 'statescompanies')->references('id')->on('states')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id', 'users_companies')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

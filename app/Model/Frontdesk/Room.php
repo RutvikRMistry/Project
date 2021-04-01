@@ -37,7 +37,7 @@ class Room extends Model
      */
     public function floor()
     {
-        return $this->belongsTo('App\Models\Front\Floor');
+        return $this->belongsTo('App\Model\Front\Floor');
     }
 
     /**
@@ -45,7 +45,7 @@ class Room extends Model
      */
     public function roomType()
     {
-        return $this->belongsTo('App\Models\Front\RoomType');
+        return $this->belongsTo('App\Model\Front\RoomType');
     }
 
     /**
@@ -53,6 +53,6 @@ class Room extends Model
      */
     public function reservationNights()
     {
-        return $this->hasMany('App\Models\Front\ReservationNight');
+        return $this->hasMany('App\Model\Front\ReservationNight');
     }
 }

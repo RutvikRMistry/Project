@@ -42,7 +42,7 @@ class Payment extends Model
      */
     public function gateway()
     {
-        return $this->belongsTo('App\Models\Front\Gateway');
+        return $this->belongsTo('App\Model\Front\Gateway');
     }
 
     /**
@@ -50,7 +50,7 @@ class Payment extends Model
      */
     public function reservation()
     {
-        return $this->belongsTo('App\Models\Front\Reservation');
+        return $this->belongsTo('App\Model\Front\Reservation');
     }
 
     /**
@@ -58,6 +58,6 @@ class Payment extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\Front\User');
+        return $this->belongsTo('App\Model\Front\User');
     }
 }

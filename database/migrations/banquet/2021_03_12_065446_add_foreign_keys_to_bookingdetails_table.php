@@ -14,12 +14,12 @@ class AddForeignKeysToBookingdetailsTable extends Migration
     public function up()
     {
         Schema::table('bookingdetails', function (Blueprint $table) {
-            $table->foreign('city_id', 'cities_bookingdetails')->references('id')->on('cities')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('country_id', 'countries_bookingdetails')->references('id')->on('countries')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('location_id', 'event_location_bookingdetails')->references('id')->on('event_location')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('sales_team_id', 'sales_teams_bookingdetails')->references('id')->on('sales_teams')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('state_id', 'statesbookingdetails')->references('id')->on('states')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('user_id', 'users_bookingdetails')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('city_id', 'cities_bookingdetails')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('country_id', 'countries_bookingdetails')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('location_id', 'event_location_bookingdetails')->references('id')->on('event_location')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('sales_team_id', 'sales_teams_bookingdetails')->references('id')->on('sales_teams')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('state_id', 'statesbookingdetails')->references('id')->on('states')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id', 'users_bookingdetails')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

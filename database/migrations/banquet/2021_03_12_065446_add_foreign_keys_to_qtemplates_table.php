@@ -14,7 +14,7 @@ class AddForeignKeysToQtemplatesTable extends Migration
     public function up()
     {
         Schema::table('qtemplates', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_qtemplates')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_qtemplates')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

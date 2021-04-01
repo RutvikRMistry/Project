@@ -14,8 +14,8 @@ class AddForeignKeysToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('department_id', 'department_master_users')->references('id')->on('department_master')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('designation_id', 'designation_master_users')->references('id')->on('designation_master')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('department_id', 'department_master_users')->references('id')->on('department_master')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('designation_id', 'designation_master_users')->references('id')->on('designation_master')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

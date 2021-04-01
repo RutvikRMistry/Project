@@ -53,7 +53,7 @@ class User extends Model
      */
     public function appliedCouponCodes()
     {
-        return $this->hasMany('App\Models\Front\AppliedCouponCode');
+        return $this->hasMany('App\Model\Front\AppliedCouponCode');
     }
 
     /**
@@ -61,7 +61,7 @@ class User extends Model
      */
     public function payments()
     {
-        return $this->hasMany('App\Models\Front\Payment');
+        return $this->hasMany('App\Model\Front\Payment');
     }
 
     /**
@@ -69,7 +69,7 @@ class User extends Model
      */
     public function reservation()
     {
-        return $this->hasOne('App\Models\Front\Reservation', 'user_id');
+        return $this->hasOne('App\Model\Front\Reservation', 'user_id');
     }
 
     /**
@@ -77,6 +77,6 @@ class User extends Model
      */
     public function transaction()
     {
-        return $this->hasOne('App\Models\Front\Transaction', 'user_id');
+        return $this->hasOne('App\Model\Front\Transaction', 'user_id');
     }
 }

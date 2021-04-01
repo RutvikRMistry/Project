@@ -77,7 +77,7 @@
             <div class="row">
                <div class="col-lg-4">
                   <h5>Type Of ID:</h5>
-                  <input type="text" class="form-control" name="id_type" placeholder="ID Type" value="{{old('id_type')}}">
+                  <input type="number" class="form-control" name="id_type" placeholder="ID Type" value="{{old('id_type')}}">
                </div>
                <div class="col-lg-4">
                   <h5>ID NO.:</h5>
@@ -112,7 +112,7 @@
                      <span class="input-group-addon">
                      <i class="icon wb-calendar" aria-hidden="true"></i>
                      </span>
-                     <input type="text" class="form-control" required data-plugin="datepicker" data-multidate="true" name="dob" id="dob" value="{{old('dob',date('Y/m/d'))}}">
+                     <input type="date" class="form-control" required data-plugin="datepicker" data-multidate="true" name="dob" id="dob" value="{{old('dob',date('Y/m/d'))}}">
                   </div>
                </div>
                <div class="col-lg-4">

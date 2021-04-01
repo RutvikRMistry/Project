@@ -14,7 +14,7 @@ class AddForeignKeysToUserLoginTable extends Migration
     public function up()
     {
         Schema::table('user_login', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_user_login')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_user_login')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

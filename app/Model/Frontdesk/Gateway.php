@@ -47,7 +47,7 @@ class Gateway extends Model
      */
     public function payments()
     {
-        return $this->hasMany('App\Models\Front\Payment');
+        return $this->hasMany('App\Model\Front\Payment');
     }
 
     /**
@@ -55,6 +55,6 @@ class Gateway extends Model
      */
     public function transaction()
     {
-        return $this->hasOne('App\Models\Front\Transaction', 'gateway_id');
+        return $this->hasOne('App\Model\Front\Transaction', 'gateway_id');
     }
 }

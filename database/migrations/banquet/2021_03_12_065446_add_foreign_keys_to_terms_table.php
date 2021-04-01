@@ -14,7 +14,7 @@ class AddForeignKeysToTermsTable extends Migration
     public function up()
     {
         Schema::table('terms', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_terms')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_terms')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

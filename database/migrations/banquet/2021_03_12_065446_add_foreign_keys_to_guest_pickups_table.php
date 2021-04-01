@@ -14,8 +14,8 @@ class AddForeignKeysToGuestPickupsTable extends Migration
     public function up()
     {
         Schema::table('guest_pickups', function (Blueprint $table) {
-            $table->foreign('event_id', 'eventdetails_guest_pickups')->references('id')->on('eventdetails')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('transportation_id', 'transportation_service_guest_pickups')->references('id')->on('transportation_service')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('event_id', 'eventdetails_guest_pickups')->references('id')->on('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('transportation_id', 'transportation_service_guest_pickups')->references('id')->on('transportation_service')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

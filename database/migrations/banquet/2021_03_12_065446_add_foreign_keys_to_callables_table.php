@@ -14,8 +14,8 @@ class AddForeignKeysToCallablesTable extends Migration
     public function up()
     {
         Schema::table('callables', function (Blueprint $table) {
-            $table->foreign('call_id', 'calls_callables')->references('id')->on('calls')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('user_id', 'users_callables')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('call_id', 'calls_callables')->references('id')->on('calls')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id', 'users_callables')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

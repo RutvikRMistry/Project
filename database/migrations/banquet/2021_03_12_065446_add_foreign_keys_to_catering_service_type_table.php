@@ -14,7 +14,7 @@ class AddForeignKeysToCateringServiceTypeTable extends Migration
     public function up()
     {
         Schema::table('catering_service_type', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_catering_service_type')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_catering_service_type')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -14,8 +14,8 @@ class AddForeignKeysToSalesOrderProductsTable extends Migration
     public function up()
     {
         Schema::table('sales_order_products', function (Blueprint $table) {
-            $table->foreign('product_id', 'products_sales_order_products')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('order_id', 'sales_orders_sales_order_products')->references('id')->on('sales_orders')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('product_id', 'products_sales_order_products')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('order_id', 'sales_orders_sales_order_products')->references('id')->on('sales_orders')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

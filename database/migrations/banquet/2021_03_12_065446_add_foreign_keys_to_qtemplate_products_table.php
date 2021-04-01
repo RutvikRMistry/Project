@@ -14,8 +14,8 @@ class AddForeignKeysToQtemplateProductsTable extends Migration
     public function up()
     {
         Schema::table('qtemplate_products', function (Blueprint $table) {
-            $table->foreign('product_id', 'products_qtemplate_products')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('qtemplate_id', 'qtemplates_qtemplate_products')->references('id')->on('qtemplates')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('product_id', 'products_qtemplate_products')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('qtemplate_id', 'qtemplates_qtemplate_products')->references('id')->on('qtemplates')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

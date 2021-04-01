@@ -4,6 +4,7 @@
  <!-- Top Menubar Ends Here-->
  <div class="page">
     @include('backend.partials.leftbar.shortcuts')
+    @foreach($leads as $leads)
 	<div class="page-main">
    <div class="page-header">
       <h1 class="page-title">Lead Details</h1>
@@ -15,15 +16,15 @@
             <div class="row form-panel">
                <div class="col-sm-6 col-lg-3">
                   <label for="client_name" class="control-label">Client Name</label> 
-                  <div>Ode Palestine</div>
+                  <div>{{$leads->client_name}}</div>
                </div>
                <div class="col-sm-6 col-lg-3">
                   <label for="email" class="control-label">Email</label> 
-                  <div>odetest@gmail.com</div>
+                  <div>{{$leads->email}}</div>
                </div>
                <div class="col-sm-6 col-lg-3">
                   <label for="phone" class="control-label">Phone</label> 
-                  <div>123456789</div>
+                  <div>{{$leads->mobile}}</div>
                </div>
                <div class="col-sm-6 col-lg-3">
                   <label for="company" class="control-label">Customer / Personal</label> 
@@ -33,7 +34,7 @@
                </div>
                <div class="col-sm-6 col-lg-3 m-t-20">
                   <label for="Country,State,City" class="control-label">Country,State,City</label> 
-                  <div>Palestinian Territory Occupied, Ariha, Ariha</div>
+                  <!-- <div>{{$contry->name}}, {{$states->name}}, {{$city->name}}</div> -->
                </div>
                <div class="col-sm-6 col-lg-3 m-t-20">
                   <label for="leadsource" class="control-label">Lead Source</label> 
@@ -121,7 +122,7 @@
             </div>
          </div>
       </div>
-         
+   @endforeach 
    </div>
 </div>
 </div>

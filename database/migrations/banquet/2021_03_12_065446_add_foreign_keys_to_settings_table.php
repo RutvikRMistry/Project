@@ -14,7 +14,7 @@ class AddForeignKeysToSettingsTable extends Migration
     public function up()
     {
         Schema::table('settings', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_settings')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_settings')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

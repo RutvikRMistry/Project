@@ -14,8 +14,8 @@ class AddForeignKeysToEventDecoratorsTable extends Migration
     public function up()
     {
         Schema::table('event_decorators', function (Blueprint $table) {
-            $table->foreign('decorator_id', 'decorators_event_decorators')->references('id')->on('decorators')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('event_id', 'eventdetails_event_decorators')->references('id')->on('eventdetails')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('decorator_id', 'decorators_event_decorators')->references('id')->on('decorators')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('event_id', 'eventdetails_event_decorators')->references('id')->on('eventdetails')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

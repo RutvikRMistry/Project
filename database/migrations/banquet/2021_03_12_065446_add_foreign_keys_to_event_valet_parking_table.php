@@ -14,8 +14,8 @@ class AddForeignKeysToEventValetParkingTable extends Migration
     public function up()
     {
         Schema::table('event_valet_parking', function (Blueprint $table) {
-            $table->foreign('event_id', 'eventdetails_event_valet_parking')->references('id')->on('eventdetails')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('parking_id', 'parking_event_valet_parking')->references('id')->on('parking')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('event_id', 'eventdetails_event_valet_parking')->references('id')->on('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('parking_id', 'parking_event_valet_parking')->references('id')->on('parking')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

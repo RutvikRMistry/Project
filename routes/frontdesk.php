@@ -113,7 +113,7 @@ Route::group(['prefix'=>'/admin'],function () {
 	/*@end*/
 	
 	
-	// Route::post('reservation/store', 'Backend\Admin\Frontdesk\Reservation\IndexController@store')->name('backend.admin.reservation.store');
+	Route::post('reservation/store', 'Backend\Admin\Frontdesk\Reservation\IndexController@store')->name('backend.admin.reservation.store');
 	// Route::get('reservation/{id}/confirm', 'Backend\Admin\ReservationController@confirm')->name('backend.admin.reservation.confirm');
 	// Route::post('reservation/{id}/confirm-post', 'Backend\Admin\ReservationController@confirmPost')->name('backend.admin.reservation.confirm_post');
 	// Route::get('reservation/{id}/change-status/{status}', 'Backend\Admin\ReservationController@changeStatus')->name('backend.admin.reservation.change_status');
@@ -123,10 +123,10 @@ Route::group(['prefix'=>'/admin'],function () {
 	// Route::post('reservation/{id}/cancel_room', 'Backend\Admin\ReservationController@cancelRoom')->name('backend.admin.reservation.cancel_room');
 	// Route::post('reservation/{id}/change_room', 'Backend\Admin\ReservationController@changeRoom')->name('backend.admin.reservation.change_room');
 
-	// Route::get('reservation/get-room-type-details','Backend\Admin\ReservationController@getRoomTypeDetails')->name('backend.admin.reservation.get_room_type_details');
-	// Route::get('reservation/get-night-calculation','Backend\Admin\ReservationController@getNightCalculation')->name('backend.admin.reservation.get_night_calculation');
-	// Route::get('reservation/get-checkout-available-date','Backend\Admin\ReservationController@getCheckOutAvailableDate')->name('backend.admin.reservation.get_checkout_available_date');
-	// Route::get('reservation/apply-coupon','Backend\Admin\ReservationController@applyCoupon')->name('backend.admin.reservation.apply_coupon');
+	Route::get('reservation/get-room-type-details','Backend\Admin\ReservationController@getRoomTypeDetails')->name('backend.admin.reservation.get_room_type_details');
+	Route::get('reservation/get-night-calculation','Backend\Admin\ReservationController@getNightCalculation')->name('backend.admin.reservation.get_night_calculation');
+	Route::get('reservation/get-checkout-available-date','Backend\Admin\ReservationController@getCheckOutAvailableDate')->name('backend.admin.reservation.get_checkout_available_date');
+	Route::get('reservation/apply-coupon','Backend\Admin\ReservationController@applyCoupon')->name('backend.admin.reservation.apply_coupon');
 
 	/*******************Payment*********************/
 	Route::get('gateway/{type?}', 'Backend\Admin\Frontdesk\PaymentSetting\GatewayController@index')->name('backend.admin.frontdesk.payment_setting.gateway');

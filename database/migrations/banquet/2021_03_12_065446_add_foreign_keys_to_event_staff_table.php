@@ -14,7 +14,7 @@ class AddForeignKeysToEventStaffTable extends Migration
     public function up()
     {
         Schema::table('event_staff', function (Blueprint $table) {
-            $table->foreign('event_id', 'eventdetails_event_staff')->references('id')->on('eventdetails')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('event_id', 'eventdetails_event_staff')->references('id')->on('eventdetails')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

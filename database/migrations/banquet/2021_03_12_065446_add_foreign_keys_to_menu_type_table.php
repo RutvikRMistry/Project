@@ -14,8 +14,8 @@ class AddForeignKeysToMenuTypeTable extends Migration
     public function up()
     {
         Schema::table('menu_type', function (Blueprint $table) {
-            $table->foreign('main_menu_id', 'main_menu_menu_type')->references('id')->on('main_menu')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('user_id', 'users_menu_type')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('main_menu_id', 'main_menu_menu_type')->references('id')->on('main_menu')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id', 'users_menu_type')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

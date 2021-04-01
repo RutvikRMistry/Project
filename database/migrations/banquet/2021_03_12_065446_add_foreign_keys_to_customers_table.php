@@ -14,9 +14,9 @@ class AddForeignKeysToCustomersTable extends Migration
     public function up()
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->foreign('company_id', 'companies_customers')->references('id')->on('companies')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('sales_team_id', 'sales_teams_customers')->references('id')->on('sales_teams')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('user_id', 'users_customers')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('company_id', 'companies_customers')->references('id')->on('companies')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('sales_team_id', 'sales_teams_customers')->references('id')->on('sales_teams')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id', 'users_customers')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

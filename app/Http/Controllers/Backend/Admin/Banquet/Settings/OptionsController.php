@@ -25,6 +25,14 @@ class OptionsController extends Controller
 	public function addOption(){
 		 return view('backend.admin.banquet.settings.options.add_option');
 	}
+
+	public function viewOption(){
+		$option = Option::findorfail($id);
+		return view('backend.admin.banquet.settings.options.add_option',compact(
+			'option'
+		));
+   }
+
 	public function storeOption(Request $request){
 	$rules = array(
 		
@@ -67,6 +75,8 @@ class OptionsController extends Controller
 		Session::flash('errmsg','Deleted Successfully');
 		return redirect()->back();
 	}
+
+
 	public function caterers(){
 			$user_id = 17;
 			$cat = DB::connection('mysql_banquet')->table('catering_service_type')->get()->where('user_id',$user_id);

@@ -222,7 +222,7 @@
 		 *    </ul>
 		 *  @param {bool} [redraw=true] redraw the table or not
 		 *  @returns {array} An array of integers, representing the list of indexes in
-		 *    <i>aoData</i> ({@link DataTable.models.oSettings}) that have been added to
+		 *    <i>aoData</i> ({@link DataTable.Model.oSettings}) that have been added to
 		 *    the table.
 		 *  @dtopt API
 		 *  @deprecated Since v1.10
@@ -723,7 +723,7 @@
 		/**
 		 * Get the settings for a particular table for external manipulation
 		 *  @returns {object} DataTables settings object. See
-		 *    {@link DataTable.models.oSettings}
+		 *    {@link DataTable.Model.oSettings}
 		 *  @dtopt API
 		 *  @deprecated Since v1.10
 		 *
@@ -950,7 +950,7 @@
 			}
 			
 			/* Create the settings object for this table and set some of the default parameters */
-			var oSettings = $.extend( true, {}, DataTable.models.oSettings, {
+			var oSettings = $.extend( true, {}, DataTable.Model.oSettings, {
 				"sDestroyWidth": $this[0].style.width,
 				"sInstance":     sId,
 				"sTableId":      sId
@@ -1800,7 +1800,7 @@
 		if ( searchCols ) {
 			for ( var i=0, ien=searchCols.length ; i<ien ; i++ ) {
 				if ( searchCols[i] ) {
-					_fnCamelToHungarian( DataTable.models.oSearch, searchCols[i] );
+					_fnCamelToHungarian( DataTable.Model.oSearch, searchCols[i] );
 				}
 			}
 		}
@@ -1952,7 +1952,7 @@
 		// Add column to aoColumns array
 		var oDefaults = DataTable.defaults.column;
 		var iCol = oSettings.aoColumns.length;
-		var oCol = $.extend( {}, DataTable.models.oColumn, oDefaults, {
+		var oCol = $.extend( {}, DataTable.Model.oColumn, oDefaults, {
 			"nTh": nTh ? nTh : document.createElement('th'),
 			"sTitle":    oDefaults.sTitle    ? oDefaults.sTitle    : nTh ? nTh.innerHTML : '',
 			"aDataSort": oDefaults.aDataSort ? oDefaults.aDataSort : [iCol],
@@ -1965,7 +1965,7 @@
 		// passed into extend can be undefined. This allows the user to give a default
 		// with only some of the parameters defined, and also not give a default
 		var searchCols = oSettings.aoPreSearchCols;
-		searchCols[ iCol ] = $.extend( {}, DataTable.models.oSearch, searchCols[ iCol ] );
+		searchCols[ iCol ] = $.extend( {}, DataTable.Model.oSearch, searchCols[ iCol ] );
 	
 		// Use the default column options function to initialise classes etc
 		_fnColumnOptions( oSettings, iCol, $(nTh).data() );
@@ -2369,7 +2369,7 @@
 	{
 		/* Create the object for storing information about this new row */
 		var iRow = oSettings.aoData.length;
-		var oData = $.extend( true, {}, DataTable.models.oRow, {
+		var oData = $.extend( true, {}, DataTable.Model.oRow, {
 			src: nTr ? 'dom' : 'data',
 			idx: iRow
 		} );
@@ -9413,12 +9413,12 @@
 	DataTable.settings = [];
 
 	/**
-	 * Object models container, for the various models that DataTables has
-	 * available to it. These models define the objects that are used to hold
+	 * Object Model container, for the various Model that DataTables has
+	 * available to it. These Model define the objects that are used to hold
 	 * the active state and configuration of the table.
 	 *  @namespace
 	 */
-	DataTable.models = {};
+	DataTable.Model = {};
 	
 	
 	
@@ -9427,7 +9427,7 @@
 	 * search information for the global filter and individual column filters.
 	 *  @namespace
 	 */
-	DataTable.models.oSearch = {
+	DataTable.Model.oSearch = {
 		/**
 		 * Flag to indicate if the filtering should be case insensitive or not
 		 *  @type boolean
@@ -9468,7 +9468,7 @@
 	 * aoData array.
 	 *  @namespace
 	 */
-	DataTable.models.oRow = {
+	DataTable.Model.oRow = {
 		/**
 		 * TR element for the row
 		 *  @type node
@@ -9572,7 +9572,7 @@
 	 * be done through the initialisation options.
 	 *  @namespace
 	 */
-	DataTable.models.oColumn = {
+	DataTable.Model.oColumn = {
 		/**
 		 * Column index. This could be worked out on-the-fly with $.inArray, but it
 		 * is faster to just hold it as a variable
@@ -11731,7 +11731,7 @@
 		 * DataTables will use it's smart filtering methods (to word match at
 		 * any point in the data), when false this will not be done.
 		 *  @namespace
-		 *  @extends DataTable.models.oSearch
+		 *  @extends DataTable.Model.oSearch
 		 *
 		 *  @dtopt Options
 		 *  @name DataTable.defaults.search
@@ -11743,7 +11743,7 @@
 		 *      } );
 		 *    } )
 		 */
-		"oSearch": $.extend( {}, DataTable.models.oSearch ),
+		"oSearch": $.extend( {}, DataTable.Model.oSearch ),
 	
 	
 		/**
@@ -12899,7 +12899,7 @@
 	 *    backwards compatibility with older installations. This is something that
 	 *    will be done in 2.0.
 	 */
-	DataTable.models.oSettings = {
+	DataTable.Model.oSettings = {
 		/**
 		 * Primary features of DataTables and their enablement state.
 		 *  @namespace
@@ -13142,7 +13142,7 @@
 		"aanFeatures": [],
 	
 		/**
-		 * Store data information - see {@link DataTable.models.oRow} for detailed
+		 * Store data information - see {@link DataTable.Model.oRow} for detailed
 		 * information.
 		 *  @type array
 		 *  @default []
@@ -13197,13 +13197,13 @@
 		 * Note that this parameter will be set by the initialisation routine. To
 		 * set a default use {@link DataTable.defaults}.
 		 *  @namespace
-		 *  @extends DataTable.models.oSearch
+		 *  @extends DataTable.Model.oSearch
 		 */
 		"oPreviousSearch": {},
 	
 		/**
 		 * Store the applied search for each column - see
-		 * {@link DataTable.models.oSearch} for the format that is used for the
+		 * {@link DataTable.Model.oSearch} for the format that is used for the
 		 * filtering information for each column.
 		 *  @type array
 		 *  @default []
@@ -13803,7 +13803,7 @@
 	 * `jQuery.fn.dataTable.ext` where it may be accessed and manipulated. It is
 	 * also aliased to `jQuery.fn.dataTableExt` for historic reasons.
 	 *  @namespace
-	 *  @extends DataTable.models.ext
+	 *  @extends DataTable.Model.ext
 	 */
 	
 	
@@ -13878,7 +13878,7 @@
 		 * The `fnInit` function has the following input parameters:
 		 *
 		 * 1. `{object}` DataTables settings object: see
-		 *    {@link DataTable.models.oSettings}
+		 *    {@link DataTable.Model.oSettings}
 		 *
 		 * And the following return is expected:
 		 * 
@@ -13914,11 +13914,11 @@
 		 * Searching functions have the following input parameters:
 		 *
 		 * 1. `{object}` DataTables settings object: see
-		 *    {@link DataTable.models.oSettings}
+		 *    {@link DataTable.Model.oSettings}
 		 * 2. `{array|object}` Data for the row to be processed (same as the
 		 *    original format that was passed in as the data source, or an array
 		 *    from a DOM data source
-		 * 3. `{int}` Row index ({@link DataTable.models.oSettings.aoData}), which
+		 * 3. `{int}` Row index ({@link DataTable.Model.oSettings.aoData}), which
 		 *    can be useful to retrieve the `TR` element if you need DOM interaction.
 		 *
 		 * And the following return is expected:
@@ -14100,7 +14100,7 @@
 		 * The functions defined take two parameters:
 		 *
 		 * 1. `{object}` DataTables settings object: see
-		 *    {@link DataTable.models.oSettings}
+		 *    {@link DataTable.Model.oSettings}
 		 * 2. `{int}` Target column index
 		 *
 		 * Each function is expected to return an array:
@@ -15149,7 +15149,7 @@
 	 *  @name DataTable#draw.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
-	 *  @param {object} o DataTables settings object {@link DataTable.models.oSettings}
+	 *  @param {object} o DataTables settings object {@link DataTable.Model.oSettings}
 	 */
 
 	/**
@@ -15158,7 +15158,7 @@
 	 *  @name DataTable#search.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
-	 *  @param {object} o DataTables settings object {@link DataTable.models.oSettings}
+	 *  @param {object} o DataTables settings object {@link DataTable.Model.oSettings}
 	 */
 
 	/**
@@ -15166,7 +15166,7 @@
 	 *  @name DataTable#page.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
-	 *  @param {object} o DataTables settings object {@link DataTable.models.oSettings}
+	 *  @param {object} o DataTables settings object {@link DataTable.Model.oSettings}
 	 */
 
 	/**
@@ -15174,7 +15174,7 @@
 	 *  @name DataTable#order.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
-	 *  @param {object} o DataTables settings object {@link DataTable.models.oSettings}
+	 *  @param {object} o DataTables settings object {@link DataTable.Model.oSettings}
 	 */
 
 	/**
@@ -15246,7 +15246,7 @@
 	 *  @name DataTable#xhr.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
-	 *  @param {object} o DataTables settings object {@link DataTable.models.oSettings}
+	 *  @param {object} o DataTables settings object {@link DataTable.Model.oSettings}
 	 *  @param {object} json JSON returned from the server
 	 *
 	 *  @example
@@ -15272,7 +15272,7 @@
 	 *  @name DataTable#destroy.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
-	 *  @param {object} o DataTables settings object {@link DataTable.models.oSettings}
+	 *  @param {object} o DataTables settings object {@link DataTable.Model.oSettings}
 	 */
 
 	/**
@@ -15281,7 +15281,7 @@
 	 *  @name DataTable#length.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
-	 *  @param {object} o DataTables settings object {@link DataTable.models.oSettings}
+	 *  @param {object} o DataTables settings object {@link DataTable.Model.oSettings}
 	 *  @param {integer} len New length
 	 */
 
@@ -15290,7 +15290,7 @@
 	 *  @name DataTable#column-sizing.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
-	 *  @param {object} o DataTables settings object {@link DataTable.models.oSettings}
+	 *  @param {object} o DataTables settings object {@link DataTable.Model.oSettings}
 	 */
 
 	/**
@@ -15298,7 +15298,7 @@
 	 *  @name DataTable#column-visibility.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
-	 *  @param {object} o DataTables settings object {@link DataTable.models.oSettings}
+	 *  @param {object} o DataTables settings object {@link DataTable.Model.oSettings}
 	 *  @param {int} column Column index
 	 *  @param {bool} vis `false` if column now hidden, or `true` if visible
 	 */

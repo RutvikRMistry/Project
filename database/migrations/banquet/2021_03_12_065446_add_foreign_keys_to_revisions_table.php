@@ -14,7 +14,7 @@ class AddForeignKeysToRevisionsTable extends Migration
     public function up()
     {
         Schema::table('revisions', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_revisions')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_revisions')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

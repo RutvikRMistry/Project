@@ -14,7 +14,7 @@ class AddForeignKeysToEventTaskAssignesTable extends Migration
     public function up()
     {
         Schema::table('event_task_assignes', function (Blueprint $table) {
-            $table->foreign('event_id', 'eventdetails_event_task_assignes')->references('id')->on('eventdetails')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('event_id', 'eventdetails_event_task_assignes')->references('id')->on('eventdetails')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

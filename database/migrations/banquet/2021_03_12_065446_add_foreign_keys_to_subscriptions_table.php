@@ -14,7 +14,7 @@ class AddForeignKeysToSubscriptionsTable extends Migration
     public function up()
     {
         Schema::table('subscriptions', function (Blueprint $table) {
-            $table->foreign('user_id', 'users_subscriptions')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('user_id', 'users_subscriptions')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

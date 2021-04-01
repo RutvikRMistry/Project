@@ -35,7 +35,7 @@ class Transaction extends Model
      */
     public function gateway()
     {
-        return $this->belongsTo('App\Models\Front\Gateway');
+        return $this->belongsTo('App\Model\Front\Gateway');
     }
 
     /**
@@ -43,6 +43,6 @@ class Transaction extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\Front\User');
+        return $this->belongsTo('App\Model\Front\User');
     }
 }

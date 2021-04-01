@@ -34,6 +34,6 @@ class Floor extends Model
      */
     public function rooms()
     {
-        return $this->hasMany('App\Models\Front\Room');
+        return $this->hasMany('App\Model\Front\Room');
     }
 }

@@ -14,7 +14,7 @@ class AddForeignKeysToProductVariantsTable extends Migration
     public function up()
     {
         Schema::table('product_variants', function (Blueprint $table) {
-            $table->foreign('product_id', 'products_product_variants')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('product_id', 'products_product_variants')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -14,11 +14,11 @@ class AddForeignKeysToInvoicesTable extends Migration
     public function up()
     {
         Schema::table('invoices', function (Blueprint $table) {
-            $table->foreign('customer_id', 'customers_invoices')->references('id')->on('customers')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('qtemplate_id', 'qtemplates_invoices')->references('id')->on('qtemplates')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('order_id', 'sales_orders_invoices')->references('id')->on('sales_orders')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('sales_team_id', 'sales_teams_invoices')->references('id')->on('sales_teams')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('user_id', 'users_invoices')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('customer_id', 'customers_invoices')->references('id')->on('customers')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('qtemplate_id', 'qtemplates_invoices')->references('id')->on('qtemplates')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('order_id', 'sales_orders_invoices')->references('id')->on('sales_orders')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('sales_team_id', 'sales_teams_invoices')->references('id')->on('sales_teams')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id', 'users_invoices')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

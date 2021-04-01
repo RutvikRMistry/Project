@@ -12,7 +12,8 @@
 		  <div class="panel-body" style="background-color: #fff; ">
 			 <header class="panel-heading">
 			 <div>
-				<form>
+				<form action="{{route('backend.admin.banquet.sales.lead.call_store')}}" method="post">
+				{{ csrf_field() }}
 				   <div class="row" >
 					  <div class="col-lg-10 ">
 						 <h5>Company Name</h5>
@@ -27,7 +28,7 @@
 							<span class="input-group-addon">
 							<i class="icon wb-calendar" aria-hidden="true"></i>
 							</span>
-							<input type="text" class="form-control" data-plugin="datepicker" data-multidate="true" name="date"  id="date">
+							<input type="date" class="form-control" data-plugin="datepicker" data-multidate="true" name="date"  id="date">
 						 </div>
 					  </div>
 					  <div class="col-lg-5">
@@ -39,11 +40,11 @@
 				   <div class="row">
 					  <div class="col-lg-5">
 						 <h5>Event Manager<strong class="text-danger">*</strong></h5>
-						 <select class="form-control" data-plugin="select2"id="resp_staff_id" name="resp_staff_id">
+						 <select class="form-control" data-plugin="select2" id="resp_staff_id" name="resp_staff_id">
 							<optgroup label="Please Select">
-							   <option value="R1">David Felming</option>
-							   <option value="R1">Adan Brown</option>
-							   <option value="R1"> Saachi Katwe</option>
+							   <option value="1">David Felming</option>
+							   <option value="2">Adan Brown</option>
+							   <option value="3"> Saachi Katwe</option>
 							</optgroup>
 						 </select>
 					  </div>
@@ -55,7 +56,7 @@
 				   <br>
 				   <div class="row"  >
 					  <div class="col-md-9">
-						 <button type="button" class="btn btn-primary">Submit </button>
+						 <button type="submit" class="btn btn-primary">Submit </button>
 						 <button type="reset" class="btn btn-default btn-outline">Cancel</button>
 					  </div>
 				   </div>

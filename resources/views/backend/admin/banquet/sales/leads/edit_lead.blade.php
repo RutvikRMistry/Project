@@ -16,7 +16,19 @@
          </header>
          <header class="panel-heading">
             <div>
-               <form>
+               @if($errors->all())
+                  <div class="row">
+                     <div class="col">
+                        @foreach($errors->all() as $msg)
+                        <div class="alert alert-danger" role="alert">
+                           {{$msg}}
+                        </div>
+                        @endforeach
+                     </div>
+                  </div>
+               @endif()
+               <form action="{{route('backend.admin.banquet.sales.lead.update',$leads->id)}}" method='post'>
+               {{csrf_field()}}
                   <div class="row">
                      <div class="col-lg-3 ">
                         <h5>Client Name:*</h5>
@@ -308,7 +320,7 @@
                   <br>
                   <div class="row">
                      <div class="col-md-9">
-                        <button type="button" class="btn btn-primary">Submit </button>
+                        <button type="submit" class="btn btn-primary">Submit </button>
                         <button type="reset" class="btn btn-default btn-outline">Cancel</button>
                      </div>
                   </div>

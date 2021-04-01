@@ -14,8 +14,8 @@ class AddForeignKeysToContactusesTable extends Migration
     public function up()
     {
         Schema::table('contactuses', function (Blueprint $table) {
-            $table->foreign('event_id', 'eventdetails_contactuses')->references('id')->on('eventdetails')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('type_event_id', 'type_event_contactuses')->references('id')->on('type_event')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('event_id', 'eventdetails_contactuses')->references('id')->on('eventdetails')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('type_event_id', 'type_event_contactuses')->references('id')->on('type_event')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

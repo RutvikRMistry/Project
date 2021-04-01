@@ -6,6 +6,7 @@ use App\Model\Banquet\SupplierPackage;
 use App\Model\Banquet\Photographers;
 use App\Model\Banquet\Entertainment;
 use App\Model\Banquet\Caterers;
+use App\Model\Banquet\EventCaterer;
 use App\Model\Banquet\EventMiscellaneous;
 use App\Model\Banquet\Decorators;
 use Intervention\Image\Facades\Image;
@@ -53,7 +54,7 @@ class ContractorController extends Controller
 		$request->merge(['veg_final_price' => 12]);
 		$request->merge(['nonveg_final_price' => 12]);
 		$request->merge(['user_id' => 17]);
-		Caterers::create($request->except('_token','package_name','price','person','services'));
+		EventCaterer::create($request->except('_token','package_name','price','person','services'));
 		Session::flash('msg','Added Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.contractor.caterer');
 	}
@@ -79,7 +80,7 @@ class ContractorController extends Controller
 		);
 		$this->validate($request, $rules);
 		$request->merge(['user_id' => 17]);
-		Caterers::where('id',$id)->update($request->except('_token','package_name','price','person','services'));
+		EventCaterer::where('id',$id)->update($request->except('_token','package_name','price','person','services'));
 		Session::flash('msg','Updated Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.contractor.caterer');
 	}

@@ -2,6 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::group(['middleware'=>'guest'],function(){
+    //backend
+    Route::get('admin','Backend\Auth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('admin/login','Backend\Auth\LoginController@login')->name('admin.login.post');
+    Route::post('admin/logout', 'Backend\Auth\LoginController@logout')->name('admin.logout');
+
+});
+
 // Route::group(['prefix'=>'/admin','middleware' => 'auth:admin'],function () {
 Route::group(['prefix'=>'/admin'],function () {
 
@@ -37,6 +45,7 @@ Route::group(['prefix'=>'/admin'],function () {
 			Route::get('/setting/option/add','Backend\Admin\Banquet\Settings\OptionsController@addOption')->name('backend.admin.banquet.sttings.option.add');
 			Route::post('/setting/option/store','Backend\Admin\Banquet\Settings\OptionsController@storeOption')->name('backend.admin.banquet.sttings.option.store');
 			Route::get('/setting/option/edit/{id}','Backend\Admin\Banquet\Settings\OptionsController@editOption')->name('backend.admin.banquet.sttings.option.edit');
+			Route::get('/setting/option/view/{id}','Backend\Admin\Banquet\Settings\OptionsController@viewOption')->name('backend.admin.banquet.sttings.option.view');
 			Route::post('/setting/option/update/{id}','Backend\Admin\Banquet\Settings\OptionsController@updateOption')->name('backend.admin.banquet.sttings.option.update');
 			Route::get('/setting/option/delete/{id}','Backend\Admin\Banquet\Settings\OptionsController@deleteOption')->name('backend.admin.banquet.sttings.option.delete');
 			
@@ -200,13 +209,18 @@ Route::group(['prefix'=>'/admin'],function () {
 			Route::get('/sales/lead','Backend\Admin\Banquet\Sales\SalesController@leads')->name('backend.admin.banquet.sales.lead');
 			Route::post('/sales/lead/store','Backend\Admin\Banquet\Sales\SalesController@storeLead')->name('backend.admin.banquet.sales.lead.store');
 			Route::get('/sales/lead/delete/{id}','Backend\Admin\Banquet\Sales\SalesController@deleteLead')->name('backend.admin.banquet.sales.lead.delete');	
-			Route::get('/sales/create-lead','Backend\Admin\Banquet\Sales\SalesController@createLead')->name('backend.admin.banquet.sales.lead.add');
-			Route::get('/sales/edit-lead','Backend\Admin\Banquet\Sales\SalesController@editLead')->name('backend.admin.banquet.sales.lead.edit');
+			Route::get('/sales/lead/create-lead','Backend\Admin\Banquet\Sales\SalesController@createLead')->name('backend.admin.banquet.sales.lead.add');
+			Route::get('/sales/lead/edit-lead','Backend\Admin\Banquet\Sales\SalesController@editLead')->name('backend.admin.banquet.sales.lead.edit');
 			Route::post('/sales/lead/update/{id}','Backend\Admin\Banquet\Sales\SalesController@updateLead')->name('backend.admin.banquet.sales.lead.update');
-			Route::get('/sales/view-lead/{id}','Backend\Admin\Banquet\Sales\SalesController@leadDetail')->name('backend.admin.banquet.sales.lead.view');
+			Route::get('/sales/lead/view-lead','Backend\Admin\Banquet\Sales\SalesController@leadDetail')->name('backend.admin.banquet.sales.lead.view');
 			Route::get('/sales/create-event','Backend\Admin\Banquet\Sales\SalesController@createEvent')->name('backend.admin.banquet.sales.lead.create_event');
+
+
 			Route::get('/sales/lead-call','Backend\Admin\Banquet\Sales\SalesController@leadCall')->name('backend.admin.banquet.sales.lead.call');
 			Route::get('/sales/create-lead-call','Backend\Admin\Banquet\Sales\SalesController@createLeadCall')->name('backend.admin.banquet.sales.lead.create_call');
+			Route::post('/sales/lead-call/store','Backend\Admin\Banquet\Sales\SalesController@storeLeadCall')->name('backend.admin.banquet.sales.lead.call_store');
+			Route::get('/sales/lead-call/delete/{id}','Backend\Admin\Banquet\Sales\SalesController@deleteLeadCall')->name('backend.admin.banquet.sales.lead.call_delete');
+
 
 
 
