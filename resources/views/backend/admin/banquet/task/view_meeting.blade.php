@@ -18,7 +18,7 @@
                      <div class="form-group">
                         <label for="title" class="control-label">Meeting Subject</label> 
                         <div class="controls">
-                           Regarding upcoming exclusive wedding event held on 19th July 2019
+                           {{$meeting->meeting_subject}}
                         </div>
                      </div>
                   </div>

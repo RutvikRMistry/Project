@@ -17,6 +17,12 @@
 	</div>
 	<div class="page-content">
 <div style="width: 100%; ">
+@include('backend.partials.flash_message')
+@if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
    <div class="panel-body" style="background-color: #fff; ">
       <header class="panel-heading">
          <div>
@@ -244,11 +250,12 @@
    <div>
    <table class="table table-hover dataTable table-striped w-full dtr-inline" data-plugin="dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1783px;">
    <thead>
+   
    <tr>
    <th>Client Name</th>
    <th>Function Name</th>
-   <th>Lead Owner</th>
-   <th>Function Name</th>
+   <!-- <th>Lead Owner</th> -->
+   <!-- <th>Function Name</th> -->
    <th>Sales Manager</th>
    <th>Lead Function Type</th>
    <th>Date</th>
@@ -259,30 +266,32 @@
    </thead>
    <tbody>
    <tr class="gradeA">
-   <td>Holly Loscig</td>
-   <td>Holly Loscig <br>
-   <small class="text-muted">BP_Event_05012020114930  </small></td>     
-   <td>David Feiming</td>
-   <td>Adan Brown</td>
-   <td>Mike Sales Team</td>
-   <td>Birthday Party</td>
-   <td>2019-09-10</td>
-   <td>123654</td>
-   <td>Tentative</td>
+   @foreach($book as $book)
+   <td>{{$book->booking_name}}</td>
+   <!-- <td> <br>
+   <small class="text-muted">BP_Event_05012020114930  </small></td>      -->
+   <td>{{$book->event_name}}</td>
+   <!-- <td>Adan Brown</td> -->
+   <td>{{$book->sale}}</td>
+   <td>{{$book->event_type}}</td>
+   <td>{{$book->from_date}}</td>
+   <td>{{$book->client_phone}}</td>
+   <td>{{$book->event_status}}</td>
    <td class="actions">
    <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
       data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
    <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
       data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-   <a href="{{route('backend.admin.banquet.functions.event.edit')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+   <a href="{{route('backend.admin.banquet.functions.event.edit',$book->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
       data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
-   <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
+   <a href="{{route('backend.admin.banquet.functions.event.delete',$book->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
       data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
-   <a href="{{route('backend.admin.banquet.functions.event.view')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+   <a href="{{route('backend.admin.banquet.functions.event.view',$book->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
       data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
    </td>
    </tr>
-   <tr class="gradeA">
+   @endforeach
+   <!-- <tr class="gradeA">
    <td>Iron Man</td>
    <td>Iron Man<br>
    <small class="text-muted">BP_Event_05012020114930  </small></td>     
@@ -329,7 +338,7 @@
    <a href="{{route('backend.admin.banquet.functions.event.view')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
       data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
    </td>
-   </tr>
+   </tr> -->
    </tbody>
    </table>
    <div><div style="padding: 30px; background-color: #fff;">

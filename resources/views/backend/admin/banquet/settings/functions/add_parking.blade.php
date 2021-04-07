@@ -22,7 +22,7 @@
                </div>
                <div class="col-lg-6">
                   <h4>Capicity:<span class="text-danger">*</span></h4>
-                  <input type="text" class="form-control" placeholder=" " name="capacity" value="{{old('capacity')}}" required />
+                  <input type="number" class="form-control" placeholder=" " name="capacity" value="{{old('capacity')}}" required />
 				  <span class="text-danger">{{$errors->first('capacity')}}</span>
                </div>
             </div>

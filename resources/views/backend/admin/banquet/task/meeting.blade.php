@@ -17,6 +17,7 @@
 
      
             	<div style="width: 100%; padding: 30px;"> 
+              @include('backend.partials.flash_message')
           <div class="panel-body" style="background-color: #fff; ">
             <header class="panel-heading">
             <div style="width: 50%; float: left;"> 
@@ -66,11 +67,11 @@
                       data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
                     <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
                       data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-                   <a href="{{route('backend.admin.banquet.task.meeting.create')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                   <a href="{{route('backend.admin.banquet.task.meeting.edit',$meeting->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                       data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
-                    <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
+                    <a href="{{route('backend.admin.banquet.task.meeting.delete',$meeting->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
                       data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
-                      <a href="{{route('backend.admin.banquet.task.meeting.view')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                    <a href="{{route('backend.admin.banquet.task.meeting.view',$meeting->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                       data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
                   
                     

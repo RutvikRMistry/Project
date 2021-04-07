@@ -38,9 +38,9 @@
                   <h5>Sales Team Manager *</h5>
                   <select class="form-control" data-plugin="select2" name="team_leader" >
                      <option value="">--Select--</option>
-                        <option value="1" {{$sales_team->team_leader == '1'?'selected' : ''}}>David Felming </option>
-                        <option value="2" {{$sales_team->team_leader == '2'?'selected' : ''}}>Adan Brown  </option>
-                        <option value="3" {{$sales_team->team_leader == '3'?'selected' : ''}}>Saachi Katwe </option>
+                        <option value="David Felming " {{$sales_team->team_leader == 'David Felming '?'selected' : ''}}>David Felming </option>
+                        <option value="Adan Brown" {{$sales_team->team_leader == 'Adan Brown'?'selected' : ''}}>Adan Brown  </option>
+                        <option value="Saachi Katwe" {{$sales_team->team_leader == 'Saachi Katwe'?'selected' : ''}}>Saachi Katwe </option>
 
                   </select>
                </div>
@@ -48,9 +48,9 @@
                   <div class="example-title">
                      <h5>Staff Members </h5>
                      <select class="form-control" multiple="multiple" data-plugin="select2" name="team_members" >
-                        <option value="1" {{$sales_team->team_members == '1'?'selected' : ''}}>David Felming </option>
-                        <option value="2" {{$sales_team->team_members == '2'?'selected' : ''}}>Adan Brown  </option>
-                        <option value="3" {{$sales_team->team_members == '3'?'selected' : ''}}>Saachi Katwe </option>
+                        <option value="David Felming" {{$sales_team->team_members == '1David Felming'?'selected' : ''}}>David Felming </option>
+                        <option value="Adan Brown" {{$sales_team->team_members == 'Adan Brown'?'selected' : ''}}>Adan Brown  </option>
+                        <option value="Saachi Katwe" {{$sales_team->team_members == 'Saachi Katwe'?'selected' : ''}}>Saachi Katwe </option>
                      </select>
                   </div>
                </div>

@@ -75,7 +75,7 @@
 					 </div>
                      <div class="col-lg-6">
                         <h5>Phone</h5>
-                        <input type="text" class="form-control" placeholder="00919727785703" name="phone" value="{{$Setting->phone}}">
+                        <input type="tel" class="form-control" placeholder="00919727785703" name="phone" value="{{$Setting->phone}}">
 						<span class="text-danger">{{$errors->first('phone')}}</span>
 					 </div>
                   </div>
@@ -95,7 +95,7 @@
                         <h5>Currency</h5>
                         <select class="form-control" data-plugin="select2" name="currency">
                               <option value="">--Select--</option>
-							@foreach($currency as $cur)
+							      @foreach($currency as $cur)
                               <option value="{{$cur->id}}" {{$Setting->currency == $cur->id?'selected': ''}}>{{$cur->name}}&nbsp;({{$cur->iso_code}})&nbsp;({{$cur->symbol}})</option>
                             @endforeach 
                         </select>
@@ -106,7 +106,7 @@
                   <div class="row" >
                      <div class="col-lg-6">
                         <h5>GST(%)</h5>
-                        <input type="text" class="form-control" placeholder="10" name="sales_tax" value="{{$Setting->sales_tax}}">
+                        <input type="number" class="form-control" placeholder="10" name="sales_tax" value="{{$Setting->sales_tax}}">
 						<span class="text-danger">{{$errors->first('sales_tax')}}</span>
                      </div>
                   </div>

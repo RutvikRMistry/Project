@@ -38,19 +38,20 @@
                   <h5>Sales Team Manager *</h5>
                   <select class="form-control" data-plugin="select2" name="team_leader">
                      <option value="">--Select--</option>
-                        <option value="1" >David Felming </option>
-                        <option value="2">Adan Brown  </option>
-                        <option value="2">Saachi Katwe </option>
+                        <option value="David Felming" >David Felming </option>
+                        <option value="Adan Brown">Adan Brown  </option>
+                        <option value="Saachi Katwe">Saachi Katwe </option>
 
                   </select>
                </div>
                <div class="col-lg-5 form-group">
                   <div class="example-title">
                      <h5>Staff Members </h5>
-                     <select class="form-control" multiple="multiple" data-plugin="select2" name="team_member">
-                        <option value="1">David Felming </option>
-                        <option value="2">Adan Brown  </option>
-                        <option value="2">Saachi Katwe </option>
+                     <select class="form-control" data-plugin="select2" name="team_members">
+                     <option value="">--Select--</option>
+                        <option value="David Felming">David Felming </option>
+                        <option value="Adan Brown">Adan Brown  </option>
+                        <option value="Saachi Katwe">Saachi Katwe </option>
                      </select>
                   </div>
                </div>
@@ -62,23 +63,23 @@
                </div>
                <div class="col-lg-5 form-group">
                   <h5>Commission *</h5>
-                  <input type="text" class="form-control" placeholder="Commission in %" name="commision">
+                  <input type="text" class="form-control" placeholder="Commission in " name="commision">
                </div>
                <div class="col-lg-5 form-group">
                   <h5>leads *</h5>
-                  <input type="number" class="form-control" placeholder="leads %" name="leads">
+                  <input type="number" class="form-control" placeholder="leads " name="leads">
                </div>
                <div class="col-lg-5 form-group">
                   <h5> forecast *</h5>
-                  <input type="number" class="form-control" placeholder="Invoice Forcast%" name="invoice_forecast">
+                  <input type="number" class="form-control" placeholder="Invoice Forcast" name="invoice_forecast">
                </div>
                <div class="col-lg-5 form-group">
                   <h5> quotations </h5>
-                  <input type="number" class="form-control" placeholder="Quotations %" name="quotations">
+                  <input type="number" class="form-control" placeholder="Quotations" name="quotations">
                </div>
                <div class="col-lg-5 form-group">
                   <h5> opportunities *</h5>
-                  <input type="number" class="form-control" placeholder="opportunities%" name="opportunities">
+                  <input type="number" class="form-control" placeholder="opportunities" name="opportunities">
                </div>
             </div>
             <div class="row" >

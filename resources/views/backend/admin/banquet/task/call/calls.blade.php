@@ -78,7 +78,7 @@
                               data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
                            <a href="{{route('backend.admin.banquet.task.call.delete',$call->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
                               data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
-                           <a href="{{route('backend.admin.banquet.task.call.view')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                           <a href="{{route('backend.admin.banquet.task.call.view',$call->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                               data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
                         </td>
                      </tr>

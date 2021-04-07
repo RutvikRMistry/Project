@@ -236,7 +236,7 @@
 					  <tr>
 						 <th>Creation Date</th>
 						 <th>Lead Owner</th>
-						 <th>Customer/Prsonal</th>
+						 <!-- <th>Customer/Prsonal</th> -->
 						 <th>Client Name</th>
 						 <th>Email</th>
 						 <th>Mobile no</th>
@@ -248,9 +248,9 @@
 				   <tbody>
 				   	@foreach($leads as $leads)
 					  <tr class="gradeA">
-						 <td>09/10/2010</td>
-						 <td>David Feiming</td>
-						 <td>Personal</td>
+						 <td>{{$leads->created_at}}</td>
+						 <td>{{$leads->per}}</td>
+						 <!-- <td>Personal</td> -->
 						 <td>{{$leads->client_name}}</td>
 						 <td>{{$leads->email}}</td>
 						 <td>{{$leads->mobile}}</td>

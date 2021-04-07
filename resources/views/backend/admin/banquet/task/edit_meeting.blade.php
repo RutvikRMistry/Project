@@ -22,19 +22,19 @@
        @endif()
          <div class="panel-body" style="background-color: #fff; ">
          <header class="panel-heading">
-         <form action="{{route('backend.admin.banquet.task.meeting.store')}}" method="post">
+         <form action="{{route('backend.admin.banquet.task.meeting.update',$meeting->id)}}" method="post">
          {{csrf_field()}}
             <div>
                <div class="row">
                   <div class="col-lg-5">
                      <h4>Meeting Subject <strong class="text-danger">*</strong></h4>
-                     <input class="form-control" placeholder="0" name="meeting_subject" type="text" id="meeting_subject">
+                     <input class="form-control" placeholder="0" name="meeting_subject" type="text" id="meeting_subject" value="{{$meeting->meeting_subject}}">
                   </div>
                   <div class="col-lg-5">
                      <h4>Company Name <strong class="text-danger">*</strong></h4>
-                     <input class="form-control" placeholder="0" name="company_name" type="text" id="comapny_name">
+                     <input class="form-control" placeholder="0" name="company_name" type="text" id="comapny_name" value="{{$meeting->company_name}}">
                   </div>
-                {{--  <!-- <div class="col-lg-5">
+                  {{--<!-- <div class="col-lg-5">
                      <h4>Function</h4>
                      <select class="form-control" data-plugin="select2"id="event_id" name="event_id" >
                      @foreach($event as $event)
@@ -84,7 +84,7 @@
                   </div>
                   <div class="col-lg-5">
                      <h4>Location <strong class="text-danger">*</strong></h4>
-                     <input name="location" type="text" id="location" class="form-control" data-bv-field="location">
+                     <input name="location" type="text" id="location" class="form-control" data-bv-field="location" value="{{$meeting->location}}">
                   </div>
                </div>
                <br>
@@ -95,7 +95,7 @@
                         <span class="input-group-addon">
                         <i class="icon wb-calendar" aria-hidden="true"></i>
                         </span>
-                        <input name="starting_date" type="date" id="starting_date" class="form-control" data-bv-field="starting_date">
+                        <input name="starting_date" type="date" id="starting_date" class="form-control" data-bv-field="starting_date" placeholder="{{$meeting->starting_date}}">
                      </div>
                   </div>
                   <div class="col-lg-5">
@@ -104,7 +104,7 @@
                         <span class="input-group-addon">
                         <i class="icon wb-calendar" aria-hidden="true"></i>
                         </span>
-                        <input name="ending_date" type="date" id="ending_date" class="form-control" data-bv-field="ending_date">
+                        <input name="ending_date" type="date" id="ending_date" class="form-control" data-bv-field="ending_date" value="{{$meeting->ending_date}}">
                      </div>
                   </div>
                </div>
@@ -115,7 +115,7 @@
                      <div class="form-group row">
                         <label class="col-md-2form-control-lg form-control-label" for="inputSizingLarge"></label>
                         <div class="col-md-10">
-                           <textarea name="meeting_description" cols="50" rows="5" id="meeting_description" class="form-control resize_vertical"></textarea>
+                           <textarea name="meeting_description" cols="50" rows="5" id="meeting_description" class="form-control resize_vertical" placeholder="{{$meeting->meeting_description}}"></textarea>
                         </div>
                      </div>
                   </div>

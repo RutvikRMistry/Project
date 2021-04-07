@@ -13,6 +13,7 @@
       </div>
    </div>
    <div style="width: 100%; padding: 30px;">
+   @include('backend.partials.flash_message')
       <div class="panel-body" style="background-color: #fff; ">
          <div class="row" >
             <div class="col-lg-3 ">
@@ -87,7 +88,7 @@
                   <thead>
                      <tr>
                         <th>Menu </th>
-                        <th> Type</th>
+                        <th>Type</th>
                         <th>Sub Type</th>
                         <th>Name </th>
                         <th>Price</th>
@@ -96,25 +97,28 @@
                      </tr>
                   </thead>
                   <tbody>
+                     
+                     @foreach($me as $me)
                      <tr>
-                        <td>Birthday Party Menu  </td>
-                        <td>Menu Option 1  </td>
-                        <td>Starters </td>
-                        <td>Tortilla Chips With Salsa Dip  </td>
-                        <td>10 </td>
-                        <td>All food and beverage will be provided for a All food and beverage will be provided for a maximum of one and a half hoursAll food and beverage will be provided for a maximum of one and a half hoursAll food and beverage will be provided for a maximum of on  </td>
+                        <td>{{$me -> menu}}</td>
+                        <td>{{$me -> type}}</td>
+                        <td>{{$me -> sub}} </td>
+                        <td>{{$me -> name}}  </td>
+                        <td>{{$me -> price}} </td>
+                        <td>{{$me -> description}}</td>
                         <td class="actions">
                            <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
                               data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
                            <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
                               data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-                           <a href="{{route('backend.admin.banquet.sttings.menu.item.add')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                           <a href="{{route('backend.admin.banquet.sttings.menu.item.edit',$me->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                               data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
-                           <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
+                           <a href="{{route('backend.admin.banquet.sttings.menu.item.delete',$me->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
                               data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
                         </td>
                      </tr>
-                     <tr>
+                     @endforeach
+                     <!-- <tr>
                         <td>Brunch Menu  </td>
                         <td>The Brunch Buffet  </td>
                         <td>Hot Hors d'oeuvre  </td>
@@ -185,7 +189,7 @@
                            <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
                               data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
                         </td>
-                     </tr>
+                     </tr> -->
                   </tbody>
                </table>
                <div>

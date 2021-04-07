@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Backend\Admin\Banquet\Settings;
 
 use Illuminate\Http\Request;
 use App\Model\Banquet\Parking;
-use App\Model\Banquet\Equipments;
+use App\Model\Banquet\Equipment;
 use App\Model\Banquet\TransportationService;
 use App\Model\Banquet\EventLocations;
 use App\Model\Banquet\EventRooms;
@@ -89,7 +89,7 @@ class FunctionsController extends Controller
 		);
 		$this->validate($request , $rules);
 		$request->merge(['user_id' => 17]);
-		Equipments::create($request->except('_token'));
+		Equipment::create($request->except('_token'));
 		Session::flash('msg','Added Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.function.equipment');
 	}
@@ -107,12 +107,12 @@ class FunctionsController extends Controller
 		);
 		$this->validate($request , $rules);
 		$request->merge(['user_id' => 17]);
-		Equipments::where('id',$id)->update($request->except('_token'));
+		Equipment::where('id',$id)->update($request->except('_token'));
 		Session::flash('msg','Updated Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.function.equipment');
 	}
 	public function deleteEquipment($id){
-		$table = Equipments::findorfail($id);
+		$table = Equipment::findorfail($id);
 		$table->delete();
 		Session::flash('errmsg','Deleted Successfully');
 		return redirect()->back();

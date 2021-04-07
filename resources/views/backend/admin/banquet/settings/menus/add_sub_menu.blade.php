@@ -45,12 +45,12 @@
 				<div class="row">
 				   <div class="col-lg-4 form-group">
 					  <h5>Minimum  Person:<span class="text-danger">*</span></h5>
-					  <input type="text" class="form-control" data-plugin="asSpinner" name="min_person" value="{{old('min_person')}}" required />
+					  <input type="number" class="form-control" data-plugin="asSpinner" name="min_person" value="{{old('min_person')}}" required />
 					  <span class="text-danger">{{$errors->first('min_person')}}</span>
 				   </div>
 				   <div class="col-lg-4 ">
 					  <h5>Maximum Person:<span class="text-danger">*</span></h5>
-					  <input type="text" class="form-control" data-plugin="asSpinner" name="max_person" value="{{old('max_person')}}" required />
+					  <input type="number" class="form-control" data-plugin="asSpinner" name="max_person" value="{{old('max_person')}}" required />
 					  <span class="text-danger">{{$errors->first('max_person')}}</span>
 				   </div>
 				   <div class="col-lg-4 ">

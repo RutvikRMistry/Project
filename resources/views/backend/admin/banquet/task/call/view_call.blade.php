@@ -4,6 +4,7 @@
  <!-- Top Menubar Ends Here-->
  <div class="page">
     @include('backend.partials.leftbar.shortcuts')
+    {{csrf_field()}}
 	<div class="page-main">
    <div class="page-header">
       <h1 class="page-title">Call Details</h1>
@@ -16,9 +17,9 @@
                   <div class="row">
                      <div class="col-md-3">
                         <div class="form-group">
-                           <label for="title" class="control-label">Customer Name</label> 
+                           <label for="title" class="control-label">Company Name</label> 
                            <div class="controls">
-                              James Smith (Toll Brothers)
+                              {{$call->company_name}}
                            </div>
                         </div>
                      </div>
@@ -26,7 +27,7 @@
                         <div class="form-group">
                            <label for="title" class="control-label">Date</label>
                            <div class="controls">
-                              07/11/2019
+                              {{$call->date}}
                            </div>
                         </div>
                      </div>
@@ -34,7 +35,7 @@
                         <div class="form-group">
                            <label for="title" class="control-label">Call Duration(in min.)</label>
                            <div class="controls">
-                              10
+                              {{$call->duration}}
                            </div>
                         </div>
                      </div>
@@ -42,7 +43,7 @@
                         <div class="form-group">
                            <label for="title" class="control-label">Main Staff</label> 
                            <div class="controls">
-                              David Felming
+                              {{$call->ref_staff_id}}
                            </div>
                         </div>
                      </div>

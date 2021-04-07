@@ -27,8 +27,8 @@
 						 <h5>Department:<span class="text-danger">*</span></h5>
 						 <select class="form-control" data-plugin="select2" name="department_id">
 								<option value="">--Select--</option>
-								<option value="2">--Select--</option>
-								<option value="1">--Select--</option>
+								<!-- <option value="2">--Select--</option>
+								<option value="1">--Select--</option> -->
 							@foreach($department as $dept)
 							   <option value="{{$dept->id}}"{{old('department_id') == $dept->id ? 'selected': ''}}>{{$dept->department_name}}</option>
 							@endforeach  
@@ -39,8 +39,8 @@
 						 <h5>Designation:<span class="text-danger">*</span></h5>
 						 <select class="form-control" data-plugin="select2" name="designation_id">
 							   <option value="">--Select--</option>
-							   <option value="2">--Select--</option>
-							   <option value="1">--Select--</option>
+							   <!-- <option value="2">--Select--</option>
+							   <option value="1">--Select--</option> -->
 							@foreach($designation as $design)
 							   <option value="{{$design->id}}" {{old('designation_id') == $design->id ? 'selected' : '' }}>{{$design->designation_name}}</option>
 							@endforeach   
@@ -62,7 +62,7 @@
 				   <div class="row" >
 					  <div class="col-lg-3">
 						 <h5>Phone No:<span class="text-danger">*</span></h5>
-						 <input type="number" class="form-control" placeholder="phone_number" name="phone_number" value="{{old('phone_number')}}" />
+						 <input type="tel" class="form-control" placeholder="phone_number" name="phone_number" value="{{old('phone_number')}}" />
 						  <span class="text-danger">{{$errors->first('phone_number')}}</span>
 					  </div>
 					  <div class="col-lg-3">

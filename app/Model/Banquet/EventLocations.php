@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Bookingdetail[] $bookingdetails
  * @property EventTime[] $eventTimes
  */
-class EventLocation extends Model
+class EventLocations extends Model
 {
     /**
      * The table associated with the model.

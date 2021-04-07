@@ -33,9 +33,16 @@ class TaskController extends Controller
 		return view('backend.admin.banquet.task.create_meeting');
 	}	
 
+	public function viewMeeting($id){
+
+		$meeting = Meeting::findorfail($id);
+		return view('backend.admin.banquet.task.view_meeting',compact(
+			'meeting'));
+	}
+
 	public function storeMeeting(Request $request){
 
-		$rule=array(
+		$rules=array(
 			'meeting_subject'=>'required',
 			'company_attendees'=>'required',
 			'responsible_id'=>'required',
@@ -49,18 +56,60 @@ class TaskController extends Controller
 			
 		);
 
-		$this->validate($request,$rule);
+		$this->validate($request,$rules);
 		$request->merge(['user_id'=> 17]);
+		$request->merge(['attendees'=> 17]);
 		Meeting::create($request->all());
 		session::flash('msg','Added Succsesfullly');
 		return redirect()->route('backend.admin.banquet.task.meeting');
 
 
 	}
-	
-	public function viewMeeting(){
-		return view('backend.admin.banquet.task.view_meeting');
+
+	public function deleteMeeting($id){
+
+		$call = Meeting::findorfail($id);
+		$call->delete();
+		Session::flash('errmsg','Deleted Successfully');
+		return redirect()->back();
+
 	}
+
+	public function editMeeting($id){
+
+		$user_id = 17;
+		$meeting = DB::connection('mysql_banquet')->table('meetings')->get()->where('id',$id)->first();
+		return view('backend.admin.banquet.task.edit_meeting',compact(
+			'meeting'));
+
+	}
+
+	public function updateMeeting(Request $request,$id){
+
+		$rules=array(
+			'meeting_subject'=>'required',
+			'company_attendees'=>'required',
+			'responsible_id'=>'required',
+			'staff_attendees'=>'required',
+			'starting_date'=>'required',
+			'ending_date'=>'required',
+			'meeting_description'=>'required',
+			// 'all_day'=>'required',
+			// 'privacy'=>'required',
+			// 'show_time_as'=>'required'
+			
+		);
+
+		$this->validate($request,$rules);
+		$request->merge(['user_id'=> 17]);
+		$request->merge(['attendees'=> 17]);
+		Meeting::where('id',$id)->update($request->except('_token'));
+		session::flash('msg','updated Succsesfullly');
+		return redirect()->route('backend.admin.banquet.task.meeting');
+
+
+	}
+	
 	
 	public function calls(){
 		$user_id = 17;
@@ -84,15 +133,18 @@ class TaskController extends Controller
 
 		);
 		$request->merge(['user_id'=> 17]);
-		$request->merge(['company_id'=> 17]);
+		$request->merge(['company_id'=> 1]);
 		$this->validate($request,$rule);
 		Call::create($request->all());
 		session::flash('msg','Added Succesesfully');
 		return redirect()->route('backend.admin.banquet.task.call');
 	}
 	
-	public function viewCall(){
-		return view('backend.admin.banquet.task.call.view_call');
+	public function viewCall($id){
+		$call = Call::findorfail($id);
+		return view('backend.admin.banquet.task.call.view_call',compact(
+			'call'
+		));
 	}
 
 	public function deleteCall($id){
@@ -124,7 +176,7 @@ class TaskController extends Controller
 
 		);
 		$request->merge(['user_id'=> 17]);
-		$request->merge(['company_id'=> 17]);
+		$request->merge(['company_id'=> 1]);
 		$this->validate($request,$rule);
 		Call::where('id',$id)->update($request->except('_token'));
 		session::flash('msg','updated Succesesfully');

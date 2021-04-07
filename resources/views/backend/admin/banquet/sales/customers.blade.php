@@ -9,6 +9,7 @@
    <h1 class="page-title">Customer</h1>
 </div>
 <div style="width: 100%; padding: 30px;">
+@include('backend.partials.flash_message')
    <div class="panel-body" style="background-color: #fff; ">
       <header class="panel-heading">
          <div style="width: 50%; float: left;">
@@ -51,25 +52,27 @@
                   </tr>
                </thead>
                <tbody>
+                  @foreach($cust as $cust)
                   <tr>
-                     <td> California Cartage Express  </td>
-                     <td>http://www.calcartage.com/  </td>
-                     <td>1234567891</td>
-                     <td> 9876543210  </td>
+                     <td> {{$cust->first_name}} {{$cust->last_name}}  </td>
+                     <td>{{$cust->website}}</td>
+                     <td>{{$cust->com}}</td>
+                     <td>{{$cust->mobile}}</td>
                      <td class="actions">
                         <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
                            data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
                         <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
                            data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-                        <a href="{{route('backend.admin.banquet.sales.customer.add')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                        <a href="{{route('backend.admin.banquet.sales.customer.edit',$cust->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                            data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
-                        <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
+                        <a href="{{route('backend.admin.banquet.sales.customer.delete',$cust->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
                            data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
                         <a href="{{route('backend.admin.banquet.sales.customer.view')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                            data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
                      </td>
                   </tr>
-                  <td>Toll Brothers   </td>
+                  @endforeach
+                  <!-- <td>Toll Brothers   </td>
                   <td>https://www.tollbrothers.com/ </td>
                   <td>2159388000 </td>
                   <td>8558978655  </td>
@@ -103,7 +106,7 @@
                         <a href="{{route('backend.admin.banquet.sales.customer.view')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                            data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
                      </td>
-                  </tr>
+                  </tr> -->
                </tbody>
             </table>
             <div>

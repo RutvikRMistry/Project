@@ -15,7 +15,7 @@
                <div class="row">
                   <div class="col-lg-6">
                      <h4> Client Id</h4>
-                     <input type="text" class="form-control" placeholder="AfWTvJxuQ8x_WfDiSZXjpbzxOJnib576Sfrk1dLsDh1bGMld1A2-C25L6jwfJIdLqQre0nTwha0fVfqe ">
+                     <input type="number" class="form-control" placeholder="AfWTvJxuQ8x_WfDiSZXjpbzxOJnib576Sfrk1dLsDh1bGMld1A2-C25L6jwfJIdLqQre0nTwha0fVfqe ">
                   </div>
                   <div class="col-lg-6">
                      <h4> Secret Key</h4>

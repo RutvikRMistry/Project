@@ -15,6 +15,7 @@
       </div>
    </div>
    <div style="width: 100%; padding: 30px;">
+   @include('backend.partials.flash_message')
       <div class="panel-body" style="background-color: #fff; ">
          <header class="panel-heading">
             <div style="width: 50%; float: left;">
@@ -68,9 +69,9 @@
 						@endphp
 					 <td>{{$full_name}} </td>
                         <td>{{$user->email}}</td>
-                        <td>Marketing and Sales </td>
-                        <td>Field Marketing </td>
-                        <td>07/08/2019  </td>
+                        <td>{{$user->dep}} </td>
+                        <td>{{$user->des}} </td>
+                        <td>{{$user->created_at}}</td>
                         <td class="actions">
                            <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
                               data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
@@ -80,8 +81,8 @@
                               data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
                            <a href="{{route('backend.admin.banquet.sttings.staff.delete',$user->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
                               data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
-                           <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
-                              data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                           <!-- <a href="{{route('backend.admin.banquet.sttings.staff.view')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                              data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a> -->
                         </td>
                      </tr>
 					@endforeach

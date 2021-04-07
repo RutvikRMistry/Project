@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property User $user
  * @property EventPhotographer[] $eventPhotographers
  */
-class Photographer extends Model
+class Photographers extends Model
 {
     /**
      * @var array

@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Hotel $hotel
  * @property User $user
  */
-class EventRoom extends Model
+class EventRooms extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.

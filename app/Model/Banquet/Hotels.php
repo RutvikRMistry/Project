@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property User $user
  * @property EventRoom[] $eventRooms
  */
-class Hotel extends Model
+class Hotels extends Model
 {
     /**
      * @var array

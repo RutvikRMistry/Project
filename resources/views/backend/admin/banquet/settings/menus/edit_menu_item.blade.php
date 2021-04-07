@@ -23,7 +23,7 @@
 		  <div class="panel-body" style="background-color: #fff; ">
 			 <header class="panel-heading">
 			<div>
-			<form action="{{route('backend.admin.banquet.sttings.menu.item.store')}}" method="post">
+			<form action="{{route('backend.admin.banquet.sttings.menu.item.update',$me->id)}}" method="post">
 				{{csrf_field()}}
 				<div class="row">
 				   <div class="col-lg-3 ">
@@ -32,7 +32,7 @@
 						 <optgroup label="Please Select">
 							<option value="">--Select--</option>
 							@foreach($menu as $menu)
-								<option value="{{$menu->id}}" {{old('main_menu_id') == $menu->id?'selected':''}} >{{$menu->name}}</option>
+								<option value="{{$menu->id}}" {{$me->main_menu_id == $menu->id?'selected':''}} >{{$menu->name}}</option>
 							@endforeach
 					  </select>
 				   </div>
@@ -41,7 +41,7 @@
 					  <select class="form-control" data-plugin="select2" name="menu_type">
 							<option value="">--Select--</option>
 							@foreach($type as $type)
-							<option value="{{$type->id}}" {{old('menu_type') == $type->id?'selected':''}} > {{$type->name}} </option>
+							<option value="{{$type->id}}" {{$me->menu_type == $type->id?'selected':''}} > {{$type->name}} </option>
 							@endforeach
 					  </select>
 				   </div>
@@ -50,28 +50,28 @@
 					  <select class="form-control" data-plugin="select2" name="sub_menu_id">
 							<option value="">--Select--</option>
 							@foreach($sub as $sub)
-							<option value="{{$sub->id}}" {{old('sub_menu_id') == $sub->id?'selected':''}}>{{$sub->name}}</option>
+							<option value="{{$sub->id}}" {{$me->sub_menu_id == $sub->id?'selected':''}}>{{$sub->name}}</option>
 							@endforeach
 					  </select>
 				   </div>
 				   <div class="col-lg-3 ">
 					  <h5>   Name:</h5>
-					  <input type="text" class="form-control" placeholder="" name="name" value="{{old('name')}}">
+					  <input type="text" class="form-control" placeholder="" name="name" value="{{$me->name}}">
 				   </div>
 				</div>
 				<br>
 				<div class="row">
 				   <div class="col-lg-3 ">
 					  <h5>Price:</h5>
-					  <input type="text" class="form-control" data-plugin="asSpinner" name="price" value="{{old('price')}}" />
+					  <input type="text" class="form-control" data-plugin="asSpinner" name="price" value="{{$me->price}}" />
 				   </div>
 				   <div class="col-lg-3 ">
 					  <h5> Person/ Dish:</h5>
-					  <input type="number" class="form-control" data-plugin="asSpinner" name="persons" value="{{old('persons')}}" />
+					  <input type="number" class="form-control" data-plugin="asSpinner" name="persons" value="{{$me->persons}}" />
 				   </div>
 				   <div class="col-lg-3 ">
 					  <h5>   Hour:</h5>
-					  <input type="text" class="form-control" placeholder=" " name="hours" value="{{old('hours')}}">
+					  <input type="text" class="form-control" placeholder=" " name="hours" value="{{$me->hours}}">
 				   </div>
 				</div>
 				<br>
@@ -84,11 +84,11 @@
 				<div class="row" >
 				   <div class="col-lg-3 ">
 					  <h5>Each Additional Hour Price:</h5>
-					  <input type="text" class="form-control" data-plugin="asSpinner" name="additional" value="{{old('additional')}}" />
+					  <input type="text" class="form-control" data-plugin="asSpinner" name="additional" value="{{$me->additional}}" />
 				   </div>
 				   <div class="col-lg-9 ">
 					  <h5>   Description:</h5>
-					  <input type="text" class="form-control" placeholder=" " name="description" value="{{old('description')}}">
+					  <input type="text" class="form-control" placeholder=" " name="description" value="{{$me->description}}">
 				   </div>
 				</div>
 				<br>

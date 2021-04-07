@@ -13,7 +13,7 @@
 	   @include('backend.partials.flash_message')
 		  <div class="panel-body" style="background-color: #fff; ">
 			 <div>
-				<form action="{{route('backend.admin.banquet.sttings.staff.store')}}" method="post">
+				<form action="{{route('backend.admin.banquet.sttings.staff.update',$user->id)}}" method="post">
 					{{csrf_field()}}
 				   <div class="col-xs-12">
 					  <div data-provides="fileinput" class="fileinput fileinput-new">
@@ -28,7 +28,7 @@
 						 <select class="form-control" data-plugin="select2" name="department_id">
 								<option value="">--Select--</option>
 							@foreach($department as $dept)
-							   <option value="{{$dept->id}}"{{old('department_id') == $dept->id ? 'selected': ''}}>{{$dept->department_name}}</option>
+							   <option value="{{$dept->id}}"{{$user->department_id == $dept->id ? 'selected': ''}}>{{$dept->department_name}}</option>
 							@endforeach  
 						 </select>
 						  <span class="text-danger">{{$errors->first('department_id')}}</span>
@@ -38,19 +38,19 @@
 						 <select class="form-control" data-plugin="select2" name="designation_id">
 							   <option value="">--Select--</option>
 							@foreach($designation as $design)
-							   <option value="{{$design->id}}" {{old('designation_id') == $design->id ? 'selected' : '' }}>{{$design->designation_name}}</option>
+							   <option value="{{$design->id}}" {{$user->designation_id == $design->id ? 'selected' : '' }}>{{$design->designation_name}}</option>
 							@endforeach   
 						 </select>
 						  <span class="text-danger">{{$errors->first('designation_id')}}</span>
 					  </div>
 					  <div class="col-lg-3">
 						 <h5>First Name:<span class="text-danger">*</span></h5>
-						 <input type="text" class="form-control" placeholder="First Name" name="first_name" value="{{old('first_name')}}" />
+						 <input type="text" class="form-control" placeholder="First Name" name="first_name" value="{{$user->first_name}}" />
 						  <span class="text-danger">{{$errors->first('first_name')}}</span>
 					  </div>
 					  <div class="col-lg-3">
 						 <h5>Last Name:<span class="text-danger">*</span></h5>
-						 <input type="text" class="form-control" placeholder="Last Name" name="last_name" value="{{old('last_name')}}" />
+						 <input type="text" class="form-control" placeholder="Last Name" name="last_name" value="{{$user->last_name}}" />
 						  <span class="text-danger">{{$errors->first('last_name')}}</span>
 					  </div>
 				   </div>
@@ -58,12 +58,12 @@
 				   <div class="row" >
 					  <div class="col-lg-3">
 						 <h5>Phone No:<span class="text-danger">*</span></h5>
-						 <input type="number" class="form-control" placeholder="phone_number" name="phone_number" value="{{old('phone_number')}}" />
+						 <input type="tel" class="form-control" placeholder="phone_number" name="phone_number" value="{{$user->phone_number}}" />
 						  <span class="text-danger">{{$errors->first('phone_number')}}</span>
 					  </div>
 					  <div class="col-lg-3">
 						 <h5>Email:<span class="text-danger">*</span></h5>
-						 <input type="text" class="form-control" placeholder="Email" name="email" value="{{old('email')}}" />
+						 <input type="text" class="form-control" placeholder="Email" value="{{$user->email}}" readonly/>
 						  <span class="text-danger">{{$errors->first('email')}}</span>
 					  </div>
 				   </div>
@@ -71,7 +71,7 @@
 				   <div class="row" >
 					  <div class="col-lg-6 ">
 						 <h5>Password:<span class="text-danger">*</span></h5>
-						 <input type="password" class="form-control" placeholder="Password" name="password" value="{{old('password')}}" />
+						 <input type="password" class="form-control" placeholder="Password" name="password" value="{{$user->password}}"/>
 						  <span class="text-danger">{{$errors->first('password')}}</span>
 					  </div>
 					  <div class="col-lg-6 ">

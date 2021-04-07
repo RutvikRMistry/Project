@@ -37,7 +37,7 @@ class SalesTeamController extends Controller
 	}
 	public function store1(Request $request){
 		// $request->merge(['invoice_forecast' => 1.33]);
-		 $request->merge(['team_members' => 'asdsds']);
+		//  $request->merge(['team_members' => 'asdsds']);
 		// $request->merge(['leads' => 1]);
 		// $request->merge(['quotations' => 0]);
 		// $request->merge(['opportunities' => 1]);

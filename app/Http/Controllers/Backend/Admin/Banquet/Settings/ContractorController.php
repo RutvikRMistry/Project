@@ -8,6 +8,7 @@ use App\Model\Banquet\Entertainment;
 use App\Model\Banquet\Caterers;
 use App\Model\Banquet\EventCaterer;
 use App\Model\Banquet\EventMiscellaneous;
+use App\Model\Banquet\Miscellaneous;
 use App\Model\Banquet\Decorators;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Input;
@@ -85,8 +86,8 @@ class ContractorController extends Controller
 		return redirect()->route('backend.admin.banquet.sttings.contractor.caterer');
 	}
 	
-	public function deleteCaterer($id,Request $request){
-		$cat = Caterers::findorfail($id);
+	public function deleteCaterer($id){
+		$cat = EventCaterer::findorfail($id);
 		$cat->delete();
 		Session::flash('errmsg','delete Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.contractor.caterer');
@@ -296,6 +297,10 @@ class ContractorController extends Controller
 		);
 		$this->validate($request, $rules);
 		$request->merge(['user_id' => 17]);
+		$request->merge(['event_id' => 1]);
+		$request->merge(['day' => 17]);
+		$request->merge(['miscellaneous' => 'dgsahj']);
+		Miscellaneous::create($request->except('_token','package_name','price','person','services'));
 		EventMiscellaneous::create($request->except('_token','package_name','price','person','services'));
 		Session::flash('msg','Added Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.contractor.miscellaneous');
@@ -319,12 +324,15 @@ class ContractorController extends Controller
 		);
 		$this->validate($request, $rules);
 		$request->merge(['user_id' => 17]);
+		Miscellaneous::where('id',$id)->update($request->except('_token','package_name','price','person','services'));
 		EventMiscellaneous::where('id',$id)->update($request->except('_token','package_name','price','person','services'));
 		Session::flash('msg','Updated Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.contractor.miscellaneous');
 	}
 	public function deleteMiscellaneous($id){
+		$tabl = Miscellaneous::findorfail($id);
 		$table = EventMiscellaneous::findorfail($id);
+		$tabl->delete();
 		$table->delete();
 		Session::flash('errmsg','Deleted Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.contractor.miscellaneous');

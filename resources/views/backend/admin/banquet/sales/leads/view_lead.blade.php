@@ -4,7 +4,6 @@
  <!-- Top Menubar Ends Here-->
  <div class="page">
     @include('backend.partials.leftbar.shortcuts')
-    @foreach($leads as $leads)
 	<div class="page-main">
    <div class="page-header">
       <h1 class="page-title">Lead Details</h1>
@@ -34,7 +33,7 @@
                </div>
                <div class="col-sm-6 col-lg-3 m-t-20">
                   <label for="Country,State,City" class="control-label">Country,State,City</label> 
-                  <!-- <div>{{$contry->name}}, {{$states->name}}, {{$city->name}}</div> -->
+                 {{--<div>{{$country->name}}, {{$states->name}}, {{$city->name}}</div>--}}
                </div>
                <div class="col-sm-6 col-lg-3 m-t-20">
                   <label for="leadsource" class="control-label">Lead Source</label> 
@@ -80,10 +79,10 @@
                   <h5>Corporate Event</h5>
                </div>
                <div class="col-md-3">
-                  <h5>Veg :- 36 , Non Veg :- 9</h5>
+                  <h5>Veg : {{$leads->expected_guests_veg}} , Non Veg :- 9</h5>
                </div>
                <div class="col-md-2">
-                  <h5>50000</h5>
+                  <h5><div>{{$leads->budget}}</div></h5>
                </div>
             </div>
             <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
@@ -99,7 +98,7 @@
                </thead>
                <tbody>
                   <tr class="gradeA">
-                     <td>27th Sep, 2019  </td>
+                     <td>{{$leads->start_date}}  </td>
                      <td>Not define  </td>
                      <td>12:00 AM  </td>
                      <td>12:00 AM  </td>
@@ -122,7 +121,7 @@
             </div>
          </div>
       </div>
-   @endforeach 
+   
    </div>
 </div>
 </div>

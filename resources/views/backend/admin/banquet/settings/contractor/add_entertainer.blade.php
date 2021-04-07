@@ -29,7 +29,7 @@
                </div>
                <div class="col-lg-4 form-group">
                   <h5>Phone No:<span class="text-danger">*</span></h5>
-                  <input type="number" class="form-control" placeholder="Phone No " name="phone" value="{{old('phone')}}" required />
+                  <input type="tel" class="form-control" placeholder="Phone No " name="phone" value="{{old('phone')}}" required />
 				  <span class="text-danger">{{$errors->first('phone')}}</span>
                </div>
             </div>

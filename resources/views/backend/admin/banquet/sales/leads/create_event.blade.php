@@ -19,10 +19,10 @@
                      <select class="form-control" data-plugin="select2" id="client" onchange="fillCutomerInfo(this.value)" name="client" >
                         <optgroup label="Please Select">
                            <option value="R1">Client Name</option>
-                           <option value="R1">Jessica Jonson (Toll Brothers)</option>
-                           <option value="R1">James Smith (Toll Brothers)</option>
-                           <option value="R1">Anna Strong (Toll Brothers)</option>
-                           <option value="R1">Iron Man (Personal)</option>
+                           <option value="Jessica Jonson (Toll Brothers)">Jessica Jonson (Toll Brothers)</option>
+                           <option value="James Smith (Toll Brothers)">James Smith (Toll Brothers)</option>
+                           <option value="Anna Strong (Toll Brothers)">Anna Strong (Toll Brothers)</option>
+                           <option value="Iron Man (Personal)">Iron Man (Personal)</option>
                         </optgroup>
                      </select>
                   </div>
@@ -32,19 +32,22 @@
                   </div>
                   <div class="col-lg-4">
                      <h5>Phone<strong class="text-danger">*</strong></h5>
-                     <input placeholder="Phone" name="client_phone" type="number" value="123456789" id="client_phone" class="form-control tooltipstered valid">              
+                     <input placeholder="Phone" name="client_phone" type="tel" value="123456789" id="client_phone" class="form-control tooltipstered valid">              
                   </div>
                </div>
                <br>
                <div class="row">
                   <div class="col-lg-4">
                      <h5>Company<strong class="text-danger">*</strong></h5>
-                     <select class="form-control" data-plugin="select2"id="client_company" name="client_company" >
+                     <select class="form-control" data-plugin="select2"id="client_company" name="company_name" >
                         <optgroup label="Please Select">
-                           <option value="R1">Personal</option>
+                           <!-- <option value="R1">Personal</option>
                            <option value="R1">California Cartage Express</option>
                            <option value="R1">Jawwal Palestine</option>
-                           <option value="R1">Toll Brothers</option>
+                           <option value="R1">Toll Brothers</option> -->
+                           @foreach($company as $company)
+							      <option value="{{$company->name}}" {{$call->company_name == $company->name?'selected':''}}>{{$company->name}}</option>
+							      @endforeach
                         </optgroup>
                      </select>
                   </div>
@@ -52,12 +55,15 @@
                      <h5>Country<strong class="text-danger">*</strong></h5>
                      <select class="form-control" data-plugin="select2" id="country_id" name="country_id">
                         <optgroup label="Please Select">
-                           <option value="R1">Afghanistan</option>
+                           <!-- <option value="R1">Afghanistan</option>
                            <option value="R1">Albania</option>
                            <option value="R1">Antigua And Barbuda</option>
                            <option value="R1">Australia</option>
                            <option value="R1">Bahrain</option>
-                           <option value="R1">Belgium</option>
+                           <option value="R1">Belgium</option> -->
+                           @foreach($country as $country)
+							      <option value="{{$country->id}}" {{$call->country_id == $country->id?'selected':''}}>{{$country->name}}</option>
+							      @endforeach
                         </optgroup>
                      </select>
                   </div>
@@ -65,12 +71,15 @@
                      <h5>State<strong class="text-danger">*</strong></h5>
                      <select class="form-control" data-plugin="select2" id="state_id" name="state_id" >
                         <optgroup label="Please Select">
-                           <option value="R1">Australian Capital Territory</option>
+                           <!-- <option value="R1">Australian Capital Territory</option>
                            <option value="R1">New South Wales</option>
                            <option value="R1">Northern Territory</option>
                            <option value="R1">Queensland</option>
                            <option value="R1">Tasmania</option>
-                           <option value="R1">Western Australia</option>
+                           <option value="R1">Western Australia</option> -->
+                           @foreach($state as $state)
+							      <option value="{{$state->id}}" {{$call->state_id == $state->id?'selected':''}}>{{$state->name}}</option>
+						      	@endforeach
                         </optgroup>
                      </select>
                   </div>
@@ -81,6 +90,9 @@
                      <h5>City<strong class="text-danger">*</strong></h5>
                      <select class="form-control" data-plugin="select2"id="city_id" name="city_id">
                         <optgroup label="Please Select">
+                        @foreach($city as $city)
+							<option value="{{$city->id}}" {{$call->city_id == $city->id?'selected':''}}>{{$city->name}}</option>
+							@endforeach
                         </optgroup>
                      </select>
                   </div>
@@ -92,11 +104,14 @@
                      <h4 class="example-title">Lead Source<strong class="text-danger">*</strong></h4>
                      <select class="form-control" data-plugin="select2" id="lead_source" name="lead_source" >
                         <optgroup label="Please Select">
-                           <option value="R1">Facebook</option>
+                           <!-- <option value="R1">Facebook</option>
                            <option value="R1">Hoarding</option>
                            <option value="R1">Instagram</option>
                            <option value="R1">Newspaper</option>
-                           <option value="R1">Twitter</option>
+                           <option value="R1">Twitter</option> -->
+                           @foreach($lead as $lead)
+							      <option value="{{$lead->id}}" {{$call->lead_source == $lead->id?'selected':''}}>{{$lead->name}}</option>
+							      @endforeach
                         </optgroup>
                      </select>
                   </div>
@@ -107,8 +122,11 @@
                      <h5>Sales Team<strong class="text-danger">*</strong></h5>
                      <select class="form-control" data-plugin="select2" id="sales_team_id" name="salesteam" >
                         <optgroup label="Select Sales team">
-                           <option value="R1">Mike's Sales Team</option>
-                           <option value="R1">Hoarding</option>
+                           <!-- <option value="R1">Mike's Sales Team</option>
+                           <option value="R1">Hoarding</option> -->
+                           @foreach($sale as $sale)
+							      <option value="{{$sale->id}}" {{$call->sales_team_id == $sale->id?'selected':''}}>{{$sale->salesteam}}</option>
+							      @endforeach
                         </optgroup>
                      </select>
                   </div>
@@ -134,12 +152,15 @@
                      <h5>Type of Event<strong class="text-danger">*</strong></h5>
                      <select class="form-control" data-plugin="select2" id="type_event" name="type_event" >
                         <optgroup label="Please Select">
-                           <option value="R1">Select Event Type</option>
+                           <!-- <option value="R1">Select Event Type</option>
                            <option value="R1">Birthday Party</option>
                            <option value="R1">Cocktail</option>
                            <option value="R1">Corporate</option>
                            <option value="R1">Corporate Event</option>
-                           <option value="R1">Fair</option>
+                           <option value="R1">Fair</option> -->
+                           @foreach($type as $type)
+						      	<option value="{{$type->id}}" {{$call->event_type == $type->id?'selected':''}}>{{$type->name}}</option>
+							      @endforeach 
                         </optgroup>
                      </select>
                   </div>

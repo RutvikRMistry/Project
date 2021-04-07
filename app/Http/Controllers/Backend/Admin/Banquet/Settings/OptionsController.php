@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Backend\Admin\Banquet\Settings;
 use Illuminate\Http\Request;
 use App\Model\Banquet\Option;
 use App\Model\Banquet\CateringServiceType;
-use App\Model\Banquet\EventType;
-use App\Model\Banquet\EventDepositType;
+use App\Model\Banquet\TypeEvent;
+use App\Model\Banquet\DepositType;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Input;
 use File;
@@ -143,7 +143,7 @@ class OptionsController extends Controller
 		);
 		$this->validate($request,$rules);
 		$request->merge(['user_id' => 17]);
-		EventType::create($request->except('_token'));
+		TypeEvent::create($request->except('_token'));
 		Session::flash('msg','Added Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.option.event');
 	}
@@ -160,12 +160,12 @@ class OptionsController extends Controller
 		);
 		$this->validate($request,$rules);
 		$request->merge(['user_id' => 17]);
-		EventType::where('id',$id)->update($request->except('_token'));
+		TypeEvent::where('id',$id)->update($request->except('_token'));
 		Session::flash('msg','Updated Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.option.event');
 	}
 	public function deleteEvent($id){
-		$table = EventType::findorfail($id);
+		$table = TypeEvent::findorfail($id);
 		$table->delete();
 		Session::flash('errmsg','Deleted Successfully');
 		return redirect()->back();
@@ -190,7 +190,7 @@ class OptionsController extends Controller
 		); 
 		$this->validate($request , $rules);
 		$request->merge(['user_id' => 17]);
-		EventDepositType::create($request->except('_token'));
+		DepositType::create($request->except('_token'));
 		Session::flash('msg','Added Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.option.deposit');
 	}
@@ -207,12 +207,12 @@ class OptionsController extends Controller
 		); 
 		$this->validate($request , $rules);
 		$request->merge(['user_id' => 17]);
-		EventDepositType::where('id',$id)->update($request->except('_token'));
+		DepositType::where('id',$id)->update($request->except('_token'));
 		Session::flash('msg','Updated Successfully');
 		return redirect()->route('backend.admin.banquet.sttings.option.deposit');
 	}
 	public function deleteDeposit($id){
-		$table = EventDepositType::findorfail($id);
+		$table = DepositType::findorfail($id);
 		$table->delete();
 		Session::flash('errmsg','Deleted Successfully');
 		return redirect()->back();

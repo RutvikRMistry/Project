@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Backend\Admin\Banquet\Settings;
 
 use Illuminate\Http\Request;
 use App\Model\Banquet\MainMenu;
-use App\Model\Banquet\Menus;
+use App\Model\Banquet\Menu;
 use App\Model\Banquet\MenuType;
 use App\Model\Banquet\SubMenu;
 use Intervention\Image\Facades\Image;
@@ -221,8 +221,25 @@ class MenusController extends Controller
 		
 	}
 	/* Menu Item */
-	public function menuItems(){
-		 return view('backend.admin.banquet.settings.menus.menu_items');
+	public function menuItems(Request $request){
+		$me = Menu::join('main_menu AS mm', 'menu.main_menu_id', '=', 'mm.id' )
+		->leftjoin('menu_type AS m', 'menu.menu_type', '=', 'm.id')
+		->leftjoin('sub_menu AS s', 'menu.sub_menu_id', '=', 's.id')
+		
+		->select(
+			'menu.id',
+			'menu.name',
+			'menu.price',
+			'menu.description',
+			'mm.name as menu',
+			'm.name as type',
+			's.name as sub'
+			
+		)
+		->get();
+		 return view('backend.admin.banquet.settings.menus.menu_items',compact(
+			'me'
+		 ));
 	}	
 	
 	public function addMenuItem(){
@@ -230,28 +247,66 @@ class MenusController extends Controller
 		$menu = DB::connection('mysql_banquet')->table('main_menu')->get()->where('user_id',$user_id);
 		$type = DB::connection('mysql_banquet')->table('menu_type')->get()->where('user_id',$user_id);
 		$sub = DB::connection('mysql_banquet')->table('sub_menu')->get()->where('user_id',$user_id);
+		$me = DB::connection('mysql_banquet')->table('menu')->get()->where('user_id',$user_id);
 		 return view('backend.admin.banquet.settings.menus.add_menu_item',compact(
 		 
 			'menu',
 			'type',
-			'sub'
+			'sub',
+			'me'
 		 ));
 	}
 	
 	public function storeMenuItem(Request $request){
+		$rules = array(
+			'hours' => 'required',
+			'persons' => 'required|numeric',
+			'price' => 'required|numeric'
+		);
+		$this->validate($request,$rules);
+		$request->merge(['user_id' => 17]);
+		$request->merge(['status' => 17]);
+		Menu::create($request->except('_token'));
+		Session::flash('msg','Created Successfully');	
+		return redirect()->route('backend.admin.banquet.sttings.menu.item');
 		
 	}
 	
 	public function editMenuItem($id){
-		 return view('backend.admin.banquet.settings.menus.add_menu_item');
+		$user_id = 17;
+		$menu = DB::connection('mysql_banquet')->table('main_menu')->get()->where('user_id',$user_id);
+		$type = DB::connection('mysql_banquet')->table('menu_type')->get()->where('user_id',$user_id);
+		$sub = DB::connection('mysql_banquet')->table('sub_menu')->get()->where('user_id',$user_id);
+		$me = DB::connection('mysql_banquet')->table('menu')->get()->where('id',$id)->first();
+		 return view('backend.admin.banquet.settings.menus.edit_menu_item',compact(
+		 
+			'menu',
+			'type',
+			'sub',
+			'me'
+		 ));
 	}
 	
 	public function updateMenuItem(Request $request,$id){
+		$rules = array(
+			'hours' => 'required',
+			'persons' => 'required|numeric',
+			'price' => 'required|numeric'
+		);
+		$this->validate($request,$rules);
+		$request->merge(['user_id' => 17]);
+		$request->merge(['status' => 17]);
+		Menu::where('id',$id)->update($request->except('_token'));
+		Session::flash('msg','updated Successfully');	
+		return redirect()->route('backend.admin.banquet.sttings.menu.item');
 		
 	}
 	
 	public function deleteMenuItem($id){
-		
+		$table = Menu::findorfail($id);
+		$table->delete();
+		Session::flash('errmsg','Deleted Successfully');
+		return redirect()->back();
 	}
 	
 	

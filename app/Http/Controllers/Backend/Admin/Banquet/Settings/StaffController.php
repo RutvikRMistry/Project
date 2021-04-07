@@ -24,17 +24,19 @@ class StaffController extends Controller
     public function index(){
 		
 		$user_id = 17;
-		/*$user = User::leftJoin('designation_master AS dm', 'user.user_id', '=', 'dm.user_id')
-                        ->join('department_master AS dpm','user.user_id','=','dpm.user_id')
+		$user = User::leftJoin('designation_master AS dm', 'users.user_id', '=', 'dm.user_id')
+                        ->join('department_master AS dpm','users.user_id','=','dpm.user_id')
                         ->select(
-                            'user.first_name',
-                            'user.last_name',
-                            'user.email',
-                            'dm.designation_name',
-                            'dpm.department_name',	
-                            DB::raw("CONCAT(COALESCE(user.first_name, ''),' ',COALESCE(user.last_name,'')) as full_name")
-                        )->get();*/
-		$user = DB::connection('mysql_banquet')->table('users')->get()->where('user_id',$user_id);
+							'users.id',
+                            'users.first_name',
+                            'users.last_name',
+                            'users.email',
+							'users.created_at',
+                            'dm.designation_name as des',
+                            'dpm.department_name as dep'
+                            // DB::raw("CONCAT(COALESCE(user.first_name, ''),' ',COALESCE(user.last_name,'')) as full_name")
+                        )->get();
+		// $user = DB::connection('mysql_banquet')->table('users')->get()->where('user_id',$user_id);
 		 return view('backend.admin.banquet.settings.staff.index',compact(
 			'user'
 		 ));
@@ -62,11 +64,13 @@ class StaffController extends Controller
 		
 		); 
 		$this->validate($request ,$rules);
+		$request->merge(['stripe_id' => 17]);
 		//User::insert($request->all());
 		//echo '<pre>';
 		//print_r($_POST);
 		//die;
-		$user = DB::connection('mysql_banquet')->table('users')->insert($request->except('_token','confirm_password','permissions'));
+		// $user = DB::connection('mysql_banquet')->table('users')->insert($request->except('_token','confirm_password','permissions'));
+		User::create($request->except('_token','confirm_password','permissions'));
 		
 		/*$user = new $this->user;
 		$user->first_name = $request->first_name;
@@ -118,12 +122,13 @@ class StaffController extends Controller
 		return redirect()->route('backend.admin.banquet.sttings.staff');
 	}
 	public function edit($id){
-		 $designation = DB::connection('mysql_banquet')->table('designation_master')->get();
+		$designation = DB::connection('mysql_banquet')->table('designation_master')->get();
 		$department = DB::connection('mysql_banquet')->table('department_master')->get();
-		
+		$user = DB::connection('mysql_banquet')->table('users')->get()->where('id',$id)->first();
 		 return view('backend.admin.banquet.settings.staff.edit',compact(
 			'designation',
-			'department'
+			'department',
+			'user'
 		 ));
 	}
 	public function update(Request $request,$id){
@@ -134,17 +139,19 @@ class StaffController extends Controller
 			'first_name' => 'required',
 			'last_name' => 'required',
 			'phone_number' => 'required|min:10|numeric',
-			'email' => 'required|email|unique:users',
+			// 'email' => 'required|email',
 			'password' => 'required',
 			'confirm_password' => 'required|same:password',
 		
 		); 
 		$this->validate($request ,$rules);
-		$user = DB::connection('mysql_banquet')->table('users')->update($request->except('_token','confirm_password','permissions'));
-		return view('backend.admin.banquet.settings.staff.edit');
+		// $user = DB::connection('mysql_banquet')->table('users')->update($request->except('_token','confirm_password','permissions'));
+		User::where('id',$id)->update($request->except('_token','confirm_password','permissions'));
+		Session::flash('msg','updated Successfully');
+		return redirect()->route('backend.admin.banquet.sttings.staff');
 	}
 	public function view($id){
-		 return view('backend.admin.banquet.settings.staff.view');
+		return view('backend.admin.banquet.settings.staff.view');
 	}
 	public function delete($id){
 		$user = User::findorfail($id);
