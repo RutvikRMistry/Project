@@ -33,6 +33,7 @@
 				   </div>
 				</div>
 				<div style="width: 50%; float: right;">
+				@include('backend.partials.flash_message')
 				   <div class="btn-group" aria-label="Button group with nested dropdown" role="group" style="float: right; padding-top: 10px;">
 					  <div class="tablesaw-sortable-switch tablesaw-bar-section">
 						 <label><input type="search" class="form-control form-control-sm" placeholder="Search.." aria-controls="DataTables_Table_0"></label>
@@ -54,30 +55,32 @@
 						 </tr>
 					  </thead>
 					  <tbody>
+					  	@foreach($book as $leads)
 						 <tr>
-							<td>Holly Loscig <br>
-							   <small class="text-muted">BP_Event_05012020114930  </small>
-							</td>
-							<td> Rush Patel </td>
-							<td>154687920</td>
-							<td>DEFINITE</td>
-							<td>01/05/2020 - 01/05/2020 </td>
-							<td>David Felming </td>
-							<td>Adan Brown  </td>
+							<td>{{$leads->event_name}}</td>
+							   <!-- <small class="text-muted">BP_Event_05012020114930  </small> -->
+							<!-- </td> -->
+							<td> {{$leads->booking_name}} </td>
+							<td>{{$leads->client_phone}}</td>
+							<td>{{$leads->event_status}}</td>
+							<td>{{$leads->from_date}} - {{$leads->to_date}}</td>
+							<td>{{$leads->per}} </td>
+							<td>{{$leads->sale}}</td>
 							<td class="actions">
 							   <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
 								  data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
 							   <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
 								  data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-							   <a href="{{route('backend.admin.banquet.sales.edit_event')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+							   <a href="{{route('backend.admin.banquet.sales.edit_event',$leads->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
 								  data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
-							   <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
+							   <a href="{{route('backend.admin.banquet.sales.delete',$leads->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
 								  data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
 							   <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
 								  data-toggle="tooltip" data-original-title="Print"><i class="icon pe-print" aria-hidden="true"></i></a>
 							</td>
 						 </tr>
-						 <tr>
+						 @endforeach
+						 <!-- <tr>
 							<td>test121323423443423 <br>
 							   <small class="text-muted">BP_Event_05012020114930  </small>
 							</td>
@@ -99,8 +102,9 @@
 							   <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
 								  data-toggle="tooltip" data-original-title="Print"><i class="icon pe-print" aria-hidden="true"></i></a>
 							</td>
-						 </tr>
-						 <tr>
+						 </tr> -->
+						
+						 <!-- <tr>
 							<td>testing122 <br>
 							   <small class="text-muted">BP_Event_05012020114930  </small>
 							</td>
@@ -168,7 +172,7 @@
 							   <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
 								  data-toggle="tooltip" data-original-title="Print"><i class="icon pe-print" aria-hidden="true"></i></a>
 							</td>
-						 </tr>
+						 </tr> -->
 					  </tbody>
 				   </table>
 				   <div>

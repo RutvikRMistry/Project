@@ -193,7 +193,7 @@ ago</time>
                         <div class="media">
                           <div class="pr-10">
                             <span class="avatar avatar-sm avatar-online">
-                              <img src="../../assets/portraits/2.jpg" alt="...">
+                              <img src="{{asset('assets/portraits/2.jpg')}}" alt="...">
                               <i></i>
                             </span>
                           </div>
@@ -210,7 +210,7 @@ ago</time>
                         <div class="media">
                           <div class="pr-10">
                             <span class="avatar avatar-sm avatar-off">
-                              <img src="../assets/portraits/3.jpg" alt="...">
+                              <img src="{{asset('assets/portraits/3.jpg')}}" alt="...">
                               <i></i>
                             </span>
                           </div>

@@ -211,7 +211,9 @@ Route::group(['prefix'=>'/admin'],function () {
 			Route::get('/sales/lead/delete/{id}','Backend\Admin\Banquet\Sales\SalesController@deleteLead')->name('backend.admin.banquet.sales.lead.delete');	
 			Route::get('/sales/lead/create-lead','Backend\Admin\Banquet\Sales\SalesController@createLead')->name('backend.admin.banquet.sales.lead.add');
 			Route::get('/sales/lead/edit-lead/{id?}','Backend\Admin\Banquet\Sales\SalesController@editLead')->name('backend.admin.banquet.sales.lead.edit');
-			Route::post('/sales/lead/update/{id}','Backend\Admin\Banquet\Sales\SalesController@updateLead')->name('backend.admin.banquet.sales.lead.update');
+			Route::post('/sales/lead/update/{id?}','Backend\Admin\Banquet\Sales\SalesController@updateLead')->name('backend.admin.banquet.sales.lead.update');
+			// Route::post('sales/lead/update-items', array('as'=> 'update.items', 'uses' => 'Backend\Admin\Banquet\Sales\SalesController@updateItems'));
+			Route::post('sales/lead/update-items/{id?}','Backend\Admin\Banquet\Sales\SalesController@updateItems')->name('update.items');
 			Route::get('/sales/lead/view-lead/{id?}','Backend\Admin\Banquet\Sales\SalesController@leadDetail')->name('backend.admin.banquet.sales.lead.view');
 			Route::get('/sales/create-event','Backend\Admin\Banquet\Sales\SalesController@createEvent')->name('backend.admin.banquet.sales.lead.create_event');
 
@@ -228,7 +230,8 @@ Route::group(['prefix'=>'/admin'],function () {
 			
 			Route::get('/sales/quotations','Backend\Admin\Banquet\Sales\QuotationsController@index')->name('backend.admin.banquet.sales.quotation');
 			
-			Route::get('/sales/edit-event','Backend\Admin\Banquet\Sales\QuotationsController@editEvent')->name('backend.admin.banquet.sales.edit_event');
+			Route::get('/sales/edit-event/{id?}','Backend\Admin\Banquet\Sales\QuotationsController@editEvent')->name('backend.admin.banquet.sales.edit_event');
+			Route::get('/sales/delete/{id?}','Backend\Admin\Banquet\Sales\QuotationsController@deleteEvent')->name('backend.admin.banquet.sales.delete');
 			
 			Route::get('/sales/invoices','Backend\Admin\Banquet\Sales\InvoicesController@index')->name('backend.admin.banquet.sales.invoice');
 			
@@ -239,14 +242,17 @@ Route::group(['prefix'=>'/admin'],function () {
 			Route::get('/sales/delete-customer/{id}','Backend\Admin\Banquet\Sales\CustomersController@deleteCustomer')->name('backend.admin.banquet.sales.customer.delete');
 			Route::get('/sales/edit-customer/{id}','Backend\Admin\Banquet\Sales\CustomersController@editCustomer')->name('backend.admin.banquet.sales.customer.edit');
 			Route::post('/sales/update-customer/{id}','Backend\Admin\Banquet\Sales\CustomersController@updateCustomer')->name('backend.admin.banquet.sales.customer.update');
-			Route::get('/sales/view-customer','Backend\Admin\Banquet\Sales\CustomersController@viewCustomer')->name('backend.admin.banquet.sales.customer.view');
+			Route::get('/sales/view-customer/{id?}','Backend\Admin\Banquet\Sales\CustomersController@viewCustomer')->name('backend.admin.banquet.sales.customer.view');
 			
 			//contact
 			Route::get('/sales/contacts','Backend\Admin\Banquet\Sales\ContactsController@index')->name('backend.admin.banquet.sales.contact');
-			Route::post('/sales/store-contact','Backend\Admin\Banquet\Sales\ContectController@storeCustomer')->name('backend.admin.banquet.sales.contact.store');			
+			Route::post('/sales/store-contact','Backend\Admin\Banquet\Sales\ContactsController@storeContact')->name('backend.admin.banquet.sales.contact.store');			
 			Route::get('/sales/new-contact','Backend\Admin\Banquet\Sales\ContactsController@newContact')->name('backend.admin.banquet.sales.contact.add');
+			Route::get('/sales/delete-contact/{id}','Backend\Admin\Banquet\Sales\ContactsController@deleteContact')->name('backend.admin.banquet.sales.contact.delete');
+			Route::get('/sales/edit-contact/{id}','Backend\Admin\Banquet\Sales\ContactsController@editContact')->name('backend.admin.banquet.sales.contact.edit');
+			Route::post('/sales/update-contact/{id}','Backend\Admin\Banquet\Sales\ContactsController@updateContact')->name('backend.admin.banquet.sales.contact.update');
 			
-			Route::get('/sales/view-contact','Backend\Admin\Banquet\Sales\ContactsController@viewContact')->name('backend.admin.banquet.sales.contact.view');
+			Route::get('/sales/view-contact/{id}','Backend\Admin\Banquet\Sales\ContactsController@viewContact')->name('backend.admin.banquet.sales.contact.view');
 			
 			/*Functions and Event*/
 			Route::get('/functions/events','Backend\Admin\Banquet\FunctionsController@events')->name('backend.admin.banquet.functions.event');
@@ -254,8 +260,9 @@ Route::group(['prefix'=>'/admin'],function () {
 			Route::post('/functions/store-event','Backend\Admin\Banquet\FunctionsController@storeEvent')->name('backend.admin.banquet.functions.event.store');
 			Route::get('/functions/delete-event/{id}', 'Backend\Admin\Banquet\FunctionsController@deleteEvent')->name('backend.admin.banquet.functions.event.delete');
 			// Route::get('/functions/edit-event','Backend\Admin\Banquet\FunctionsController@editEvent')->name('backend.admin.banquet.functions.event.edit');
-			Route::get('/functions/event-edit/{id?}','Backend\Admin\Banquet\FunctionsController@Eventedit')->name('backend.admin.banquet.functions.event.edit');
+			Route::get('/functions/{id?}/event-edit/','Backend\Admin\Banquet\FunctionsController@Eventedit')->name('backend.admin.banquet.functions.event.edit');
 			Route::post('/functions/update-event/{id}','Backend\Admin\Banquet\FunctionsController@updateEvent')->name('backend.admin.banquet.functions.event.update');
+			Route::post('/functions/update-items/{id?}','Backend\Admin\Banquet\FunctionsController@updateItems')->name('update.items');
 			Route::get('/functions/view-event/{id?}','Backend\Admin\Banquet\FunctionsController@viewEvent')->name('backend.admin.banquet.functions.event.view');
 			
 			Route::get('/functions/calendar','Backend\Admin\Banquet\FunctionsController@calendar')->name('backend.admin.banquet.functions.calendar');
@@ -269,6 +276,8 @@ Route::group(['prefix'=>'/admin'],function () {
 			/* tasks */
 			
 			Route::get('/task/todo','Backend\Admin\Banquet\TaskController@todoList')->name('backend.admin.banquet.task.todo');
+			Route::post('/task/store','Backend\Admin\Banquet\TaskController@todostore')->name('backend.admin.banquet.task.store');
+			Route::post('/task/update/{?id}','Backend\Admin\Banquet\TaskController@todoupdate')->name('backend.admin.banquet.task.update');
 
 			/* meeting */
 			Route::get('/task/meeting','Backend\Admin\Banquet\TaskController@meeting')->name('backend.admin.banquet.task.meeting');

@@ -99,8 +99,11 @@ class CustomersController extends Controller
 		
 	}
 	
-	public function viewCustomer(){		
-		return view('backend.admin.banquet.sales.view_customer');
+	public function viewCustomer($id){		
+		$customer = Customer::findorfail($id);
+		return view('backend.admin.banquet.sales.view_customer',compact(
+			'customer'
+		));
 	}
 	
 	

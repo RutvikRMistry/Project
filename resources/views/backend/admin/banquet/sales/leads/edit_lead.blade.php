@@ -32,16 +32,16 @@
 				<div class="row">
 				   <div class="col-lg-3 ">
 					  <h5>Client Name<strong class="text-danger">*</strong></h5>
-					  <input placeholder="Client Name" name="client_name" Type="text" id="booking" class="form-control">
+					  <input placeholder="Client Name" name="client_name" Type="text" id="booking" class="form-control" value="{{$leads->client_name}}">
 					  <!-- s -->
 				   </div>
 				   <div class="col-lg-3 ">
 					  <h5>Email ID<strong class="text-danger">*</strong></h5>
-					  <input placeholder="Email Address" name="email" type="email" id="email" class="form-control">
+					  <input placeholder="Email Address" name="email" type="email" id="email" class="form-control" value="{{$leads->email}}">
 				   </div>
 				   <div class="col-lg-3 ">
 					  <h5>Phone<strong class="text-danger">*</strong></h5>
-					  <input data-fv-integer="true" placeholder="Phone Number" name="mobile" type="tel" id="mobile" class="form-control">
+					  <input data-fv-integer="true" placeholder="Phone Number" name="mobile" type="tel" id="mobile" class="form-control" value="{{$leads->mobile}}">
 				   </div>
 				   <div class="col-lg-3 ">
 					  <h5>Company<strong class="text-danger">*</strong></h5>
@@ -51,7 +51,7 @@
 							<option value="California Cartage Express">California Cartage Express</option>
 							<option value="Jawwal Palestine">Jawwal Palestine</option>
 							<option value="Toll Brothers">Toll Brothers</option> -->
-                     @foreach($company as $company)
+                     		@foreach($company as $company)
 							<option value="{{$company->name}}" {{$leads->company_name == $company->name?'selected':''}}>{{$company->name}}</option>
 							@endforeach
 						 </optgroup>
@@ -172,9 +172,10 @@
 					  <h5>Priority<strong class="text-danger">*</strong></h5>
 					  <select class="form-control" data-plugin="select2" id="priority" name="priority">
 						 <optgroup label="Please Select">
-							<option value="1">Open</option>
-							<option value="2">Approach</option>
-							<option value="3">Do Not Contact</option>
+							<option value="Open">Open</option>
+							<option value="Approach">Approach</option>
+							<option value="Converted">Converted</option>
+							<option value="Do Not Contact">Do Not Contact</option>
 						 </optgroup>
 					  </select>
 				   </div>
@@ -187,7 +188,7 @@
 				<div class="row">
 				   <div class="col-lg-3 ">
 					  <h5>Event Name<strong class="text-danger">*</strong></h5>
-					  <input id="event_name" placeholder="Event Name" name="event_name" type="text" class="form-control">
+					  <input id="event_name" placeholder="Event Name" name="event_name" type="text" class="form-control" value="{{$leads->event_name}}">
 				   </div>
 				   <div class="col-lg-3 ">
 					  <h5>Event Type<strong class="text-danger">*</strong></h5>
@@ -204,11 +205,11 @@
 				   </div>
 				   <div class="col-lg-3 ">
 					  <h5>Expected Number Of Guests<strong class="text-danger">*</strong></h5>
-					  <input placeholder="Guest" min="0" name="expected_guests_veg" type="number" class="form-control">
+					  <input placeholder="Guest" min="0" name="expected_guests_veg" type="number" class="form-control" value="{{$leads->expected_guests_veg}}">
 				   </div>
 				   <div class="col-lg-3 ">
 					  <h5>Budget Up To<strong class="text-danger">*</strong></h5>
-					  <input min="0" step="0.01" placeholder="Budget Up To In ₵" name="budget" type="number" id="budget" class="form-control">
+					  <input min="0" step="0.01" placeholder="Budget Up To In ₵" name="budget" type="number" id="budget" class="form-control" value="{{$leads->budget}}">
 				   </div>
 				</div>
 				<br>
@@ -219,7 +220,7 @@
 						 <span class="input-group-addon">
 						 <i class="icon wb-calendar" aria-hidden="true"></i>
 						 </span>
-						 <input type="date" class="form-control" data-plugin="datepicker" data-multidate="true"id="start_date" oninput="getDateTimes(this.value)" name="start_date">
+						 <input type="date" class="form-control" data-plugin="datepicker" data-multidate="true"id="start_date" oninput="getDateTimes(this.value)" name="start_date" value="{{$leads->start_date}}">
 					  </div>
 				   </div>
 				   <div class="col-lg-3 ">
@@ -228,7 +229,7 @@
 						 <span class="input-group-addon">
 						 <i class="icon wb-calendar" aria-hidden="true"></i>
 						 </span>
-						 <input type="date" class="form-control" data-plugin="datepicker" data-multidate="true" id="end_date" oninput="getDateTimes(this.value)" name="end_date">
+						 <input type="date" class="form-control" data-plugin="datepicker" data-multidate="true" id="end_date" oninput="getDateTimes(this.value)" name="end_date" value="{{$leads->end_date}}">
 					  </div>
 				   </div>
 				</div>
@@ -263,7 +264,7 @@
 					  <div class="form-group row">
 						 <label class="col-md-2form-control-lg form-control-label" for="inputSizingLarge"></label>
 						 <div class="col-md-12">
-							<textarea name="additionl_info" cols="50" rows="10" id="additionl_info" class="form-control resize_vertical"></textarea>
+							<textarea name="additionl_info" cols="50" rows="10" id="additionl_info" class="form-control resize_vertical" placeholder="{{$leads->additionl_info}}" value="{{$leads->additionl_info}}"></textarea>
 						 </div>
 					  </div>
 				   </div>

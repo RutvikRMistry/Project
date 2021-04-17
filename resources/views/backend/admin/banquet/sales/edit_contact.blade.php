@@ -23,7 +23,7 @@
       <div class="panel-body" style="background-color: #fff; ">
          <header class="panel-heading">
          <div>
-            <form action="{{route('backend.admin.banquet.sales.customer.update',$cust->id)}}" method="post">
+            <form action="{{route('backend.admin.banquet.sales.contact.update',$cust->id)}}" method="post">
             {{csrf_field()}}
                <div class="col-xs-12">
                   <div data-provides="fileinput" class="fileinput fileinput-new">
@@ -80,8 +80,8 @@
                   </div>
                   <div class="col-lg-6">
                      <h5>Email ID<strong class="text-danger">*</strong></h5>
-                     <input name="fax" type="email" id="email" class="form-control" data-bv-field="email" value="{{$cust->email}}">
-                  </div>
+                     <input name="fax" type="email" id="email" class="form-control" data-bv-field="email" value="{{$cust->fax}}">
+                  </div> 
                </div>
                <br>
                <div class="row">
@@ -109,7 +109,7 @@
                <div class="form-group row">
                   <div class="col-md-9">
                      <button type="submit" class="btn btn-primary">Back </button>
-                     <button type="Buttons" class="btn btn-default btn-outline">OK</button>
+                     <button type="submit" class="btn btn-default btn-outline">OK</button>
                   </div>
                </div>
             </form>

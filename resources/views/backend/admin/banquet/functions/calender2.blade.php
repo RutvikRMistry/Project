@@ -3,7 +3,6 @@
 @section('content')
 @push('styles')
   <link rel="stylesheet" href="{{asset('assets/examples/css/apps/calendar.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/vendor/fullcalendar/fullcalendar.css')}}">
 @endpush
  <!-- Top Menubar Ends Here-->
  <div class="page">
@@ -13,106 +12,106 @@
       <i class="icon wb-chevron-right" aria-hidden="true"></i>
    </div>
    <div class="page-aside-inner page-aside-scroll">
-      <div data-role="container">
-         <div data-role="content">
+      <div data-bs-role="container">
+         <div data-bs-role="content">
             <section class="page-aside-section">
                <h4 class="page-aside-title">LIVE ROOMS STATUS</h4>
                <div class="panel-group" id="exampleAccordionDefault" aria-multiselectable="true" role="tablist">
                   <div class="panel">
                      <div class="panel-heading" id="exampleHeadingDefaultOne" role="tab">
-                        <a class="panel-title collapsed" data-toggle="collapse" href="#exampleCollapseDefaultOne" data-parent="#exampleAccordionDefault" aria-expanded="true" aria-controls="exampleCollapseDefaultOne" style="background-color: #f6f8f8;"><b><i class="icon fa-bars" aria-hidden="true"></i> 1ST FLOOR (NO. 1-5)</b>
+                        <a class="panel-title collapsed" data-bs-toggle="collapse" href="#exampleCollapseDefaultOne" data-bs-parent="#exampleAccordionDefault" aria-expanded="true" aria-controls="exampleCollapseDefaultOne" style="background-color: #f6f8f8;"><b><i class="icon fa-bars" aria-hidden="true"></i> 1ST FLOOR (NO. 1-5)</b>
                         </a>
                      </div>
                      <div class="panel-collapse collapse show" id="exampleCollapseDefaultOne" aria-labelledby="exampleHeadingDefaultOne" role="tabpanel">
                         <div class="panel-body" style="padding: 0px;">
                            <div class="list-group has-actions">
-                              <div class="list-group-item" data-plugin="editlist">
+                              <div class="list-group-item" data-bs-plugin="editlist">
                                  <div class="list-content">
                                     <span class="item-right"><button type="button" class="btn btn-xs btn-warning"><i class="icon fa-bed" aria-hidden="true" style="color: #fff;"></i><b>2 Bed</b>
                                     </button></span>
                                     <span class="list-text" style="padding-right: 5px;"><button type="button" class="btn btn-xs btn-primary"><b>101</b></button></span>
                                     <span class="list-text"><button type="button" class="btn btn-xs btn-success"><i class="icon fa-paint-brush" aria-hidden="true" style="color: #fff;"></i><b>Cleaned</b></button></span>
                                     <div class="item-actions">
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
                                     </div>
                                  </div>
                                  <div class="list-editable">
                                     <div class="form-group form-material">
                                        <input type="text" class="form-control empty" name="label" value="Admin Calendar">
-                                       <button type="button" class="input-editable-close icon wb-close" data-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
+                                       <button type="button" class="input-editable-close icon wb-close" data-bs-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
                                     </div>
                                  </div>
                               </div>
-                              <div class="list-group-item" data-plugin="editlist">
+                              <div class="list-group-item" data-bs-plugin="editlist">
                                  <div class="list-content">
                                     <span class="item-right"><button type="button" class="btn btn-xs btn-info"><i class="icon fa-bed" aria-hidden="true" style="color: #fff;"></i><b>1 Bed</b>
                                     </button></span>
                                     <span class="list-text" style="padding-right: 5px;"><button type="button" class="btn btn-xs btn-primary"><b>102</b></button></span>
                                     <span class="list-text"><button type="button" class="btn btn-xs btn-danger"><i class="icon fa-paw" aria-hidden="true" style="color: #fff;"></i><b>Vy. Dirty</b></button></span>
                                     <div class="item-actions">
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
                                     </div>
                                  </div>
                                  <div class="list-editable">
                                     <div class="form-group form-material">
                                        <input type="text" class="form-control empty" name="label" value="Admin Calendar">
-                                       <button type="button" class="input-editable-close icon wb-close" data-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
+                                       <button type="button" class="input-editable-close icon wb-close" data-bs-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
                                     </div>
                                  </div>
                               </div>
-                              <div class="list-group-item" data-plugin="editlist">
+                              <div class="list-group-item" data-bs-plugin="editlist">
                                  <div class="list-content">
                                     <span class="item-right"><button type="button" class="btn btn-xs btn-info"><i class="icon fa-bed" aria-hidden="true" style="color: #fff;"></i><b>1 Bed</b>
                                     </button></span>
                                     <span class="list-text" style="padding-right: 5px;"><button type="button" class="btn btn-xs btn-primary"><b>103</b></button></span>
                                     <span class="list-text"><button type="button" class="btn btn-xs btn-danger"><i class="icon fa-paw" aria-hidden="true" style="color: #fff;"></i><b>Vy. Dirty</b></button></span>
                                     <div class="item-actions">
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
                                     </div>
                                  </div>
                                  <div class="list-editable">
                                     <div class="form-group form-material">
                                        <input type="text" class="form-control empty" name="label" value="Admin Calendar">
-                                       <button type="button" class="input-editable-close icon wb-close" data-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
+                                       <button type="button" class="input-editable-close icon wb-close" data-bs-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
                                     </div>
                                  </div>
                               </div>
-                              <div class="list-group-item" data-plugin="editlist">
+                              <div class="list-group-item" data-bs-plugin="editlist">
                                  <div class="list-content">
                                     <span class="item-right"><button type="button" class="btn btn-xs btn-warning"><i class="icon fa-bed" aria-hidden="true" style="color: #fff;"></i><b>2 Bed</b>
                                     </button></span>
                                     <span class="list-text" style="padding-right: 5px;"><button type="button" class="btn btn-xs btn-primary"><b>104</b></button></span>
                                     <span class="list-text"><button type="button" class="btn btn-xs btn-success"><i class="icon fa-paint-brush" aria-hidden="true" style="color: #fff;"></i><b>Cleaned</b></button></span>
                                     <div class="item-actions">
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
                                     </div>
                                  </div>
                                  <div class="list-editable">
                                     <div class="form-group form-material">
                                        <input type="text" class="form-control empty" name="label" value="Admin Calendar">
-                                       <button type="button" class="input-editable-close icon wb-close" data-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
+                                       <button type="button" class="input-editable-close icon wb-close" data-bs-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
                                     </div>
                                  </div>
                               </div>
-                              <div class="list-group-item" data-plugin="editlist">
+                              <div class="list-group-item" data-bs-plugin="editlist">
                                  <div class="list-content">
                                     <span class="item-right"><button type="button" class="btn btn-xs btn-dark"><i class="icon fa-bed" aria-hidden="true" style="color: #fff;"></i><b>4 Bed</b>
                                     </button></span>
                                     <span class="list-text" style="padding-right: 5px;"><button type="button" class="btn btn-xs btn-primary"><b>105</b></button></span>
                                     <span class="list-text"><button type="button" class="btn btn-xs btn-success"><i class="icon fa-paint-brush" aria-hidden="true" style="color: #fff;"></i><b>Cleaned</b></button></span>
                                     <div class="item-actions">
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
                                     </div>
                                  </div>
                                  <div class="list-editable">
                                     <div class="form-group form-material">
                                        <input type="text" class="form-control empty" name="label" value="Admin Calendar">
-                                       <button type="button" class="input-editable-close icon wb-close" data-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
+                                       <button type="button" class="input-editable-close icon wb-close" data-bs-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
                                     </div>
                                  </div>
                               </div>
@@ -122,100 +121,100 @@
                   </div>
                   <div class="panel">
                      <div class="panel-heading" id="exampleHeadingDefaultTwo" role="tab">
-                        <a class="panel-title collapsed" data-toggle="collapse" href="#exampleCollapseDefaultTwo" data-parent="#exampleAccordionDefault" aria-expanded="false" aria-controls="exampleCollapseDefaultTwo" style="background-color: #f6f8f8;">
+                        <a class="panel-title collapsed" data-bs-toggle="collapse" href="#exampleCollapseDefaultTwo" data-bs-parent="#exampleAccordionDefault" aria-expanded="false" aria-controls="exampleCollapseDefaultTwo" style="background-color: #f6f8f8;">
                         <b><i class="icon fa-bars" aria-hidden="true"></i> 2ND FLOOR (NO. 6-10)</b>
                         </a>
                      </div>
                      <div class="panel-collapse collapse" id="exampleCollapseDefaultTwo" aria-labelledby="exampleHeadingDefaultTwo" role="tabpanel">
                         <div class="panel-body" style="padding: 0px;">
                            <div class="list-group has-actions">
-                              <div class="list-group-item" data-plugin="editlist">
+                              <div class="list-group-item" data-bs-plugin="editlist">
                                  <div class="list-content">
                                     <span class="item-right"><button type="button" class="btn btn-xs btn-warning"><i class="icon fa-bed" aria-hidden="true" style="color: #fff;"></i><b>2 Bed</b>
                                     </button></span>
                                     <span class="list-text" style="padding-right: 5px;"><button type="button" class="btn btn-xs btn-primary"><b>201</b></button></span>
                                     <span class="list-text"><button type="button" class="btn btn-xs btn-success"><i class="icon fa-paint-brush" aria-hidden="true" style="color: #fff;"></i><b>Cleaned</b></button></span>
                                     <div class="item-actions">
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
                                     </div>
                                  </div>
                                  <div class="list-editable">
                                     <div class="form-group form-material">
                                        <input type="text" class="form-control empty" name="label" value="Cleaned">
-                                       <button type="button" class="input-editable-close icon wb-close" data-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
+                                       <button type="button" class="input-editable-close icon wb-close" data-bs-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
                                     </div>
                                  </div>
                               </div>
-                              <div class="list-group-item" data-plugin="editlist">
+                              <div class="list-group-item" data-bs-plugin="editlist">
                                  <div class="list-content">
                                     <span class="item-right"><button type="button" class="btn btn-xs btn-info"><i class="icon fa-bed" aria-hidden="true" style="color: #fff;"></i><b>1 Bed</b>
                                     </button></span>
                                     <span class="list-text" style="padding-right: 5px;"><button type="button" class="btn btn-xs btn-primary"><b>202</b></button></span>
                                     <span class="list-text"><button type="button" class="btn btn-xs btn-danger"><i class="icon fa-paw" aria-hidden="true" style="color: #fff;"></i><b>Vy. Dirty</b></button></span>
                                     <div class="item-actions">
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
                                     </div>
                                  </div>
                                  <div class="list-editable">
                                     <div class="form-group form-material">
                                        <input type="text" class="form-control empty" name="label" value="Admin Calendar">
-                                       <button type="button" class="input-editable-close icon wb-close" data-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
+                                       <button type="button" class="input-editable-close icon wb-close" data-bs-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
                                     </div>
                                  </div>
                               </div>
-                              <div class="list-group-item" data-plugin="editlist">
+                              <div class="list-group-item" data-bs-plugin="editlist">
                                  <div class="list-content">
                                     <span class="item-right"><button type="button" class="btn btn-xs btn-info"><i class="icon fa-bed" aria-hidden="true" style="color: #fff;"></i><b>1 Bed</b>
                                     </button></span>
                                     <span class="list-text" style="padding-right: 5px;"><button type="button" class="btn btn-xs btn-primary"><b>303</b></button></span>
                                     <span class="list-text"><button type="button" class="btn btn-xs btn-danger"><i class="icon fa-paw" aria-hidden="true" style="color: #fff;"></i><b>Vy. Dirty</b></button></span>
                                     <div class="item-actions">
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
                                     </div>
                                  </div>
                                  <div class="list-editable">
                                     <div class="form-group form-material">
                                        <input type="text" class="form-control empty" name="label" value="Admin Calendar">
-                                       <button type="button" class="input-editable-close icon wb-close" data-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
+                                       <button type="button" class="input-editable-close icon wb-close" data-bs-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
                                     </div>
                                  </div>
                               </div>
-                              <div class="list-group-item" data-plugin="editlist">
+                              <div class="list-group-item" data-bs-plugin="editlist">
                                  <div class="list-content">
                                     <span class="item-right"><button type="button" class="btn btn-xs btn-warning"><i class="icon fa-bed" aria-hidden="true" style="color: #fff;"></i><b>2 Bed</b>
                                     </button></span>
                                     <span class="list-text" style="padding-right: 5px;"><button type="button" class="btn btn-xs btn-primary"><b>404</b></button></span>
                                     <span class="list-text"><button type="button" class="btn btn-xs btn-success"><i class="icon fa-paint-brush" aria-hidden="true" style="color: #fff;"></i><b>Cleaned</b></button></span>
                                     <div class="item-actions">
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
                                     </div>
                                  </div>
                                  <div class="list-editable">
                                     <div class="form-group form-material">
                                        <input type="text" class="form-control empty" name="label" value="Admin Calendar">
-                                       <button type="button" class="input-editable-close icon wb-close" data-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
+                                       <button type="button" class="input-editable-close icon wb-close" data-bs-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
                                     </div>
                                  </div>
                               </div>
-                              <div class="list-group-item" data-plugin="editlist">
+                              <div class="list-group-item" data-bs-plugin="editlist">
                                  <div class="list-content">
                                     <span class="item-right"><button type="button" class="btn btn-xs btn-dark"><i class="icon fa-bed" aria-hidden="true" style="color: #fff;"></i><b>4 Bed</b>
                                     </button></span>
                                     <span class="list-text" style="padding-right: 5px;"><button type="button" class="btn btn-xs btn-primary"><b>505</b></button></span>
                                     <span class="list-text"><button type="button" class="btn btn-xs btn-success"><i class="icon fa-paint-brush" aria-hidden="true" style="color: #fff;"></i><b>Cleaned</b></button></span>
                                     <div class="item-actions">
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
-                                       <span class="btn btn-pure btn-icon" data-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-editable"><i class="icon wb-edit" aria-hidden="true"></i></span>
+                                       <span class="btn btn-pure btn-icon" data-bs-toggle="list-delete"><i class="icon wb-unlock" aria-hidden="true"></i></span>
                                     </div>
                                  </div>
                                  <div class="list-editable">
                                     <div class="form-group form-material">
                                        <input type="text" class="form-control empty" name="label" value="Admin Calendar">
-                                       <button type="button" class="input-editable-close icon wb-close" data-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
+                                       <button type="button" class="input-editable-close icon wb-close" data-bs-toggle="list-editable-close" aria-label="Close" aria-expanded="true"></button>
                                     </div>
                                  </div>
                               </div>
@@ -242,14 +241,14 @@
             <section class="page-aside-section">
                <h4 class="page-aside-title">LIST OF EVENTS</h4>
                <div class="list-group calendar-list">
-                  <a class="list-group-item calendar-event" data-title="Meeting" data-stick=true data-color="red-600" href="javascript:void(0)">
+                  <a class="list-group-item calendar-event" data-bs-title="Meeting" data-bs-stick=true data-bs-color="red-600" href="javascript:void(0)">
                   <i class="wb-large-point fa-podcast red-600 mr-10" aria-hidden="true" style="font-size: 18px;"></i>Meeting</i>
-                  <a class="list-group-item calendar-event" data-title="Birthday Party" data-stick=true data-color="green-600" href="javascript:void(0)">
+                  <a class="list-group-item calendar-event" data-bs-title="Birthday Party" data-bs-stick=true data-bs-color="green-600" href="javascript:void(0)">
                   <i class="wb-large-point green-600 mr-10" aria-hidden="true" style="font-size: 18px;"></i>Birthday Party</i>
-                  <a class="list-group-item calendar-event" data-title="Call Jimba" data-stick=true data-color="orange-600" href="javascript:void(0)">
+                  <a class="list-group-item calendar-event" data-bs-title="Call Jimba" data-bs-stick=true data-bs-color="orange-600" href="javascript:void(0)">
                   <i class="wb-large-point orange-600 mr-10" aria-hidden="true" style="font-size: 18px;"></i>Call Jimba
                   </a>
-                  <a class="list-group-item calendar-event" data-title="Dinner with Team" data-stick=true data-color="cyan-600" href="javascript:void(0)">
+                  <a class="list-group-item calendar-event" data-bs-title="Dinner with Team" data-bs-stick=true data-bs-color="cyan-600" href="javascript:void(0)">
                   <i class="wb-large-point cyan-600 mr-10" aria-hidden="true"></i>Dinner with Team</i><a id="addNewEventBtn" class="list-group-item" href="javascript:void(0)"> <i class="icon wb-plus" aria-hidden="true"></i> Add New Event </a>
                </div>
             </section>
@@ -266,7 +265,7 @@
          <div class="modal-dialog modal-simple">
             <form class="modal-content form-horizontal" action="#" method="post" role="form">
                <div class="modal-header">
-                  <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                  <button type="button" class="close" aria-hidden="true" data-bs-dismiss="modal">×</button>
                   <h4 class="modal-title">New Event</h4>
                </div>
                <div class="modal-body">
@@ -280,8 +279,8 @@
                      <label class="col-md-2 form-control-label" for="starts">Starts:</label>
                      <div class="col-md-10">
                         <div class="input-group">
-                           <input type="text" class="form-control" id="starts" data-container="#addNewEvent"
-                              data-plugin="datepicker">
+                           <input type="text" class="form-control" id="starts" data-bs-container="#addNewEvent"
+                              data-bs-plugin="datepicker">
                            <span class="input-group-addon">
                            <i class="icon wb-calendar" aria-hidden="true"></i>
                            </span>
@@ -292,8 +291,8 @@
                      <label class="col-md-2 form-control-label" for="ends">Ends:</label>
                      <div class="col-md-10">
                         <div class="input-group">
-                           <input type="text" class="form-control" id="ends" data-container="#addNewEvent"
-                              data-plugin="datepicker">
+                           <input type="text" class="form-control" id="ends" data-bs-container="#addNewEvent"
+                              data-bs-plugin="datepicker">
                            <span class="input-group-addon">
                            <i class="icon wb-calendar" aria-hidden="true"></i>
                            </span>
@@ -303,8 +302,8 @@
                   <div class="form-group row">
                      <label class="col-md-2 form-control-label" for="repeats">Repeats:</label>
                      <div class="col-md-10">
-                        <input type="text" class="form-control" id="repeats" name="repeats" data-plugin="TouchSpin"
-                           data-min="0" data-max="10" value="0" />
+                        <input type="text" class="form-control" id="repeats" name="repeats" data-bs-plugin="TouchSpin"
+                           data-bs-min="0" data-bs-max="10" value="0" />
                      </div>
                   </div>
                   <div class="form-group row">
@@ -351,8 +350,8 @@
                </div>
                <div class="modal-footer">
                   <div class="form-actions">
-                     <button class="btn btn-primary" data-dismiss="modal" type="button">Add this event</button>
-                     <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">Cancel</a>
+                     <button class="btn btn-primary" data-bs-dismiss="modal" type="button">Add this event</button>
+                     <a class="btn btn-sm btn-white" data-bs-dismiss="modal" href="javascript:void(0)">Cancel</a>
                   </div>
                </div>
             </form>
@@ -361,11 +360,11 @@
       <!-- End AddEvent Dialog -->
       <!-- Edit Dialog -->
       <div class="modal fade" id="editNewEvent" aria-hidden="true" aria-labelledby="editNewEvent"
-         role="dialog" tabindex="-1" data-show="false">
+         role="dialog" tabindex="-1" data-bs-show="false">
          <div class="modal-dialog modal-simple">
             <form class="modal-content form-horizontal" action="#" method="post" role="form">
                <div class="modal-header">
-                  <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                  <button type="button" class="close" aria-hidden="true" data-bs-dismiss="modal">×</button>
                   <h4 class="modal-title">Edit Event</h4>
                </div>
                <div class="modal-body">
@@ -379,8 +378,8 @@
                      <label class="col-md-2 form-control-label" for="editStarts">Starts:</label>
                      <div class="col-md-10">
                         <div class="input-group">
-                           <input type="text" class="form-control" id="editStarts" name="editStarts" data-container="#editNewEvent"
-                              data-plugin="datepicker">
+                           <input type="text" class="form-control" id="editStarts" name="editStarts" data-bs-container="#editNewEvent"
+                              data-bs-plugin="datepicker">
                            <span class="input-group-addon">
                            <i class="icon wb-calendar" aria-hidden="true"></i>
                            </span>
@@ -391,8 +390,8 @@
                      <label class="col-md-2 form-control-label" for="editEnds">Ends:</label>
                      <div class="col-md-10">
                         <div class="input-group">
-                           <input type="text" class="form-control" id="editEnds" data-container="#editNewEvent"
-                              data-plugin="datepicker">
+                           <input type="text" class="form-control" id="editEnds" data-bs-container="#editNewEvent"
+                              data-bs-plugin="datepicker">
                            <span class="input-group-addon">
                            <i class="icon wb-calendar" aria-hidden="true"></i>
                            </span>
@@ -402,8 +401,8 @@
                   <div class="form-group row">
                      <label class="col-md-2 form-control-label" for="editRepeats">Repeats:</label>
                      <div class="col-md-10">
-                        <input type="text" class="form-control" id="editRepeats" name="repeats" data-plugin="TouchSpin"
-                           data-min="0" data-max="10" value="0" />
+                        <input type="text" class="form-control" id="editRepeats" name="repeats" data-bs-plugin="TouchSpin"
+                           data-bs-min="0" data-bs-max="10" value="0" />
                      </div>
                   </div>
                   <div class="form-group row" id="editColor">
@@ -411,31 +410,31 @@
                      <div class="col-md-10">
                         <ul class="color-selector">
                            <li class="bg-blue-600">
-                              <input type="radio" data-color="blue|600" name="colorChosen" id="editColorChosen2">
+                              <input type="radio" data-bs-color="blue|600" name="colorChosen" id="editColorChosen2">
                               <label for="editColorChosen2"></label>
                            </li>
                            <li class="bg-green-600">
-                              <input type="radio" data-color="green|600" name="colorChosen" id="editColorChosen3">
+                              <input type="radio" data-bs-color="green|600" name="colorChosen" id="editColorChosen3">
                               <label for="editColorChosen3"></label>
                            </li>
                            <li class="bg-cyan-600">
-                              <input type="radio" data-color="cyan|600" name="colorChosen" id="editColorChosen4">
+                              <input type="radio" data-bs-color="cyan|600" name="colorChosen" id="editColorChosen4">
                               <label for="editColorChosen4"></label>
                            </li>
                            <li class="bg-orange-600">
-                              <input type="radio" data-color="orange|600" name="colorChosen" id="editColorChosen5">
+                              <input type="radio" data-bs-color="orange|600" name="colorChosen" id="editColorChosen5">
                               <label for="editColorChosen4"></label>
                            </li>
                            <li class="bg-red-600">
-                              <input type="radio" data-color="red|600" name="colorChosen" id="editColorChosen6">
+                              <input type="radio" data-bs-color="red|600" name="colorChosen" id="editColorChosen6">
                               <label for="editColorChosen6"></label>
                            </li>
                            <li class="bg-blue-grey-600">
-                              <input type="radio" data-color="blue-grey|600" name="colorChosen" id="editColorChosen7">
+                              <input type="radio" data-bs-color="blue-grey|600" name="colorChosen" id="editColorChosen7">
                               <label for="editColorChosen7"></label>
                            </li>
                            <li class="bg-purple-600">
-                              <input type="radio" data-color="purple|600" name="colorChosen" id="editColorChosen8">
+                              <input type="radio" data-bs-color="purple|600" name="colorChosen" id="editColorChosen8">
                               <label for="editColorChosen8"></label>
                            </li>
                         </ul>
@@ -450,9 +449,9 @@
                </div>
                <div class="modal-footer">
                   <div class="form-actions">
-                     <button class="btn btn-primary" data-dismiss="modal" type="button">Save</button>
-                     <button class="btn btn-danger" data-dismiss="modal" type="button">Delete</button>
-                     <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">Cancel</a>
+                     <button class="btn btn-primary" data-bs-dismiss="modal" type="button">Save</button>
+                     <button class="btn btn-danger" data-bs-dismiss="modal" type="button">Delete</button>
+                     <a class="btn btn-sm btn-white" data-bs-dismiss="modal" href="javascript:void(0)">Cancel</a>
                   </div>
                </div>
             </form>
@@ -465,7 +464,7 @@
          <div class="modal-dialog modal-simple">
             <form class="modal-content form-horizontal" action="#" method="post" role="form">
                <div class="modal-header">
-                  <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                  <button type="button" class="close" aria-hidden="true" data-bs-dismiss="modal">×</button>
                   <h4 class="modal-title">New Calendar</h4>
                </div>
                <div class="modal-body">
@@ -519,8 +518,8 @@
                </div>
                <div class="modal-footer">
                   <div class="form-actions">
-                     <button class="btn btn-primary" data-dismiss="modal" type="button">Create</button>
-                     <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">Cancel</a>
+                     <button class="btn btn-primary" data-bs-dismiss="modal" type="button">Create</button>
+                     <a class="btn btn-sm btn-white" data-bs-dismiss="modal" href="javascript:void(0)">Cancel</a>
                   </div>
                </div>
             </form>
@@ -530,18 +529,16 @@
    </div>
 </div>
  </div>
- <!-- <script src="{{asset('assets/vendor/jquery-ui/jquery-ui.js')}}"></script>  -->
 @push('script')
-
-<script src="{{asset('assets/vendor/jquery-ui/widget.js')}}"></script> 
- <script src="{{asset('assets/vendor/jquery-ui/widgets/mouse.js')}}"></script> 
- <script src="{{asset('assets/vendor/jquery-ui/widgets/draggable.js')}}"></script> 
- <script src="{{asset('assets/vendor/jquery-ui/widgets/droppable.js')}}"></script> 
- <script src="{{asset('assets/vendor/jquery-selective/jquery-selective.js')}}"></script>    
-   <script src="{{asset('assets/js/App/Calendar.js')}}"></script>
-   <script src="{{asset('assets/vendor/moment/moment.js')}}"></script>
-   <script src="{{asset('assets/vendor/fullcalendar/fullcalendar.js')}}"></script> 
-   <script src="{{asset('assets/examples/js/apps/calendar.js')}}"></script>  
+  <script src="{{asset('assets/vendor/fullcalendar/fullcalendar.js')}}"></script> 
+  <script src="{{asset('assets/examples/js/apps/calendar.js')}}"></script>
+  <script src="{{asset('assets/js/App/Calendar.js')}}"></script>
+  <script>
+     $(function () {
+    $('.selectpicker').selectpicker();
+});
+  </script>
+  
 @endpush
 @endsection
 	

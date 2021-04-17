@@ -1,14 +1,12 @@
 <!-- Core  -->
     <script src="{{asset('assets/vendor/babel-external-helpers/babel-external-helpers.js')}}"></script>
-    <!-- <script src="{{asset('assets/vendor/jquery/jquery.js')}}"></script> -->
+    <script src="{{asset('assets/vendor/jquery/jquery.js')}}"></script>
     <script src="{{asset('assets/vendor/popper-js/umd/popper.min.js')}}"></script>
-    <!-- <script src="{{asset('assets/vendor/bootstrap/bootstrap.js')}}"></script> -->
+    <script src="{{asset('assets/vendor/bootstrap/bootstrap.js')}}"></script>
     <script src="{{asset('assets/vendor/animsition/animsition.js')}}"></script>
-    <script src="{{asset('assets/vendor/ashoverscroll/jquery-asHoverScroll.js')}}"></script> 
     <script src="{{asset('assets/vendor/mousewheel/jquery.mousewheel.js')}}"></script>
     <script src="{{asset('assets/vendor/asscrollbar/jquery-asScrollbar.js')}}"></script>
     <script src="{{asset('assets/vendor/asscrollable/jquery-asScrollable.js')}}"></script> 
-    
     <!-- Plugins -->
     <script src="{{asset('assets/vendor/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
       <script src="{{asset('assets/vendor/timepicker/jquery.timepicker.min.js')}}"></script>

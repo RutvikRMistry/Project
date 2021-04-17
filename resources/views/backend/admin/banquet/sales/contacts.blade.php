@@ -13,6 +13,7 @@
    </div>
 </div>
 <div style="width: 100%; padding: 30px;">
+@include('backend.partials.flash_message')
    <div class="panel-body" style="background-color: #fff; ">
       <header class="panel-heading">
          <div style="width: 50%; float: left;">
@@ -54,23 +55,27 @@
                   </tr>
                </thead>
                <tbody>
+               @foreach($cust as $cust)
                   <tr>
-                     <td>Vinay Katwe </td>
-                     <td> California Cartage Express  </td>
-                     <td>vinaykatwe@gmail.com   </td>
-                     <td> 9876543210  </td>
+                     <td>{{$cust->first_name}} {{$cust->last_name}} </td>
+                     <td>{{$cust->com}}</td>
+                     <td>{{$cust->fax}}</td>
+                     <td> {{$cust->mobile}}  </td>
                      <td class="actions">
                         <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
                            data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
                         <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
                            data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-                        <a href="../../banquet/sales/new_contact.html" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                        <a href="{{route('backend.admin.banquet.sales.contact.edit',$cust->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                            data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
-                        <a href="{{route('backend.admin.banquet.sales.contact.view')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                        <a href="{{route('backend.admin.banquet.sales.contact.delete',$cust->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
+                           data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
+                        <a href="{{route('backend.admin.banquet.sales.contact.view',$cust->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                            data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
                      </td>
                   </tr>
-                  <td>Thakur Ravi    </td>
+               @endforeach
+                  {{--<!-- <td>Thakur Ravi    </td>
                   <td>Personal </td>
                   <td>ravi@cloudappstechnology.com   </td>
                   <td>8558978655  </td>
@@ -84,8 +89,8 @@
                      <a href="{{route('backend.admin.banquet.sales.contact.view')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                         data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
                   </td>
-                  </tr>
-                  <tr>
+                  </tr> -->
+                  <!-- <tr>
                      <td>Jawwal Palestine  </td>
                      <td>Personal</td>
                      <td>john@gmail.com   </td>
@@ -127,12 +132,12 @@
                            data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
                         <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
                            data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-                        <a href="{{route('backend.admin.banquet.sales.contact.add')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                        <a href="{{route('backend.admin.banquet.sales.contact.edit',$cust->id)}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                            data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
                         <a href="{{route('backend.admin.banquet.sales.contact.view')}}" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
                            data-toggle="tooltip" data-original-title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
                      </td>
-                  </tr>
+                  </tr> -->--}}
                </tbody>
             </table>
             <div>

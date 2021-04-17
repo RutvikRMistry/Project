@@ -7,17 +7,46 @@ use File;
 use App\Http\Controllers\Controller;
 use App\Model\Banquet\Meeting;
 use App\Model\Banquet\Call;
+use App\Model\Banquet\Task;
 use DB;
 use Session;
 class TaskController extends Controller
 {
     public function todoList(){		
 		$user_id = 17;
-		$sales_team = DB::connection('mysql_banquet')->table('sales_teams')->get()->where('user_id',$user_id);
-		return view('backend.admin.banquet.task.todo');
+		$task = DB::connection('mysql_banquet')->table('tasks')->get()->where('user_id',$user_id);
+		return view('backend.admin.banquet.task.todo',compact(
+			'task'
+		));
 	}
-	public function todostore(){
+	public function todostore(Request $request){
 
+		$rules=array(
+			'task_description'=>'required',
+			'task_deadline'=>'required'
+		);
+
+		$this->validate($request,$rules);
+		$request->merge(['user_id'=> 17]);
+		Task::create($request->all());
+		session::flash('msg','Added Succsesfullly');
+		return redirect()->route('backend.admin.banquet.task.todo');
+		
+
+	}
+
+	public function todoupdate(Request $request,$id){
+		dd($request->all());
+		$rules=array(
+			'task_description'=>'required',
+			'task_deadline'=>'required'
+		);
+		
+		$this->validate($request,$rules);
+		$request->merge(['user_id'=> 17]);
+		Task::where('id',$id)->update($request->except('_token'));
+		session::flash('msg','updated Succsesfullly');
+		return redirect()->route('backend.admin.banquet.task.todo');
 	}
 
 	public function meeting(){

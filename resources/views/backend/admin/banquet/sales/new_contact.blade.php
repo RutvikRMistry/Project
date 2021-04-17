@@ -9,10 +9,22 @@
       <h1 class="page-title">New Contact</h1>
    </div>
    <div style="width: 100%; padding: 30px;">
+   @if($errors->all())
+					<div class="row">
+						<div class="col">
+							@foreach($errors->all() as $msg)
+							<div class="alert alert-danger" role="alert">
+							{{$msg}}
+							</div>
+							@endforeach
+						</div>
+					</div>
+					@endif()
       <div class="panel-body" style="background-color: #fff; ">
          <header class="panel-heading">
          <div>
-            <form>
+            <form action="{{route('backend.admin.banquet.sales.contact.store')}}" method="post">
+            {{csrf_field()}}
                <div class="col-xs-12">
                   <div data-provides="fileinput" class="fileinput fileinput-new">
                      <div data-trigger="fileinput" class="fileinput-preview thumbnail form_Blade"><img id="image-preview" width="300" style="display: none;"> <img src="https://saas.banquetcrm.com/uploads/site/blogo_1574859699.png" alt="Site Logo" class="ima-responsive"></div>
@@ -25,8 +37,8 @@
                      <h5>Title <strong class="text-danger">*</strong></h5>
                      <select class="form-control" data-plugin="select2" id="title" name="title">
                         <optgroup label="Please Select">
-                           <option value="R1">Mr.</option>
-                           <option value="R1">Mrs.</option>
+                           <option value="Mr.">Mr.</option>
+                           <option value="Mrs.">Mrs.</option>
                         </optgroup>
                      </select>
                   </div>
@@ -48,12 +60,10 @@
                   <div class="col-lg-6">
                      <h5>Company<strong class="text-danger">*</strong></h5>
                      <select class="form-control" data-plugin="select2" id="company_id" name="company_id" >
-                        <optgroup label="Please Select">
-                           <option value="R1">Personal</option>
-                           <option value="R1">California Cartage Express</option>
-                           <option value="R1">Jawwal Palestine</option>
-                           <option value="R1">Toll Brothers</option>
-                        </optgroup>
+                     <option value="">--Select--</option>
+							@foreach($com as $com)
+							<option value="{{$com->id}}" {{old('company_id') == $com->id?'selected':''}} > {{$com->name}} </option>
+							@endforeach
                      </select>
                   </div>
                </div>
@@ -62,22 +72,26 @@
                   <div class="col-lg-6">
                      <h5>Sales Team <strong class="text-danger">*</strong></h5>
                      <select class="form-control" data-plugin="select2" id="sales_team_id" name="sales_team_id">
-                        <optgroup label="Please Select">
-                           <option value="R1">Mike Sales Team</option>
-                           <option value="R1">Test</option>
-                        </optgroup>
+                     <option value="">--Select--</option>
+							@foreach($sal as $sal)
+							<option value="{{$sal->id}}" {{old('sales_team_id') == $sal->id?'selected':''}} > {{$sal->salesteam}} </option>
+							@endforeach
                      </select>
                   </div>
                   <div class="col-lg-6">
                      <h5>Email ID<strong class="text-danger">*</strong></h5>
-                     <input name="email" type="email" id="email" class="form-control" data-bv-field="email">
+                     <input name="fax" type="email" id="email" class="form-control" data-bv-field="email">
                   </div>
                </div>
                <br>
                <div class="row">
                   <div class="col-lg-6">
                      <h5>Phone<strong class="text-danger">*</strong></h5>
-                     <input data-fv-integer="true" name="phone_number" type="text" id="phone_number" class="form-control " data-bv-field="phone_number">
+                     <input data-fv-integer="true" name="mobile" type="tel" id="mobile" class="form-control " data-bv-field="phone_number">
+                  </div>
+                  <div class="col-lg-6">
+                     <h5>Website<strong class="text-danger"></strong></h5>
+                     <input data-fv-integer="true" name="website" type="site" id="website" class="form-control " data-bv-field="phone_number">
                   </div>
                </div>
                <br>
@@ -94,8 +108,8 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-9">
-                     <button type="button" class="btn btn-primary">Back </button>
-                     <button type="Buttons" class="btn btn-default btn-outline">OK</button>
+                     <button type="submit" class="btn btn-primary">Back </button>
+                     <button type="submit" class="btn btn-default btn-outline">OK</button>
                   </div>
                </div>
             </form>

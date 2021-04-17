@@ -29,13 +29,14 @@
                   <ul class="list-group h-500" data-plugin="scrollable">
                      <div data-role="container">
                         <div data-role="content">
+                           @foreach($task as $task)
                            <li class="list-group-item">
                               <div class="checkbox-custom checkbox-success checkbox-lg">
                                  <input type="checkbox" name="checkbox" checked="checked">
-                                 <label class="item-title">Edit meeting record</label>
+                                 <label class="item-title">{{$task->task_description}}</label>
                               </div>
                               <div class="item-due-date">
-                                 <span>Tue,aug 25</span>
+                                 <span>{{$task->task_deadline}}</span>
                               </div>
                               <ul class="item-members">
                                  <li>
@@ -46,7 +47,8 @@
                                  </li>
                               </ul>
                            </li>
-                           <li class="list-group-item">
+                           @endforeach
+                           <!-- <li class="list-group-item">
                               <div class="checkbox-custom checkbox-success checkbox-lg">
                                  <input type="checkbox" name="checkbox" checked="checked">
                                  <label class="item-title">Upload Photos and Video</label>
@@ -217,7 +219,7 @@
                                  </li>
                               </ul>
                            </li>
-                        </div>
+                        </div> -->
                      </div>
                   </ul>
                </div>
@@ -231,7 +233,8 @@
    <div id="addtodoItemForm" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="addtodoItemForm"
       aria-hidden="true">
       <div class="modal-dialog modal-simple">
-         <form class="modal-content form-horizontal" role="form" action="#" method="post">
+         <form class="modal-content form-horizontal" role="form" action="{{route('backend.admin.banquet.task.store')}}" method="post">
+         {{ csrf_field() }}
             <div class="modal-header">
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                <h4 class="moadl-title">Create New To Do Item</h4>
@@ -240,14 +243,14 @@
                <div class="form-group row">
                   <label class="col-sm-2 form-control-label" for="title">Title:</label>
                   <div class="col-sm-10">
-                     <input id="title" class="form-control" type="text" name="title" />
+                     <input id="title" class="form-control" type="text" name="task_description" />
                   </div>
                </div>
                <div class="form-group row">
                   <label class="col-sm-2 form-control-label" for="dueDate">Due Date</label>
                   <div class="col-sm-10">
                      <div class="input-group">
-                        <input id="dueDate" class="form-control" type="text" data-plugin="datepicker" data-container="#addtodoItemForm"
+                        <input id="dueDate" class="form-control" type="date" data-plugin="datepicker" data-container="#addtodoItemForm" name="task_deadline"
                            />
                         <span class="input-group-addon">
                         <i class="icon wb-calendar" aria-hidden="true"></i>
@@ -264,8 +267,8 @@
                </div>
             </div>
             <div class="modal-footer">
-               <div class="form-actions">
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+               <div >
+                  <button class="btn btn-primary"  type="submit">
                   Add This Item
                   </button>
                   <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">
@@ -281,7 +284,8 @@
    <div class="modal fade" id="edittodoItemForm" aria-hidden="true" aria-labelledby="edittodoItemForm"
       role="dialog" tabindex="-1" data-show="false">
       <div class="modal-dialog modal-simple">
-         <form class="modal-content form-horizontal" action="#" method="post" role="form">
+         <form class="modal-content form-horizontal" action="{{route('backend.admin.banquet.task.update',$task->id)}}" method="post" role="form">
+            {{csrf_field()}}
             <div class="modal-header">
                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
                <h4 class="modal-title">Edit To Do Item</h4>
@@ -291,7 +295,7 @@
                   <label class="col-sm-2 form-control-label" for="editTitle">Title:
                   </label>
                   <div class="col-sm-10">
-                     <input type="text" class="form-control" id="editTitle" name="editTitle">
+                     <input type="text" class="form-control" id="editTitle" name="task_description">
                   </div>
                </div>
                <div class="form-group row">
@@ -299,7 +303,7 @@
                   </label>
                   <div class="col-sm-10">
                      <div class="input-group">
-                        <input type="text" class="form-control" id="editDueDate" name="editDueDate" data-container="#edittodoItemForm"
+                        <input type="text" class="form-control" id="editDueDate" name="task_deadline" data-container="#edittodoItemForm"
                            data-plugin="datepicker">
                         <span class="input-group-addon">
                         <i class="icon wb-calendar" aria-hidden="true"></i>
@@ -316,8 +320,8 @@
                </div>
             </div>
             <div class="modal-footer">
-               <div class="form-actions">
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">Save</button>
+               <div>
+                  <button class="btn btn-primary" type="submit">Save</button>
                   <button class="btn btn-danger" data-dismiss="modal" type="button">Delete</button>
                   <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">Cancel</a>
                </div>

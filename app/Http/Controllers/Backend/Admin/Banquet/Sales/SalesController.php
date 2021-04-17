@@ -24,12 +24,53 @@ class SalesController extends Controller
 			'leads.mobile',
 			'leads.start_date',
 			'leads.created_at',
+			'leads.priority',
 			'mm.name as per'
 			
 		)
 		->get();
+		$panddingItem = Lead::where('priority','Open')->join('owners AS mm', 'leads.sales_person_id', '=', 'mm.id')
+		->select(
+		'leads.id',
+		'leads.client_name',
+		'leads.email',
+		'leads.mobile',
+		'leads.start_date',
+		'leads.created_at',
+		'leads.priority',
+		'mm.name as per')->get();
+    	$completeItem = Lead::where('priority','Approach')->join('owners AS mm', 'leads.sales_person_id', '=', 'mm.id')
+		->select(
+		'leads.id',
+		'leads.client_name',
+		'leads.email',
+		'leads.mobile',
+		'leads.start_date',
+		'leads.created_at',
+		'leads.priority',
+		'mm.name as per')->get();
+		$convertedItem = Lead::where('priority','Converted')->join('owners AS mm', 'leads.sales_person_id', '=', 'mm.id')
+		->select(
+		'leads.id',
+		'leads.client_name',
+		'leads.email',
+		'leads.mobile',
+		'leads.start_date',
+		'leads.created_at',
+		'leads.priority',
+		'mm.name as per')->get();
+		$incompleteItem = Lead::where('priority','Do Not Contact')->join('owners AS mm', 'leads.sales_person_id', '=', 'mm.id')
+		->select(
+		'leads.id',
+		'leads.client_name',
+		'leads.email',
+		'leads.mobile',
+		'leads.start_date',
+		'leads.created_at',
+		'leads.priority',
+		'mm.name as per')->get();
 		return view('backend.admin.banquet.sales.leads.index',compact(
-			'leads'
+			'leads','panddingItem','completeItem','incompleteItem','convertedItem'
 		));
 	}
 	
@@ -67,13 +108,14 @@ class SalesController extends Controller
 			'expected_guests_veg' =>'required',
 			'budget' =>'required',
 			'start_date' =>'required',
-			'end_date' =>'required'	
+			'end_date' =>'required',
+			'event_manager' =>'required'	
 		);
 		$this->validate($request ,$rules);
 		//
 		// dd($request->all());
 		$request->merge(['user_id' => 17]);
-		$request->merge(['event_manager' => '1']);
+		// $request->merge(['event_manager' => '1']);
 
 		Lead::create($request->all());
 		Session::flash('msg','Added Successfully');
@@ -100,6 +142,34 @@ class SalesController extends Controller
 		return view('backend.admin.banquet.sales.leads.edit_lead',compact(
 			'leads','state','city','country','lead','sale','type','per','company'
 		));
+	}
+
+	public function updateItems(Request $request){
+
+		$input = $request->all();
+
+    	foreach ($input['panddingArr'] as $value) {
+    		// $key = $key+1;
+    		Lead::where('id',$value)->update(['priority'=>'Open']);
+    	}
+
+    	foreach ($input['completeArr'] as $value) {
+    		// $key = $key+1;
+    		Lead::where('id',$value)->update(['priority'=>'Approach']);
+    	}
+
+		foreach ($input['incompleteArr'] as $value) {
+    		// $key = $key+1;
+    		Lead::where('id',$value)->update(['priority'=>'Do Not Contact']);
+    	}
+
+		foreach ($input['convertedArr'] as $value) {
+    		// $key = $key+1;
+    		Lead::where('id',$value)->update(['priority'=>'Converted']);
+    	}
+		
+    	return response()->json(['status'=>'success']);
+
 	}
 
 	public function updateLead($id,Request $request){
@@ -130,7 +200,7 @@ class SalesController extends Controller
 		$request->merge(['event_manager' => '1']);
 
 		Lead::where('id',$id)->update($request->except('_token'));
-		Session::flash('msg','Added Successfully');
+		Session::flash('msg','updated Successfully');
 		return redirect()->route('backend.admin.banquet.sales.lead');
 
 	}

@@ -22,14 +22,96 @@ class FunctionsController extends Controller
 			'bookingdetails.event_name',
 			'bookingdetails.event_type',
 			'bookingdetails.from_date',
+			'bookingdetails.client_email',
 			'bookingdetails.client_phone',
 			'bookingdetails.event_status',
 			'mm.salesteam as sale',
 			
 		)
 		->get();
+		$panddingItem = Bookingdetail::where('event_status','Prospect')->join('sales_teams AS mm', 'bookingdetails.sales_team_id', '=', 'mm.id' )
+		
+		->select(
+			'bookingdetails.id',
+			'bookingdetails.booking_name',
+			'bookingdetails.event_name',
+			'bookingdetails.event_type',
+			'bookingdetails.from_date',
+			'bookingdetails.to_date',
+			'bookingdetails.client_email',
+			'bookingdetails.client_phone',
+			'bookingdetails.event_status',
+			'mm.salesteam as sale',
+			
+		)
+		->get();
+		$completeItem = Bookingdetail::where('event_status','Tentative')->join('sales_teams AS mm', 'bookingdetails.sales_team_id', '=', 'mm.id' )
+		
+		->select(
+			'bookingdetails.id',
+			'bookingdetails.booking_name',
+			'bookingdetails.event_name',
+			'bookingdetails.event_type',
+			'bookingdetails.from_date',
+			'bookingdetails.to_date',
+			'bookingdetails.client_email',
+			'bookingdetails.client_phone',
+			'bookingdetails.event_status',
+			'mm.salesteam as sale',
+			
+		)
+		->get();
+		$convertedItem = Bookingdetail::where('event_status','Definite')->join('sales_teams AS mm', 'bookingdetails.sales_team_id', '=', 'mm.id' )
+		
+		->select(
+			'bookingdetails.id',
+			'bookingdetails.booking_name',
+			'bookingdetails.event_name',
+			'bookingdetails.event_type',
+			'bookingdetails.from_date',
+			'bookingdetails.to_date',
+			'bookingdetails.client_email',
+			'bookingdetails.client_phone',
+			'bookingdetails.event_status',
+			'mm.salesteam as sale',
+			
+		)
+		->get();
+		$incompleteItem = Bookingdetail::where('event_status','Close')->join('sales_teams AS mm', 'bookingdetails.sales_team_id', '=', 'mm.id' )
+		
+		->select(
+			'bookingdetails.id',
+			'bookingdetails.booking_name',
+			'bookingdetails.event_name',
+			'bookingdetails.event_type',
+			'bookingdetails.from_date',
+			'bookingdetails.to_date',
+			'bookingdetails.client_email',
+			'bookingdetails.client_phone',
+			'bookingdetails.event_status',
+			'mm.salesteam as sale',
+			
+		)
+		->get();
+		$lostItem = Bookingdetail::where('event_status','Lost')->join('sales_teams AS mm', 'bookingdetails.sales_team_id', '=', 'mm.id' )
+		
+		->select(
+			'bookingdetails.id',
+			'bookingdetails.booking_name',
+			'bookingdetails.event_name',
+			'bookingdetails.event_type',
+			'bookingdetails.from_date',
+			'bookingdetails.to_date',
+			'bookingdetails.client_email',
+			'bookingdetails.client_phone',
+			'bookingdetails.event_status',
+			'mm.salesteam as sale',
+			
+		)
+		->get();
+
 		return view('backend.admin.banquet.functions.events',compact(
-			'book'
+			'book','panddingItem','completeItem','incompleteItem','convertedItem','lostItem'
 		));
 	}
 	
@@ -84,9 +166,42 @@ class FunctionsController extends Controller
 		$sale = DB::connection('mysql_banquet')->table('sales_teams')->get()->where('user_id',$user_id);
 		$book = DB::connection('mysql_banquet')->table('bookingdetails')->get()->where('id',$id)->first();
 		
-		return view('backend.admin.banquet.functions.edit_event',compact(
+		return view('backend.admin.banquet.functions.edit2_event',compact(
 			'book','sale'
 		));
+	}
+
+	public function updateItems(Request $request){
+
+		$input = $request->all();
+
+    	foreach ($input['panddingArr'] as $value) {
+    		// $key = $key+1;
+    		Bookingdetail::where('id',$value)->update(['event_status'=>'Prospect']);
+    	}
+
+    	foreach ($input['completeArr'] as $value) {
+    		// $key = $key+1;
+    		Bookingdetail::where('id',$value)->update(['event_status'=>'Tentative']);
+    	}
+
+		foreach ($input['incompleteArr'] as $value) {
+    		// $key = $key+1;
+    		Bookingdetail::where('id',$value)->update(['event_status'=>'Close']);
+    	}
+
+		foreach ($input['convertedArr'] as $value) {
+    		// $key = $key+1;
+    		Bookingdetail::where('id',$value)->update(['event_status'=>'Definite']);
+    	}
+
+		foreach ($input['lostArr'] as $value) {
+    		// $key = $key+1;
+    		Bookingdetail::where('id',$value)->update(['event_status'=>'Lost']);
+    	}
+		
+    	return response()->json(['status'=>'success']);
+
 	}
 
 	public function updateEvent(Request $request,$id){

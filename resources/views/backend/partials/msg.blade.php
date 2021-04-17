@@ -1,4 +1,4 @@
-<script src="{{asset('assets/plugin/toastr/build/toastr.min.js')}}"></script>
+<script src="{{asset('assets/vendor/toastr/toastr.min.js')}}"></script>
 <script>
     toastr.options = {
         "closeButton": false,

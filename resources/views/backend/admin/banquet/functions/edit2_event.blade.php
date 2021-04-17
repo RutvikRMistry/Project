@@ -24,17 +24,17 @@
 <div class="panel">
    <div class="panel-body">
       <p>
-      <div class="nav-tabs-vertical" data-plugin="tabs">
+      <div class="nav-tabs-vertical" data-bs-plugin="tabs">
          <ul class="nav nav-tabs mr-25" role="tablist">
-            <li class="nav-item" role="presentation"><a class="nav-link active" data-toggle="tab" href="#exampleTabsLeftOne" aria-controls="exampleTabsLeftOne" role="tab" aria-selected="true"><i class="icon fa-address-card" aria-hidden="true" style="font-size: 18px;"></i> Booking Details</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#exampleTabsLeftTwo" aria-controls="exampleTabsLeftTwo" role="tab" aria-selected="false"><i class="icon fa-columns" aria-hidden="true" style="font-size: 18px;"></i> Food Menu</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#exampleTabsLeftThree" aria-controls="exampleTabsLeftThree" role="tab" aria-selected="false"><i class="icon fa-clock-o" aria-hidden="true" style="font-size: 18px;"></i> Eating Times</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#exampleTabsLeftFour" aria-controls="exampleTabsLeftFour" role="tab" aria-selected="false"><i class="icon fa-video-camera" aria-hidden="true" style="font-size: 18px;"></i> Equipment Requirements</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#exampleTabsLeftFive" aria-controls="exampleTabsLeftFive" role="tab" aria-selected="false"><i class="icon fa-truck" aria-hidden="true" style="font-size: 18px;"></i> Function Contractors</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#exampleTabsLeftSix" aria-controls="exampleTabsLeftSix" role="tab" aria-selected="false"><i class="icon fa-money" aria-hidden="true" style="font-size: 18px;"></i> Financial Deposits</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#exampleTabsLeftSeven" aria-controls="exampleTabsLeftSeven" role="tab" aria-selected="false"><i class="icon fa-bus" aria-hidden="true" style="font-size: 18px;"></i> Guest Pickups</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#exampleTabsLeftEight" aria-controls="exampleTabsLeftEight" role="tab" aria-selected="false"><i class="icon fa-automobile" aria-hidden="true" style="font-size: 18px;"></i>Valet Parking</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#exampleTabsLeftNine" aria-controls="exampleTabsLeftNine" role="tab" aria-selected="false" style="
+            <li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#exampleTabsLeftOne" aria-controls="exampleTabsLeftOne" role="tab" aria-selected="true"><i class="icon fa-address-card" aria-hidden="true" style="font-size: 18px;"></i> Booking Details</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#exampleTabsLeftTwo" aria-controls="exampleTabsLeftTwo" role="tab" aria-selected="false"><i class="icon fa-columns" aria-hidden="true" style="font-size: 18px;"></i> Food Menu</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#exampleTabsLeftThree" aria-controls="exampleTabsLeftThree" role="tab" aria-selected="false"><i class="icon fa-clock-o" aria-hidden="true" style="font-size: 18px;"></i> Eating Times</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#exampleTabsLeftFour" aria-controls="exampleTabsLeftFour" role="tab" aria-selected="false"><i class="icon fa-video-camera" aria-hidden="true" style="font-size: 18px;"></i> Equipment Requirements</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#exampleTabsLeftFive" aria-controls="exampleTabsLeftFive" role="tab" aria-selected="false"><i class="icon fa-truck" aria-hidden="true" style="font-size: 18px;"></i> Function Contractors</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#exampleTabsLeftSix" aria-controls="exampleTabsLeftSix" role="tab" aria-selected="false"><i class="icon fa-money" aria-hidden="true" style="font-size: 18px;"></i> Financial Deposits</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#exampleTabsLeftSeven" aria-controls="exampleTabsLeftSeven" role="tab" aria-selected="false"><i class="icon fa-bus" aria-hidden="true" style="font-size: 18px;"></i> Guest Pickups</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#exampleTabsLeftEight" aria-controls="exampleTabsLeftEight" role="tab" aria-selected="false"><i class="icon fa-automobile" aria-hidden="true" style="font-size: 18px;"></i>Valet Parking</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#exampleTabsLeftNine" aria-controls="exampleTabsLeftNine" role="tab" aria-selected="false" style="
                /* height: 400px; */
                "><i class="icon fa-info-circle" aria-hidden="true" style="font-size: 18px;"></i> Additional Information</a></li>
             <li class="nav-item" role="presentation"><a> </a></li>
@@ -617,7 +617,7 @@
                                     <input type="text" name="occasion" value="Casamento" placeholder="Event Occasion" class="form-control tooltipstered">
                                  </div> -->
                                  <!-- <div class="col-lg-4">
-                                    <div class="input-daterange" data-plugin="datepicker">
+                                    <div class="input-daterange" data-bs-plugin="datepicker">
                                        <div class="input-group">
                                           <span class="input-group-addon">
                                           <i class="icon wb-calendar" aria-hidden="true"></i>
@@ -708,14 +708,14 @@
                   <!--Booking Details Ends here -->            
                </div>
             </div>
-            <div class="tab-pane" id="exampleTabsLeftTwo" role="tabpanel">
+            <div class="collapse show" id="exampleTabsLeftTwo" role="tabpanel">
                <!-- Quaerat --> 
                <div class="tab-pane active" id="exampleTabsLeftTwo" role="tabpanel">
                   <div id="menu_details" class="tab-pane active">
                      <div>
                         <ul class="nav nav-tabs-horizontal">
-                           <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#day1" data-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
-                           <li class="" style="padding: 10px;"><a href="#day2" data-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
+                           <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#day1" data-bs-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
+                           <li class="" style="padding: 10px;"><a href="#day2" data-bs-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
                         </ul>
                         <div class="tab-content">
                            <div id="day1" class="tab-pane active">
@@ -728,7 +728,7 @@
                                     <div class="example-wrap" style="margin-bottom: 0px;">
                                        <h4 class="example-title">Menu Types </h4>
                                        <div class="select2-primary">
-                                          <select multiple="" id="menuType_veg_1" name="menuType_veg_1[]" class="form-control" data-plugin="select2" tabindex="-1" aria-hidden="true">
+                                          <select multiple="" id="menuType_veg_1" name="menuType_veg_1[]" class="form-control" data-bs-plugin="select2" tabindex="-1" aria-hidden="true">
                                              <optgroup label="Birthday Party Menu">
                                                 <option value="3">Menu Option 1</option>
                                                 <option value="4">Menu Option 2</option>
@@ -758,7 +758,7 @@
                                     <div class="col-lg-10 ">
                                        <div>
                                           <div class="select2-primary">
-                                             <select multiple="" id="menuItem_veg_10_1" name="menuItem_veg_10_1[]" class="form-control" data-plugin="select2" tabindex="-1" aria-hidden="true">
+                                             <select multiple="" id="menuItem_veg_10_1" name="menuItem_veg_10_1[]" class="form-control" data-bs-plugin="select2" tabindex="-1" aria-hidden="true">
                                                 <optgroup label="Open Bar">
                                                    <option value="41" selected="selected">Domestic Beer</option>
                                                    <option value="42">Wine</option>
@@ -781,7 +781,7 @@
                                     <div class="col-lg-10 form-group">
                                        <div>
                                           <div class="select2-primary">
-                                             <select id="service_type" name="service_type_1" class="form-control" data-plugin="select2" tabindex="-1" aria-hidden="true">
+                                             <select id="service_type" name="service_type_1" class="form-control" data-bs-plugin="select2" tabindex="-1" aria-hidden="true">
                                                 <option value="">Select Service Type</option>
                                                 <option value="4">Buffet</option>
                                                 <option value="3">Cafeteria Services</option>
@@ -799,10 +799,10 @@
                                     <div class="col-lg-10 form-group">
                                        <div>
                                           <div class="select2-primary">
-                                             <select class="form-control" multiple="" data-plugin="select2" data-select2-id="39" tabindex="-1" aria-hidden="true">
-                                                <option value="1" selected="" data-select2-id="41">Tortilla Chips With Salsa Dip</option>
+                                             <select class="form-control" multiple="" data-bs-plugin="select2" data-bs-select2-id="39" tabindex="-1" aria-hidden="true">
+                                                <option value="1" selected="" data-bs-select2-id="41">Tortilla Chips With Salsa Dip</option>
                                                 <option value="2">Potato Chips With Onion Dip</option>
-                                                <option value="3" selected="" data-select2-id="42">Chicken Fingers With Assorted Dipping Sauces</option>
+                                                <option value="3" selected="" data-bs-select2-id="42">Chicken Fingers With Assorted Dipping Sauces</option>
                                                 <option value="4">Cheese &amp; Pepperoni Pizza</option>
                                                 <option value="5">Regular and Decaffeinated Coffee</option>
                                                 <option value="4"> Hot Tea</option>
@@ -819,10 +819,10 @@
                                     <div class="col-lg-10 form-group">
                                        <div>
                                           <div class="select2-primary">
-                                             <select class="form-control" data-plugin="select2" multiple="" data-plugin="select2" data-select2-id="39" tabindex="-1" aria-hidden="true">
-                                                <option value="1" selected="" data-select2-id="41">Tortilla Chips With Salsa Dip</option>
+                                             <select class="form-control" data-bs-plugin="select2" multiple="" data-bs-plugin="select2" data-bs-select2-id="39" tabindex="-1" aria-hidden="true">
+                                                <option value="1" selected="" data-bs-select2-id="41">Tortilla Chips With Salsa Dip</option>
                                                 <option value="2">Potato Chips With Onion Dip</option>
-                                                <option value="3" selected="" data-select2-id="42">Chicken Fingers With Assorted Dipping Sauces</option>
+                                                <option value="3" selected="" data-bs-select2-id="42">Chicken Fingers With Assorted Dipping Sauces</option>
                                                 <option value="4">Cheese &amp; Pepperoni Pizza</option>
                                                 <option value="5">Regular and Decaffeinated Coffee</option>
                                                 <option value="4"> Hot Tea</option>
@@ -839,10 +839,10 @@
                                     <div class="col-lg-10 form-group">
                                        <div>
                                           <div class="select2-primary">
-                                             <select class="form-control " data-plugin="select2" multiple="" data-plugin="select2" data-select2-id="39" tabindex="-1" aria-hidden="true">
-                                                <option value="1" selected="" data-select2-id="41">Tortilla Chips With Salsa Dip</option>
+                                             <select class="form-control " data-bs-plugin="select2" multiple="" data-bs-plugin="select2" data-bs-select2-id="39" tabindex="-1" aria-hidden="true">
+                                                <option value="1" selected="" data-bs-select2-id="41">Tortilla Chips With Salsa Dip</option>
                                                 <option value="2">Potato Chips With Onion Dip</option>
-                                                <option value="3" selected="" data-select2-id="42">Chicken Fingers With Assorted Dipping Sauces</option>
+                                                <option value="3" selected="" data-bs-select2-id="42">Chicken Fingers With Assorted Dipping Sauces</option>
                                                 <option value="4">Cheese &amp; Pepperoni Pizza</option>
                                                 <option value="5">Regular and Decaffeinated Coffee</option>
                                                 <option value="4"> Hot Tea</option>
@@ -857,9 +857,9 @@
                                  <h4 class="example-title">Service Type: *</h4>
                                  <div class="row" style="/* margin: auto; */">
                                     <div class="col-lg-6">
-                                       <select class="form-control" data-plugin="select2" data-plugin="select2" data-select2-id="69" tabindex="-1" aria-hidden="true">
+                                       <select class="form-control" data-bs-plugin="select2" data-bs-plugin="select2" data-bs-select2-id="69" tabindex="-1" aria-hidden="true">
                                           <optgroup label="Please Select">
-                                             <option value="R1" data-select2-id="71">Select Service Type</option>
+                                             <option value="R1" data-bs-select2-id="71">Select Service Type</option>
                                              <option value="R1">Buffet</option>
                                              <option value="R1">Cafeteria Services</option>
                                              <option value="R1">Plated Services</option>
@@ -874,7 +874,7 @@
                                     <div class="col-sm-2" style="
                                        ">
                                        <li class="mb-15" style="display: inline-table;">
-                                          <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-plugin="iCheck" data-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                          <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-bs-plugin="iCheck" data-bs-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                           <label for="inputChecked" class="">Head Table</label>
                                        </li>
                                     </div>
@@ -883,15 +883,15 @@
                                           <div>
                                              <ul>
                                                 <li style="display: inline;padding-right: 15px;">
-                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-plugin="iCheck" data-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-bs-plugin="iCheck" data-bs-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                                    <label for="inputRadiosChecked" style="padding: 2px;margin: 0px;">16</label>
                                                 </li>
                                                 <li style="display: inline; padding-right: 15px;">
-                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-plugin="iCheck" data-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-bs-plugin="iCheck" data-bs-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                                    <label for="inputRadiosChecked" style="padding: 2px;margin: 0px;">18</label>
                                                 </li>
                                                 <li class="mb-15" style="display: inline; padding-right: 15px;">
-                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-plugin="iCheck" data-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-bs-plugin="iCheck" data-bs-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                                    <label for="inputRadiosChecked" style="padding: 2px;margin: 0px;">20</label>
                                                 </li>
                                              </ul>
@@ -902,7 +902,7 @@
                                  <div class="row" style="width: 55%;">
                                     <div class="col-sm-2">
                                        <li class="mb-15" style="display: inline-table;">
-                                          <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-plugin="iCheck" data-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                          <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-bs-plugin="iCheck" data-bs-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                           <label for="inputChecked" class="">Dining Table</label>
                                        </li>
                                     </div>
@@ -911,15 +911,15 @@
                                           <div>
                                              <ul>
                                                 <li style="display: inline;padding-right: 15px;">
-                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-plugin="iCheck" data-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-bs-plugin="iCheck" data-bs-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                                    <label for="inputRadiosChecked" style="padding: 2px;margin: 0px;">16</label>
                                                 </li>
                                                 <li style="display: inline; padding-right: 15px;">
-                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-plugin="iCheck" data-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-bs-plugin="iCheck" data-bs-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                                    <label for="inputRadiosChecked" style="padding: 2px;margin: 0px;">18</label>
                                                 </li>
                                                 <li class="mb-15" style="display: inline; padding-right: 15px;">
-                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-plugin="iCheck" data-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                   <div class="iradio_flat-blue" style="position: relative;"><input type="radio" class="icheckbox-primary" id="inputRadiosChecked" name="inputRadios" data-bs-plugin="iCheck" data-bs-radio-class="iradio_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                                    <label for="inputRadiosChecked" style="padding: 2px;margin: 0px;">20</label>
                                                 </li>
                                              </ul>
@@ -947,8 +947,8 @@
             <div class="tab-pane" id="exampleTabsLeftThree" role="tabpanel">
                <div>
                   <ul class="nav nav-tabs-horizontal">
-                     <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#dayE1" data-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
-                     <li style="padding: 10px;"><a href="#dayE2" data-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
+                     <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#dayE1" data-bs-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
+                     <li style="padding: 10px;"><a href="#dayE2" data-bs-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
                   </ul>
                   <div class="tab-content">
                      <div id="dayE1" class="tab-pane active">
@@ -998,7 +998,7 @@
                            <div class="row" style="padding-top: 15px;">
                               <div class="col-lg-6">
                                  <h4 class="example-title">Morning Snacks</h4>
-                                 <div class="input-daterange" data-plugin="datepicker">
+                                 <div class="input-daterange" data-bs-plugin="datepicker">
                                     <div class="input-group">
                                        <span class="input-group-addon">
                                        <i class="icon wb-calendar" aria-hidden="true"></i>
@@ -1013,7 +1013,7 @@
                               </div>
                               <div class="col-lg-6">
                                  <h4 class="example-title">Morning Tea / Coffee</h4>
-                                 <div class="input-daterange" data-plugin="datepicker">
+                                 <div class="input-daterange" data-bs-plugin="datepicker">
                                     <div class="input-group">
                                        <span class="input-group-addon">
                                        <i class="icon wb-calendar" aria-hidden="true"></i>
@@ -1030,7 +1030,7 @@
                            <div class="row" style="padding-top: 15px;">
                               <div class="col-lg-6">
                                  <h4 class="example-title">Lunch</h4>
-                                 <div class="input-daterange" data-plugin="datepicker">
+                                 <div class="input-daterange" data-bs-plugin="datepicker">
                                     <div class="input-group">
                                        <span class="input-group-addon">
                                        <i class="icon wb-calendar" aria-hidden="true"></i>
@@ -1045,7 +1045,7 @@
                               </div>
                               <div class="col-lg-6">
                                  <h4 class="example-title">Afternoon Tea / Coffee</h4>
-                                 <div class="input-daterange" data-plugin="datepicker">
+                                 <div class="input-daterange" data-bs-plugin="datepicker">
                                     <div class="input-group">
                                        <span class="input-group-addon">
                                        <i class="icon wb-calendar" aria-hidden="true"></i>
@@ -1062,7 +1062,7 @@
                            <div class="row" style="padding-top: 15px;">
                               <div class="col-lg-6">
                                  <h4 class="example-title">Evening Snacks</h4>
-                                 <div class="input-daterange" data-plugin="datepicker">
+                                 <div class="input-daterange" data-bs-plugin="datepicker">
                                     <div class="input-group">
                                        <span class="input-group-addon">
                                        <i class="icon wb-calendar" aria-hidden="true"></i>
@@ -1077,7 +1077,7 @@
                               </div>
                               <div class="col-lg-6">
                                  <h4 class="example-title">Dinner</h4>
-                                 <div class="input-daterange" data-plugin="datepicker">
+                                 <div class="input-daterange" data-bs-plugin="datepicker">
                                     <div class="input-group">
                                        <span class="input-group-addon">
                                        <i class="icon wb-calendar" aria-hidden="true"></i>
@@ -1103,8 +1103,8 @@
             <div class="tab-pane" id="exampleTabsLeftFour" role="tabpanel">
                <div>
                   <ul class="nav nav-tabs-horizontal">
-                     <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#dayEq1" data-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
-                     <li style="padding: 10px;"><a href="#dayEq2" data-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
+                     <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#dayEq1" data-bs-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
+                     <li style="padding: 10px;"><a href="#dayEq2" data-bs-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
                   </ul>
                   <div class="tab-content">
                      <div id="dayEq1" class="tab-pane active">
@@ -1117,19 +1117,19 @@
                               <div class="col-sm-12" style="width:100%;/* background-color:#efedef; */padding: 10px;">
                                  <ul style="width: 100%;/* background-color: #eded; */padding-left: 1px;">
                                     <li style="display: inline-table;padding-right: 20px;">
-                                       <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-plugin="iCheck" data-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                       <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-bs-plugin="iCheck" data-bs-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                        <label for="inputChecked">Dance Floor</label>
                                     </li>
                                     <li style="display: inline-table;padding-right: 20px;">
-                                       <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-plugin="iCheck" data-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                       <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-bs-plugin="iCheck" data-bs-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                        <label for="inputChecked">LCD Projecter</label>
                                     </li>
                                     <li style="display: inline-table;padding-right: 20px;">
-                                       <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-plugin="iCheck" data-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                       <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-bs-plugin="iCheck" data-bs-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                        <label for="inputChecked">Disc Jockey</label>
                                     </li>
                                     <li style="display: inline-table;padding-right: 20px;">
-                                       <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-plugin="iCheck" data-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                       <div class="icheckbox_flat-blue checked" style="position: relative;"><input type="checkbox" class="icheckbox-primary" id="inputChecked" name="inputiCheckCheckboxes" data-bs-plugin="iCheck" data-bs-checkbox-class="icheckbox_flat-blue" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                        <label for="inputChecked">Speakers</label>
                                     </li>
                                  </ul>
@@ -1147,8 +1147,8 @@
             <div class="tab-pane" id="exampleTabsLeftFive" role="tabpanel">
                <div>
                   <ul class="nav nav-tabs-horizontal">
-                     <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#dayfc1" data-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
-                     <li style="padding: 10px;"><a href="#dayfc2" data-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
+                     <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#dayfc1" data-bs-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
+                     <li style="padding: 10px;"><a href="#dayfc2" data-bs-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
                   </ul>
                   <div class="tab-content">
                      <div id="dayfc1" class="tab-pane active">
@@ -1223,12 +1223,12 @@
                            <div class="row" style="padding-top:10px;">
                               <div class="col-lg-3">
                                  <h4 class="example-title">Packages:*</h4>
-                                 <select class="form-control select2-hidden-accessible" data-plugin="select2" data-select2-id="84" tabindex="-1" aria-hidden="true">
+                                 <select class="form-control select2-hidden-accessible" data-bs-plugin="select2" data-bs-select2-id="84" tabindex="-1" aria-hidden="true">
                                     <optgroup label="Please Select">
-                                       <option value="R1" data-select2-id="86">Wedding Decoration(₵1500)</option>
+                                       <option value="R1" data-bs-select2-id="86">Wedding Decoration(₵1500)</option>
                                     </optgroup>
                                  </select>
-                                 <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="85"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-q898-container"><span class="select2-selection__rendered" id="select2-q898-container" role="textbox" aria-readonly="true" title="Wedding Decoration(₵1500)">Wedding Decoration(₵1500)</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>      
+                                 <span class="select2 select2-container select2-container--default" dir="ltr" data-bs-select2-id="85"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-q898-container"><span class="select2-selection__rendered" id="select2-q898-container" role="textbox" aria-readonly="true" title="Wedding Decoration(₵1500)">Wedding Decoration(₵1500)</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>      
                               </div>
                               <div class="col-lg-3">
                                  <h5>Services</h5>
@@ -1242,14 +1242,14 @@
                               <div class="col-lg-3">
                                  <h5>Quoted Price:*</h5>
                                  <div tabindex="0" class="spinnerUi">
-                                    <input type="text" class="form-control" data-plugin="asSpinner" value="0">
+                                    <input type="text" class="form-control" data-bs-plugin="asSpinner" value="0">
                                     <div class="spinnerUi-control"><span class="spinnerUi-up"></span><span class="spinnerUi-down"></span></div>
                                  </div>
                               </div>
                               <div class="col-lg-3">
                                  <h5>Final  Price :*</h5>
                                  <div tabindex="0" class="spinnerUi">
-                                    <input type="text" class="form-control" data-plugin="asSpinner" value="0">
+                                    <input type="text" class="form-control" data-bs-plugin="asSpinner" value="0">
                                     <div class="spinnerUi-control"><span class="spinnerUi-up"></span><span class="spinnerUi-down"></span></div>
                                  </div>
                               </div>
@@ -1267,15 +1267,15 @@
                               <div class="col-lg-12">
                                  <h5>Other Services</h5>
                                  <div class="select2-primary">
-                                    <select class="form-control select2-hidden-accessible" multiple="" data-plugin="select2" data-select2-id="90" tabindex="-1" aria-hidden="true">
-                                       <option value="1" selected="" data-select2-id="92">HEAD FIRST  HAIR DESIGNS &amp; SALON</option>
+                                    <select class="form-control select2-hidden-accessible" multiple="" data-bs-plugin="select2" data-bs-select2-id="90" tabindex="-1" aria-hidden="true">
+                                       <option value="1" selected="" data-bs-select2-id="92">HEAD FIRST  HAIR DESIGNS &amp; SALON</option>
                                        <option value="2">Test </option>
                                     </select>
-                                    <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="91">
+                                    <span class="select2 select2-container select2-container--default" dir="ltr" data-bs-select2-id="91">
                                        <span class="selection">
                                           <span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1">
                                              <ul class="select2-selection__rendered">
-                                                <li data-select2-id="93" title="HEAD FIRST  HAIR DESIGNS &amp; SALON" class="select2-selection__choice"><span class="select2-selection__choice__remove" role="presentation">×</span>HEAD FIRST  HAIR DESIGNS &amp; SALON</li>
+                                                <li data-bs-select2-id="93" title="HEAD FIRST  HAIR DESIGNS &amp; SALON" class="select2-selection__choice"><span class="select2-selection__choice__remove" role="presentation">×</span>HEAD FIRST  HAIR DESIGNS &amp; SALON</li>
                                                 <li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li>
                                              </ul>
                                           </span>
@@ -1283,18 +1283,18 @@
                                        <span class="dropdown-wrapper" aria-hidden="true"></span>
                                     </span>
                                  </div>
-                                 <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="88"><span class="selection"></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>      
+                                 <span class="select2 select2-container select2-container--default" dir="ltr" data-bs-select2-id="88"><span class="selection"></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>      
                               </div>
                            </div>
                            <div class="row" style="padding-top : 10px;">
                               <div class="col-lg-3">
                                  <h5>Test Packages :*</h5>
-                                 <select class="form-control select2-hidden-accessible" data-plugin="select2" data-select2-id="94" tabindex="-1" aria-hidden="true">
+                                 <select class="form-control select2-hidden-accessible" data-bs-plugin="select2" data-bs-select2-id="94" tabindex="-1" aria-hidden="true">
                                     <optgroup label="Please Select">
-                                       <option value="R1" data-select2-id="96">Test(₵1500)</option>
+                                       <option value="R1" data-bs-select2-id="96">Test(₵1500)</option>
                                     </optgroup>
                                  </select>
-                                 <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="95"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-cf4u-container"><span class="select2-selection__rendered" id="select2-cf4u-container" role="textbox" aria-readonly="true" title="Test(₵1500)">Test(₵1500)</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>      
+                                 <span class="select2 select2-container select2-container--default" dir="ltr" data-bs-select2-id="95"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-cf4u-container"><span class="select2-selection__rendered" id="select2-cf4u-container" role="textbox" aria-readonly="true" title="Test(₵1500)">Test(₵1500)</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>      
                               </div>
                               <div class="col-lg-3">
                                  <h5>Test Services</h5>
@@ -1305,12 +1305,12 @@
                               </div>
                               <div class="col-lg-3">
                                  <h5>HEAD FIRST HAIR DESIGNS &amp; SALON Packages  :*</h5>
-                                 <select class="form-control select2-hidden-accessible" data-plugin="select2" data-select2-id="97" tabindex="-1" aria-hidden="true">
+                                 <select class="form-control select2-hidden-accessible" data-bs-plugin="select2" data-bs-select2-id="97" tabindex="-1" aria-hidden="true">
                                     <optgroup label="Please Select">
-                                       <option value="R1" data-select2-id="99"> Beauty Treats(₵1000)</option>
+                                       <option value="R1" data-bs-select2-id="99"> Beauty Treats(₵1000)</option>
                                     </optgroup>
                                  </select>
-                                 <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="98"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-b4uh-container"><span class="select2-selection__rendered" id="select2-b4uh-container" role="textbox" aria-readonly="true" title=" Beauty Treats(₵1000)"> Beauty Treats(₵1000)</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>      
+                                 <span class="select2 select2-container select2-container--default" dir="ltr" data-bs-select2-id="98"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-b4uh-container"><span class="select2-selection__rendered" id="select2-b4uh-container" role="textbox" aria-readonly="true" title=" Beauty Treats(₵1000)"> Beauty Treats(₵1000)</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>      
                               </div>
                               <div class="col-lg-3">
                                  <h5>HEAD FIRST HAIR DESIGNS &amp; SALON Services</h5>
@@ -1389,8 +1389,8 @@
             <div class="tab-pane" id="exampleTabsLeftSeven" role="tabpanel">
                <div>
                   <ul class="nav nav-tabs-horizontal">
-                     <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#dayGP1" data-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
-                     <li style="padding: 10px;"><a href="#dayGP2" data-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
+                     <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#dayGP1" data-bs-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
+                     <li style="padding: 10px;"><a href="#dayGP2" data-bs-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
                   </ul>
                   <div class="tab-content">
                      <div id="dayGP1" class="tab-pane active">
@@ -1464,8 +1464,8 @@
             <div class="tab-pane" id="exampleTabsLeftEight" role="tabpanel">
                <div>
                   <ul class="nav nav-tabs-horizontal">
-                     <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#dayVP1" data-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
-                     <li style="padding: 10px;"><a href="#dayVP2" data-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
+                     <li class="nav-link active" style="padding: 10px;border-bottom: 1px solid #ddd !important;color: #1b0431;"><a href="#dayVP1" data-bs-toggle="tab" aria-expanded="true" class="active"><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 1</b></a></li>
+                     <li style="padding: 10px;"><a href="#dayVP2" data-bs-toggle="tab" aria-expanded="false" class=""><i class="icon fa-hourglass-start"></i><b style="padding-left: 5px;">Day 2</b></a></li>
                   </ul>
                   <div class="tab-content">
                      <div id="dayVP1" class="tab-pane active">
@@ -1503,13 +1503,13 @@
                <h5>Mesage</h5>
                <div class="md-editor" id="1597213438359">
                   <div class="md-header btn-toolbar">
-                     <div class="btn-group"><button class="btn-default btn-sm btn" type="button" title="Bold" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdBold" data-hotkey="Ctrl+B"><span class="fa fa-bold"></span> </button><button class="btn-default btn-sm btn" type="button" title="Italic" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdItalic" data-hotkey="Ctrl+I"><span class="fa fa-italic"></span> </button><button class="btn-default btn-sm btn" type="button" title="Heading" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdHeading" data-hotkey="Ctrl+H"><span class="fa fa-header"></span> </button></div>
-                     <div class="btn-group"><button class="btn-default btn-sm btn" type="button" title="URL/Link" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdUrl" data-hotkey="Ctrl+L"><span class="fa fa-link"></span> </button><button class="btn-default btn-sm btn" type="button" title="Image" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdImage" data-hotkey="Ctrl+G"><span class="fa fa-picture-o"></span> </button></div>
-                     <div class="btn-group"><button class="btn-default btn-sm btn" type="button" title="Unordered List" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdList" data-hotkey="Ctrl+U"><span class="fa fa-list"></span> </button><button class="btn-default btn-sm btn" type="button" title="Ordered List" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdListO" data-hotkey="Ctrl+O"><span class="fa fa-list-ol"></span> </button><button class="btn-default btn-sm btn" type="button" title="Code" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdCode" data-hotkey="Ctrl+K"><span class="fa fa-code"></span> </button><button class="btn-default btn-sm btn" type="button" title="Quote" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdQuote" data-hotkey="Ctrl+Q"><span class="fa fa-quote-left"></span> </button></div>
-                     <div class="btn-group"><button class="btn-sm btn btn-primary" type="button" title="Preview" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdPreview" data-hotkey="Ctrl+P" data-toggle="button"><span class="fa fa-search"></span> Preview</button></div>
+                     <div class="btn-group"><button class="btn-default btn-sm btn" type="button" title="Bold" tabindex="-1" data-bs-provider="bootstrap-markdown" data-bs-handler="bootstrap-markdown-cmdBold" data-bs-hotkey="Ctrl+B"><span class="fa fa-bold"></span> </button><button class="btn-default btn-sm btn" type="button" title="Italic" tabindex="-1" data-bs-provider="bootstrap-markdown" data-bs-handler="bootstrap-markdown-cmdItalic" data-bs-hotkey="Ctrl+I"><span class="fa fa-italic"></span> </button><button class="btn-default btn-sm btn" type="button" title="Heading" tabindex="-1" data-bs-provider="bootstrap-markdown" data-bs-handler="bootstrap-markdown-cmdHeading" data-bs-hotkey="Ctrl+H"><span class="fa fa-header"></span> </button></div>
+                     <div class="btn-group"><button class="btn-default btn-sm btn" type="button" title="URL/Link" tabindex="-1" data-bs-provider="bootstrap-markdown" data-bs-handler="bootstrap-markdown-cmdUrl" data-bs-hotkey="Ctrl+L"><span class="fa fa-link"></span> </button><button class="btn-default btn-sm btn" type="button" title="Image" tabindex="-1" data-bs-provider="bootstrap-markdown" data-bs-handler="bootstrap-markdown-cmdImage" data-bs-hotkey="Ctrl+G"><span class="fa fa-picture-o"></span> </button></div>
+                     <div class="btn-group"><button class="btn-default btn-sm btn" type="button" title="Unordered List" tabindex="-1" data-bs-provider="bootstrap-markdown" data-bs-handler="bootstrap-markdown-cmdList" data-bs-hotkey="Ctrl+U"><span class="fa fa-list"></span> </button><button class="btn-default btn-sm btn" type="button" title="Ordered List" tabindex="-1" data-bs-provider="bootstrap-markdown" data-bs-handler="bootstrap-markdown-cmdListO" data-bs-hotkey="Ctrl+O"><span class="fa fa-list-ol"></span> </button><button class="btn-default btn-sm btn" type="button" title="Code" tabindex="-1" data-bs-provider="bootstrap-markdown" data-bs-handler="bootstrap-markdown-cmdCode" data-bs-hotkey="Ctrl+K"><span class="fa fa-code"></span> </button><button class="btn-default btn-sm btn" type="button" title="Quote" tabindex="-1" data-bs-provider="bootstrap-markdown" data-bs-handler="bootstrap-markdown-cmdQuote" data-bs-hotkey="Ctrl+Q"><span class="fa fa-quote-left"></span> </button></div>
+                     <div class="btn-group"><button class="btn-sm btn btn-primary" type="button" title="Preview" tabindex="-1" data-bs-provider="bootstrap-markdown" data-bs-handler="bootstrap-markdown-cmdPreview" data-bs-hotkey="Ctrl+P" data-bs-toggle="button"><span class="fa fa-search"></span> Preview</button></div>
                      <div class="md-controls"><a class="md-control md-control-fullscreen" href="#"><span class="fa fa-expand"></span></a></div>
                   </div>
-                  <textarea name="content" data-provide="markdown" data-iconlibrary="fa" rows="11" class="md-input" style="resize: none;">### Heading is here
+                  <textarea name="content" data-bs-provide="markdown" data-bs-iconlibrary="fa" rows="11" class="md-input" style="resize: none;">### Heading is here
 
 Lorem ipsum dolor sit amet, ****consectetur adipisicing elit****consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud &lt;u&gt;Exercitation&lt;/u&gt; ullamco laboris nisi ut aliquip ex ea commodo consequat.
 

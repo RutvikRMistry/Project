@@ -1,6 +1,11 @@
 @extends('backend.master')
 @section('title',"Banquet Dashboard")
 @section('content')
+@push('styles')
+  <link rel="stylesheet" href="{{asset('assets/examples/css/apps/calendar.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/vendor/fullcalendar/fullcalendar.css')}}">
+  <!-- <link rel="stylesheet" href="{{asset('assets/vendor/fullcalendar/fullcalendar.print.min.css')}}"> -->
+@endpush
  <!-- Top Menubar Ends Here-->
  <div class="page">
  <div class="page-aside">
@@ -526,6 +531,25 @@
    </div>
 </div>
  </div>
-
+ @push('script')
+ 
+ 
+ <!-- <script src="{{asset('assets/js/Section/PageAside.js')}}"></script> -->
+ <!-- <script src="{{asset('assets/vendor/autosize/autosize.js')}}"></script> -->
+ <script src="{{asset('assets/vendor/jquery-ui/widget.js')}}"></script> 
+ <script src="{{asset('assets/vendor/jquery-ui/widgets/mouse.js')}}"></script> 
+ <script src="{{asset('assets/vendor/jquery-ui/widgets/draggable.js')}}"></script> 
+ <script src="{{asset('assets/vendor/jquery-selective/jquery-selective.js')}}"></script>    
+   <script src="{{asset('assets/js/App/Calendar.js')}}"></script>
+   <script src="{{asset('assets/vendor/moment/moment.js')}}"></script>
+   <script src="{{asset('assets/vendor/fullcalendar/fullcalendar.js')}}"></script> 
+   <script src="{{asset('assets/examples/js/apps/calendar.js')}}"></script>
+   <!-- <script src="{{asset('assets/vendor/ashoverscroll/jquery-asHoverScroll.js')}}"></script> -->
+   <!-- <script src="{{asset('assets/vendor/asscrollable/jquery-asScrollable.js')}}"></script> -->
+  
+  
+  
+  
+@endpush
 @endsection
 	

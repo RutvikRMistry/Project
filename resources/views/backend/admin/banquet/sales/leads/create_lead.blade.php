@@ -52,7 +52,7 @@
 							<option value="Jawwal Palestine">Jawwal Palestine</option>
 							<option value="Toll Brothers">Toll Brothers</option> -->
 							@foreach($company as $company)
-							<option value="{{$company->name}}" {{$leads->company_name == $company->name?'selected':''}}>{{$company->name}}</option>
+							<option value="{{$company->name}}" {{old('company_name') == $company->name?'selected':''}}>{{$company->name}}</option>
 							@endforeach
 						 </optgroup>
 					  </select>
@@ -71,7 +71,7 @@
 							<option value="5">Bahrain</option>
 							<option value="6">Belgium</option> -->
 							@foreach($country as $country)
-							<option value="{{$country->id}}" {{$leads->country_id == $country->id?'selected':''}}>{{$country->name}}</option>
+							<option value="{{$country->id}}" {{old('country_id') == $country->id?'selected':''}}>{{$country->name}}</option>
 							@endforeach
 						 </optgroup>
 					  </select>
@@ -87,7 +87,7 @@
 							<option value="5">Tasmania</option>
 							<option value="6">Western Australia</option> -->
 							@foreach($state as $state)
-							<option value="{{$state->id}}" {{$leads->state_id == $state->id?'selected':''}}>{{$state->name}}</option>
+							<option value="{{$state->id}}" {{old('state_id') == $state->id?'selected':''}}>{{$state->name}}</option>
 							@endforeach
 					  </select>
 				   </div>
@@ -102,7 +102,7 @@
 							<option value="5">Tasmania</option>
 							<option value="6">Western Australia</option> -->
 							@foreach($city as $city)
-							<option value="{{$city->id}}" {{$leads->city_id == $city->id?'selected':''}}>{{$city->name}}</option>
+							<option value="{{$city->id}}" {{old('city_id') == $city->id?'selected':''}}>{{$city->name}}</option>
 							@endforeach
 				   </optgroup>  
 				   </select>      
@@ -124,7 +124,7 @@
 							<option value="4">Newspaper</option>
 							<option value="5">Twitter</option> -->
 							@foreach($lead as $lead)
-							<option value="{{$lead->id}}" {{$leads->lead_source == $lead->id?'selected':''}}>{{$lead->name}}</option>
+							<option value="{{$lead->id}}" {{old('lead_source') == $lead->id?'selected':''}}>{{$lead->name}}</option>
 							@endforeach
 						 </optgroup>
 					  </select>
@@ -136,7 +136,7 @@
 							<!-- <option value="1">Mike's Sales Team</option>
 							<option value="2">Hoarding</option> -->
 							@foreach($sale as $sale)
-							<option value="{{$sale->id}}" {{$leads->sales_team_id == $sale->id?'selected':''}}>{{$sale->salesteam}}</option>
+							<option value="{{$sale->id}}" {{old('sales_team_id') == $sale->id?'selected':''}}>{{$sale->salesteam}}</option>
 							@endforeach
 						 </optgroup>
 					  </select>
@@ -149,15 +149,15 @@
 							<option value="2">Adan Brown</option>
 							<option value="3"> Saachi Katwe</option> -->
 							@foreach($per as $per)
-							<option value="{{$per->id}}" {{$leads->sales_person_id == $per->id?'selected':''}}>{{$per->name}}</option>
+							<option value="{{$per->id}}" {{old('sales_person_id') == $per->id?'selected':''}}>{{$per->name}}</option>
 							@endforeach
 						 </optgroup>
 					  </select>
 				   </div>
 				   <div class="col-lg-3 ">
 					  <h5>Event Manager<strong class="text-danger">*</strong></h5>
-					  <select class="form-control" data-plugin="select2">
-						 <optgroup label="Select Sales team" id="event_manager" name="event_manager">
+					  <select class="form-control" data-plugin="select2"  id="event_manager" name="event_manager">
+						 <optgroup label="Select Sales team">
 							<option value="1">David Felming</option>
 							<option value="2">Adan Brown</option>
 							<option value="3"> Saachi Katwe</option>
@@ -172,9 +172,10 @@
 					  <h5>Priority<strong class="text-danger">*</strong></h5>
 					  <select class="form-control" data-plugin="select2" id="priority" name="priority">
 						 <optgroup label="Please Select">
-							<option value="1">Open</option>
-							<option value="2">Approach</option>
-							<option value="3">Do Not Contact</option>
+							<option value="Open">Open</option>
+							<option value="Approach">Approach</option>
+							<option value="Converted">Converted</option>
+							<option value="Do Not Contact">Do Not Contact</option>
 						 </optgroup>
 					  </select>
 				   </div>
@@ -197,7 +198,7 @@
 							<option value="2">Cocktail</option>
 							<option value="3">Conference</option> -->
 							@foreach($type as $type)
-							<option value="{{$type->id}}" {{$leads->event_type == $type->id?'selected':''}}>{{$type->name}}</option>
+							<option value="{{$type->id}}" {{old('event_type') == $type->id?'selected':''}}>{{$type->name}}</option>
 							@endforeach
 						 </optgroup>
 					  </select>

@@ -78,10 +78,10 @@
 							@endforeach
                      </select>
                   </div>
-                  <!-- <div class="col-lg-6">
+                  <div class="col-lg-6">
                      <h5>Email ID<strong class="text-danger">*</strong></h5>
-                     <input name="email" type="email" id="email" class="form-control" data-bv-field="email">
-                  </div> -->
+                     <input name="fax" type="email" id="email" class="form-control" data-bv-field="email">
+                  </div>
                </div>
                <br>
                <div class="row">
