@@ -2,37 +2,64 @@
 
 namespace App\Model\Frontdesk;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-/**
- * @property int $id
- * @property string $username
- * @property string $email
- * @property string $first_name
- * @property string $last_name
- * @property string $phone
- * @property string $address
- * @property string $sex
- * @property string $picture
- * @property boolean $status
- * @property string $password
- * @property string $remember_token
- * @property int $role
- * @property string $created_at
- * @property string $updated_at
- */
-class Admin extends Model
+class Admin extends Authenticatable
 {
+    use Notifiable;
+    protected $appends =['full_name'];
+	
+	 protected $guard = 'admin';
     /**
+     * The attributes that are mass assignable.
+     *
      * @var array
      */
-    protected $fillable = ['username', 'email', 'first_name', 'last_name', 'phone', 'address', 'sex', 'picture', 'status', 'password', 'remember_token', 'role', 'created_at', 'updated_at'];
-
+    protected $fillable = [
+        'username', 'email', 'password',
+    ];
+    public function getFullNameAttribute(){
+        return $this->first_name.' '.$this->last_name;
+    }
+    public function picture_path(){
+        if(!file_exists('assets/backend/image/staff/pic/'.$this->picture)){
+            return asset('assets/backend/image/no-img.png');
+        }
+        return asset('assets/backend/image/staff/pic/'.$this->picture);
+    }
+    public function sex(){
+        if($this->sex === 'M'){
+            return 'Male';
+        }
+        if($this->sex === 'F'){
+            return 'Female';
+        }
+        if($this->sex === 'O'){
+            return 'Other';
+        }
+    }
+    public function can_access($permission){
+        $eccept_role = [0=>'admin',1=>'staff'];
+        $role = $eccept_role[$this->role];
+        if(is_array($permission)){
+            if(in_array($role,$permission)){
+                return true;
+            }
+        }else{
+            if($role===$permission){
+                return true;
+            }
+        }
+        return false;
+    }
     /**
-     * The connection name for the model.
-     * 
-     * @var string
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
      */
-    protected $connection = 'mysql';
-
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 }

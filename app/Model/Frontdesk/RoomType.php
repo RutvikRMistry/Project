@@ -4,102 +4,68 @@ namespace App\Model\Frontdesk;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * @property integer $id
- * @property string $title
- * @property string $slug
- * @property string $short_code
- * @property string $description
- * @property string $short_description
- * @property int $higher_capacity
- * @property int $kids_capacity
- * @property float $base_price
- * @property boolean $status
- * @property string $deleted_at
- * @property string $created_at
- * @property string $updated_at
- * @property CouponPivotIncludeRoomType[] $couponPivotIncludeRoomTypes
- * @property RegularPrice[] $regularPrices
- * @property Reservation $reservation
- * @property RoomTypeImage[] $roomTypeImages
- * @property RoomTypePivotAmenity[] $roomTypePivotAmenities
- * @property Room[] $rooms
- * @property SpecialPrice[] $specialPrices
- */
 class RoomType extends Model
 {
-    /**
-     * The "type" of the auto-incrementing ID.
-     * 
-     * @var string
-     */
-    protected $keyType = 'integer';
-
-    /**
-     * @var array
-     */
-    protected $fillable = ['title', 'slug', 'short_code', 'description', 'short_description', 'higher_capacity', 'kids_capacity', 'base_price', 'status', 'deleted_at', 'created_at', 'updated_at'];
-
-    /**
-     * The connection name for the model.
-     * 
-     * @var string
-     */
-    protected $connection = 'mysql';
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function couponPivotIncludeRoomTypes()
-    {
-        return $this->hasMany('App\Model\Frontdesk\CouponPivotIncludeRoomType');
+    public function amenity(){
+        return $this->belongsToMany(Amenity::class,'room_type_pivot_amenity','room_type_id','amenity_id');
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function regularPrices()
-    {
-        return $this->hasMany('App\Model\Frontdesk\RegularPrice');
+    public function roomTypeImage(){
+        return $this->hasMany(RoomTypeImage::class,'room_type_id');
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function reservation()
-    {
-        return $this->hasOne('App\Model\Frontdesk\Reservation', 'room_type_id');
+    public function regularPrice(){
+        return $this->hasOne(RegularPrice::class,'room_type_id');
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function roomTypeImages()
-    {
-        return $this->hasMany('App\Model\Frontdesk\RoomTypeImage');
+    public function specialPrice(){
+        return $this->hasMany(SpecialPrice::class,'room_type_id');
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function roomTypePivotAmenities()
-    {
-        return $this->hasMany('App\Model\Frontdesk\RoomTypePivotAmenity');
+    public function paidService(){
+        return $this->belongsToMany(PaidService::class,'paid_service_pivot_room_type','room_type_id','paid_service_id');
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function rooms()
-    {
-        return $this->hasMany('App\Model\Frontdesk\Room');
+    public function room(){
+        return $this->hasMany(Room::class,'room_type_id');
     }
+    public function reservation(){
+        return $this->hasMany(Reservation::class,'room_type_id');
+    }
+    public function availableRoom($date){
+       return  $this->room()->with(['reservedRoom'=>function($q) use($date){
+            $q->where('date',$date);
+        }])->get();
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function specialPrices()
-    {
-        return $this->hasMany('App\Model\Frontdesk\SpecialPrice');
+    }
+    public function featuredImage(){
+        return $this->roomTypeImage->where('featured',1)->first();
+    }
+    public function getDayByRegularPrice($day){
+        if($price = $this->regularPrice){
+            $day_col ='day_'.$day;
+            $amount_col =$day_col.'_amount';
+            return [
+                'amount_type'=>$price->$day_col,
+                'amount'=>$price->$amount_col
+
+            ];
+        }else{
+            return [
+                'amount_type'=>'ADD',
+                'amount'=>0
+
+            ];
+        }
+    }
+    public function getDayByCurrentPrice($day){
+        $base_price = $this->base_price;
+        $price = $base_price;
+        if($special_price=false){
+
+        }else{
+           $regular_price = $this->getDayByRegularPrice($day);
+           if($regular_price['amount_type'] === 'ADD'){
+               $price += $regular_price['amount'];
+           }elseif ($regular_price['amount_type'] === 'LESS'){
+               $price -= $regular_price['amount'];
+           }
+        }
+        return $price;
     }
 }

@@ -3,56 +3,23 @@
 namespace App\Model\Frontdesk;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-/**
- * @property int $id
- * @property int $room_type_id
- * @property int $floor_id
- * @property string $image
- * @property int $number
- * @property boolean $status
- * @property string $deleted_at
- * @property string $created_at
- * @property string $updated_at
- * @property Floor $floor
- * @property RoomType $roomType
- * @property ReservationNight[] $reservationNights
- */
 class Room extends Model
 {
-    /**
-     * @var array
-     */
-    protected $fillable = ['room_type_id', 'floor_id', 'image', 'number', 'status', 'deleted_at', 'created_at', 'updated_at'];
-
-    /**
-     * The connection name for the model.
-     * 
-     * @var string
-     */
-    protected $connection = 'mysql';
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function floor()
-    {
-        return $this->belongsTo('App\Model\Front\Floor');
+    use SoftDeletes;
+    public function type(){
+        return $this->belongsTo(RoomType::class,'room_type_id');
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function roomType()
-    {
-        return $this->belongsTo('App\Model\Front\RoomType');
+    public function floor(){
+        return $this->belongsTo(Floor::class,'floor_id');
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function reservationNights()
-    {
-        return $this->hasMany('App\Model\Front\ReservationNight');
+    public function reservedRoom(){
+        return $this->hasMany(ReservationNight::class,'room_id');
+    }
+    public function available($date){
+        return  ReservationNight::where('room_id',$this->id)->whereHas('reservation',function ($q){
+           $q->whereNotIn('status',['CANCEL','ONLINE_PENDING']);
+       })->where('date',$date)->first();
     }
 }

@@ -5,7 +5,7 @@
     <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">    
-    {{--<title>{{general_setting()->title}} | @yield('title','admin')</title>--}}
+    <title>{{general_setting()->title}} | @yield('title','admin')</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap-extend.min.css')}}">
@@ -56,8 +56,8 @@
     <!-- Scripts -->
     
 	<script src="{{asset('assets/vendor/breakpoints/breakpoints.js')}}"></script>
-    <script src="{{asset('assets/vendor/jquery/jquery.js')}}"></script>
-    <!-- <script type="text/javascript" src="{{asset('assets/vendor/jquery/jquery-2.2.1.min.js')}}"></script> -->
+    <!-- <script src="{{asset('assets/vendor/jquery/jquery.js')}}"></script> -->
+    <script type="text/javascript" src="{{asset('assets/vendor/jquery/jquery-2.2.1.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/vendor/jquery/bootstrap.min.js')}}"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->

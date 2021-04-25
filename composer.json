@@ -37,11 +37,15 @@
         }
     },
     "autoload": {
+        "classmap": [
+            "database"
+        ],
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": ["app/Http/Helper/helper.php"]		
     },
     "autoload-dev": {
         "psr-4": {
